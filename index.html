@@ -4381,6 +4381,190 @@ body.light #glossary .gl-search{
   }
 }
 
+
+/* ==== v15 glossary visibility fix ==== */
+#glossary .gl-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+}
+#glossary .gl-card,
+#glossary .gl-card.visible,
+#glossary .gl-card.reveal,
+#glossary .gl-card.reveal.visible{
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+}
+#glossary .gl-card{
+  display:block !important;
+}
+#glossary .gl-search-wrap,
+#glossary .gl-feature{
+  position:relative;
+  z-index:2;
+}
+#glossary .gl-grid{
+  position:relative;
+  z-index:1;
+}
+@media(max-width:1180px){
+  #glossary .gl-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:760px){
+  #glossary .gl-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* ==== v16 glossary final fix ==== */
+#glossary .gl-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+}
+#glossary .gl-card{
+  display:block !important;
+  position:relative !important;
+  min-height:250px !important;
+  perspective:1400px !important;
+  -webkit-perspective:1400px !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  overflow:visible !important;
+  cursor:pointer !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+}
+#glossary .gl-card.reveal,
+#glossary .gl-card.visible{
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+}
+#glossary .gl-card::before{
+  display:none !important;
+}
+#glossary .gl-card::after{
+  content:'Flip card' !important;
+  position:absolute !important;
+  right:.85rem !important;
+  top:.85rem !important;
+  font-family:var(--mono) !important;
+  font-size:.5rem !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+  color:rgba(215,179,91,.62) !important;
+  pointer-events:none !important;
+  z-index:4 !important;
+}
+#glossary .gl-flip{
+  position:relative !important;
+  width:100% !important;
+  min-height:250px !important;
+  transform-style:preserve-3d !important;
+  -webkit-transform-style:preserve-3d !important;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1) !important;
+}
+#glossary .gl-card.is-flipped .gl-flip{
+  transform:rotateY(180deg) !important;
+}
+#glossary .gl-face{
+  position:absolute !important;
+  inset:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  min-height:250px !important;
+  padding:1.2rem 1.15rem 1.05rem !important;
+  border-radius:24px !important;
+  backface-visibility:hidden !important;
+  -webkit-backface-visibility:hidden !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  background:
+    radial-gradient(circle at top right, rgba(215,179,91,.08), transparent 34%),
+    linear-gradient(180deg, rgba(33,46,71,.98) 0%, rgba(22,32,51,.98) 100%) !important;
+  box-shadow:0 16px 30px rgba(0,0,0,.22) !important;
+  overflow:hidden !important;
+}
+#glossary .gl-front{transform:rotateY(0deg) !important;}
+#glossary .gl-back{transform:rotateY(180deg) !important;}
+#glossary .gl-face-kicker{
+  font-family:var(--mono) !important;
+  font-size:.54rem !important;
+  letter-spacing:.18em !important;
+  text-transform:uppercase !important;
+  color:var(--accent) !important;
+  margin-bottom:.6rem !important;
+}
+#glossary .gl-face-term{
+  font-family:var(--serif) !important;
+  font-size:1.95rem !important;
+  line-height:1.02 !important;
+  font-style:italic !important;
+  font-weight:700 !important;
+  color:var(--text) !important;
+  max-width:12ch !important;
+}
+#glossary .gl-face-hint{
+  font-family:var(--mono) !important;
+  font-size:.54rem !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+  color:var(--text-muted) !important;
+}
+#glossary .gl-face-def{
+  font-size:.88rem !important;
+  line-height:1.72 !important;
+  color:var(--text-soft) !important;
+}
+#glossary .gl-face-example{
+  margin-top:.9rem !important;
+  padding:.85rem .9rem 0 !important;
+  border-top:1px solid rgba(255,255,255,.08) !important;
+  color:var(--text-soft) !important;
+  font-size:.82rem !important;
+  line-height:1.68 !important;
+  background:transparent !important;
+}
+#glossary .gl-card:hover .gl-face,
+#glossary .gl-card:focus-visible .gl-face{
+  box-shadow:0 18px 34px rgba(0,0,0,.28), 0 0 22px rgba(215,179,91,.08) !important;
+}
+body.light #glossary .gl-card::after{
+  color:rgba(140,103,37,.58) !important;
+}
+body.light #glossary .gl-face{
+  background:
+    radial-gradient(circle at top right, rgba(184,136,46,.05), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(243,246,251,.99) 100%) !important;
+  border-color:rgba(25,37,57,.10) !important;
+  box-shadow:0 14px 26px rgba(20,30,48,.07) !important;
+}
+body.light #glossary .gl-face-kicker{color:#b8882e !important;}
+body.light #glossary .gl-face-term{color:#1c2738 !important;}
+body.light #glossary .gl-face-hint{color:#7a8799 !important;}
+body.light #glossary .gl-face-def{color:#4f627c !important;}
+body.light #glossary .gl-face-example{
+  color:#62748d !important;
+  border-top-color:rgba(25,37,57,.08) !important;
+}
+@media(max-width:1180px){
+  #glossary .gl-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+}
+@media(max-width:760px){
+  #glossary .gl-grid{grid-template-columns:1fr !important;}
+  #glossary .gl-card,
+  #glossary .gl-flip,
+  #glossary .gl-face{min-height:230px !important;}
+}
+
 </style>
 </head>
 <body>
@@ -5260,18 +5444,18 @@ body.light #glossary .gl-search{
 <div class="gl-feature-example" id="glFeatureExample">This glossary stays in place so you can study it like flash cards instead of being pushed back to the top.</div>
 </div>
 <div class="gl-grid">
-<div class="gl-card reveal" data-def="Embedding queer identity through indirect signals, mannerisms, aesthetics, relationships, rather than explicit statement. The primary mode of queer representation under the Production Code era." data-example="Example: Marlene Dietrich's tuxedo performance in Morocco signaled gender play without direct naming." data-term="Coding"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Coding</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">Embedding queer identity through indirect signals, mannerisms, aesthetics, relationships, rather than explicit statement. The primary mode of queer representation under the Production Code era.</div><div class="gl-face-example">Example: Marlene Dietrich's tuxedo performance in Morocco signaled gender play without direct naming.</div></div></div></div>
-<div class="gl-card reveal" data-def="Meaning implied rather than stated. In film, visual cues and behavioral patterns used to suggest queerness without naming it. Required under the Hays Code era." data-example="Example: Queen Christina frames intimacy between women through closeness and atmosphere rather than explicit statement." data-term="Subtext"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Subtext</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">Meaning implied rather than stated. In film, visual cues and behavioral patterns used to suggest queerness without naming it. Required under the Hays Code era.</div><div class="gl-face-example">Example: Queen Christina frames intimacy between women through closeness and atmosphere rather than explicit statement.</div></div></div></div>
-<div class="gl-card reveal" data-def='The Motion Picture Production Code (1930-1968), also called the Hays Code. Explicitly prohibited "sex perversion," effectively banning overt queer representation in Hollywood for nearly four decades.' data-example="Example: The Children's Hour was rewritten into These Three so the lesbian accusation became a heterosexual triangle." data-term="Production Code"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Production Code</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The Motion Picture Production Code (1930-1968), also called the Hays Code. Explicitly prohibited "sex perversion," effectively banning overt queer representation in Hollywood for nearly four decades.</div><div class="gl-face-example">Example: The Children's Hour was rewritten into These Three so the lesbian accusation became a heterosexual triangle.</div></div></div></div>
-<div class="gl-card reveal" data-def="A recurring narrative device or character type. Russo identifies four dominant tropes for queer characters: tragic figure, predatory villain, effeminate comic, and doomed outsider." data-example="Example: Russo tracks repeated figures such as the tragic gay, predatory villain, effeminate comic, and doomed outsider." data-term="Trope"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Trope</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">A recurring narrative device or character type. Russo identifies four dominant tropes for queer characters: tragic figure, predatory villain, effeminate comic, and doomed outsider.</div><div class="gl-face-example">Example: Russo tracks repeated figures such as the tragic gay, predatory villain, effeminate comic, and doomed outsider.</div></div></div></div>
-<div class="gl-card reveal" data-def="The systematic removal or omission of queer identities from representation. Can be literal (characters removed) or functional (coded away), making LGBTQ people invisible in mainstream culture." data-example="Example: Queer characters disappear when scripts remove same-sex desire or recode it as harmless ambiguity." data-term="Erasure"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Erasure</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The systematic removal or omission of queer identities from representation. Can be literal (characters removed) or functional (coded away), making LGBTQ people invisible in mainstream culture.</div><div class="gl-face-example">Example: Queer characters disappear when scripts remove same-sex desire or recode it as harmless ambiguity.</div></div></div></div>
-<div class="gl-card reveal" data-def="The narrative pattern of making queer characters into antagonists, predators, or psychopaths, associating queerness with moral danger or deviance. One of Russo's most documented patterns." data-example="Example: Dracula's Daughter and Cruising turn queer desire into something dangerous or threatening." data-term="Villainization"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Villainization</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The narrative pattern of making queer characters into antagonists, predators, or psychopaths, associating queerness with moral danger or deviance. One of Russo's most documented patterns.</div><div class="gl-face-example">Example: Dracula's Daughter and Cruising turn queer desire into something dangerous or threatening.</div></div></div></div>
-<div class="gl-card reveal" data-def='A modern term for the trope in which queer characters are killed off disproportionately in narratives. A direct continuation of the "tragic gay figure" pattern Russo identified.' data-example="Example: Modern queer characters are still sometimes killed to restore narrative order or intensify drama." data-term="Bury Your Gays"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Bury Your Gays</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">A modern term for the trope in which queer characters are killed off disproportionately in narratives. A direct continuation of the "tragic gay figure" pattern Russo identified.</div><div class="gl-face-example">Example: Modern queer characters are still sometimes killed to restore narrative order or intensify drama.</div></div></div></div>
-<div class="gl-card reveal" data-def="The presence and portrayal of a group in media. Russo argues representation is not neutral, the way groups are depicted actively shapes public attitudes and self-perception within those communities." data-example="Example: Russo argues that repeated screen images train audiences to see some lives as ordinary and others as deviant." data-term="Representation"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Representation</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The presence and portrayal of a group in media. Russo argues representation is not neutral, the way groups are depicted actively shapes public attitudes and self-perception within those communities.</div><div class="gl-face-example">Example: Russo argues that repeated screen images train audiences to see some lives as ordinary and others as deviant.</div></div></div></div>
-<div class="gl-card reveal" data-def="The structural function a character serves in a story (hero, villain, comic relief, victim). The role assigned to queer characters is a primary indicator of how they are being used ideologically." data-example="Example: A queer character can be present, but the role matters: hero, warning, joke, victim, or villain." data-term="Narrative Role"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Narrative Role</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The structural function a character serves in a story (hero, villain, comic relief, victim). The role assigned to queer characters is a primary indicator of how they are being used ideologically.</div><div class="gl-face-example">Example: A queer character can be present, but the role matters: hero, warning, joke, victim, or villain.</div></div></div></div>
-<div class="gl-card reveal" data-def="The concept that identities, race, gender, sexuality, class, overlap and compound discrimination. Contemporary queer film criticism extends Russo's framework to examine how race shapes representation." data-example="Example: Disclosure and Paris Is Burning show how race and gender identity shape media visibility differently." data-term="Intersectionality"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Intersectionality</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The concept that identities, race, gender, sexuality, class, overlap and compound discrimination. Contemporary queer film criticism extends Russo's framework to examine how race shapes representation.</div><div class="gl-face-example">Example: Disclosure and Paris Is Burning show how race and gender identity shape media visibility differently.</div></div></div></div>
-<div class="gl-card reveal" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Queer</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens.</div><div class="gl-face-example">Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels.</div></div></div></div>
-<div class="gl-card reveal" data-def="An oversimplified, fixed image of a social group. Hollywood stereotypes of queer people, the sissy, the predator, the tragic figure, functioned to normalize stigma through repetition across decades of film." data-term="Stereotype"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Stereotype</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">An oversimplified, fixed image of a social group. Hollywood stereotypes of queer people, the sissy, the predator, the tragic figure, functioned to normalize stigma through repetition across decades of film.</div></div></div></div>
+<div class="gl-card visible" data-def="Embedding queer identity through indirect signals, mannerisms, aesthetics, relationships, rather than explicit statement. The primary mode of queer representation under the Production Code era." data-example="Example: Marlene Dietrich's tuxedo performance in Morocco signaled gender play without direct naming." data-term="Coding"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Coding</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">Embedding queer identity through indirect signals, mannerisms, aesthetics, relationships, rather than explicit statement. The primary mode of queer representation under the Production Code era.</div><div class="gl-face-example">Example: Marlene Dietrich's tuxedo performance in Morocco signaled gender play without direct naming.</div></div></div></div>
+<div class="gl-card visible" data-def="Meaning implied rather than stated. In film, visual cues and behavioral patterns used to suggest queerness without naming it. Required under the Hays Code era." data-example="Example: Queen Christina frames intimacy between women through closeness and atmosphere rather than explicit statement." data-term="Subtext"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Subtext</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">Meaning implied rather than stated. In film, visual cues and behavioral patterns used to suggest queerness without naming it. Required under the Hays Code era.</div><div class="gl-face-example">Example: Queen Christina frames intimacy between women through closeness and atmosphere rather than explicit statement.</div></div></div></div>
+<div class="gl-card visible" data-def='The Motion Picture Production Code (1930-1968), also called the Hays Code. Explicitly prohibited "sex perversion," effectively banning overt queer representation in Hollywood for nearly four decades.' data-example="Example: The Children's Hour was rewritten into These Three so the lesbian accusation became a heterosexual triangle." data-term="Production Code"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Production Code</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The Motion Picture Production Code (1930-1968), also called the Hays Code. Explicitly prohibited "sex perversion," effectively banning overt queer representation in Hollywood for nearly four decades.</div><div class="gl-face-example">Example: The Children's Hour was rewritten into These Three so the lesbian accusation became a heterosexual triangle.</div></div></div></div>
+<div class="gl-card visible" data-def="A recurring narrative device or character type. Russo identifies four dominant tropes for queer characters: tragic figure, predatory villain, effeminate comic, and doomed outsider." data-example="Example: Russo tracks repeated figures such as the tragic gay, predatory villain, effeminate comic, and doomed outsider." data-term="Trope"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Trope</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">A recurring narrative device or character type. Russo identifies four dominant tropes for queer characters: tragic figure, predatory villain, effeminate comic, and doomed outsider.</div><div class="gl-face-example">Example: Russo tracks repeated figures such as the tragic gay, predatory villain, effeminate comic, and doomed outsider.</div></div></div></div>
+<div class="gl-card visible" data-def="The systematic removal or omission of queer identities from representation. Can be literal (characters removed) or functional (coded away), making LGBTQ people invisible in mainstream culture." data-example="Example: Queer characters disappear when scripts remove same-sex desire or recode it as harmless ambiguity." data-term="Erasure"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Erasure</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The systematic removal or omission of queer identities from representation. Can be literal (characters removed) or functional (coded away), making LGBTQ people invisible in mainstream culture.</div><div class="gl-face-example">Example: Queer characters disappear when scripts remove same-sex desire or recode it as harmless ambiguity.</div></div></div></div>
+<div class="gl-card visible" data-def="The narrative pattern of making queer characters into antagonists, predators, or psychopaths, associating queerness with moral danger or deviance. One of Russo's most documented patterns." data-example="Example: Dracula's Daughter and Cruising turn queer desire into something dangerous or threatening." data-term="Villainization"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Villainization</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The narrative pattern of making queer characters into antagonists, predators, or psychopaths, associating queerness with moral danger or deviance. One of Russo's most documented patterns.</div><div class="gl-face-example">Example: Dracula's Daughter and Cruising turn queer desire into something dangerous or threatening.</div></div></div></div>
+<div class="gl-card visible" data-def='A modern term for the trope in which queer characters are killed off disproportionately in narratives. A direct continuation of the "tragic gay figure" pattern Russo identified.' data-example="Example: Modern queer characters are still sometimes killed to restore narrative order or intensify drama." data-term="Bury Your Gays"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Bury Your Gays</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">A modern term for the trope in which queer characters are killed off disproportionately in narratives. A direct continuation of the "tragic gay figure" pattern Russo identified.</div><div class="gl-face-example">Example: Modern queer characters are still sometimes killed to restore narrative order or intensify drama.</div></div></div></div>
+<div class="gl-card visible" data-def="The presence and portrayal of a group in media. Russo argues representation is not neutral, the way groups are depicted actively shapes public attitudes and self-perception within those communities." data-example="Example: Russo argues that repeated screen images train audiences to see some lives as ordinary and others as deviant." data-term="Representation"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Representation</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The presence and portrayal of a group in media. Russo argues representation is not neutral, the way groups are depicted actively shapes public attitudes and self-perception within those communities.</div><div class="gl-face-example">Example: Russo argues that repeated screen images train audiences to see some lives as ordinary and others as deviant.</div></div></div></div>
+<div class="gl-card visible" data-def="The structural function a character serves in a story (hero, villain, comic relief, victim). The role assigned to queer characters is a primary indicator of how they are being used ideologically." data-example="Example: A queer character can be present, but the role matters: hero, warning, joke, victim, or villain." data-term="Narrative Role"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Narrative Role</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The structural function a character serves in a story (hero, villain, comic relief, victim). The role assigned to queer characters is a primary indicator of how they are being used ideologically.</div><div class="gl-face-example">Example: A queer character can be present, but the role matters: hero, warning, joke, victim, or villain.</div></div></div></div>
+<div class="gl-card visible" data-def="The concept that identities, race, gender, sexuality, class, overlap and compound discrimination. Contemporary queer film criticism extends Russo's framework to examine how race shapes representation." data-example="Example: Disclosure and Paris Is Burning show how race and gender identity shape media visibility differently." data-term="Intersectionality"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Intersectionality</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">The concept that identities, race, gender, sexuality, class, overlap and compound discrimination. Contemporary queer film criticism extends Russo's framework to examine how race shapes representation.</div><div class="gl-face-example">Example: Disclosure and Paris Is Burning show how race and gender identity shape media visibility differently.</div></div></div></div>
+<div class="gl-card visible" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Queer</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens.</div><div class="gl-face-example">Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels.</div></div></div></div>
+<div class="gl-card visible" data-def="An oversimplified, fixed image of a social group. Hollywood stereotypes of queer people, the sissy, the predator, the tragic figure, functioned to normalize stigma through repetition across decades of film." data-term="Stereotype"><div class="gl-flip"><div class="gl-face gl-front"><div class="gl-face-kicker">Glossary term</div><div class="gl-face-term">Stereotype</div><div class="gl-face-hint">Click to flip</div></div><div class="gl-face gl-back"><div class="gl-face-kicker">Definition</div><div class="gl-face-def">An oversimplified, fixed image of a social group. Hollywood stereotypes of queer people, the sissy, the predator, the tragic figure, functioned to normalize stigma through repetition across decades of film.</div></div></div></div>
 </div>
 </div>
 </section>
@@ -5536,514 +5720,7 @@ body.light #glossary .gl-search{
 <span id="modPillText">0 / 8 modules read</span>
 <div class="mod-pill-bar"><div class="mod-pill-fill" id="modPillFill"></div></div>
 </div>
-<script>
-// ── FILM STRIP HOLES ──
-['perfL','perfR'].forEach(id=>{
- const el=document.getElementById(id);
- if(!el)return;
- for(let i=0;i<42;i++){const h=document.createElement('div');h.className='perf-hole';el.appendChild(h);}
-});
 
-// ── SCROLL: PROGRESS BAR + BACK TO TOP ──
-window.addEventListener('scroll',()=>{
- const st=document.documentElement.scrollTop,sh=document.documentElement.scrollHeight-window.innerHeight;
- const pb=document.getElementById('pgbar');
- if(pb) pb.style.width=(sh>0?(st/sh)*100:0)+'%';
- const bt=document.getElementById('backTop');
- if(bt) bt.classList.toggle('show',st>400);
-});
-
-// ── SCROLL REVEAL ──
-const revObs=new IntersectionObserver(es=>es.forEach(e=>{
- if(e.isIntersecting) e.target.classList.add('visible');
-}),{threshold:0.08});
-document.querySelectorAll('.tl-item,.reveal').forEach(el=>revObs.observe(el));
-
-// ── GLAAD ANIMATED BARS + NUMBERS ──
-const barObs=new IntersectionObserver(es=>es.forEach(e=>{
- if(e.isIntersecting){
- e.target.querySelectorAll('.bar-fill').forEach(b=>{
- setTimeout(()=>{b.style.width=b.dataset.pct+'%';},100);
- });
- e.target.querySelectorAll('.bar-pct[data-target]').forEach(el=>{
- const target=parseFloat(el.dataset.target);
- let cur=0; const dur=1200,steps=60,inc=target/steps;
- const t=setInterval(()=>{
-  cur=Math.min(cur+inc,target);
-  const isWhole=Math.abs(target-Math.round(target))<0.01;
-  el.textContent=(isWhole?Math.round(cur).toString():cur.toFixed(1))+'%';
-  if(cur>=target)clearInterval(t);
- },dur/steps);
- });
- barObs.unobserve(e.target);
- }
-}),{threshold:0.3});
-const bg=document.getElementById('barGrid');
-if(bg) barObs.observe(bg);
-
-// ── HAMBURGER ──
-const ham=document.getElementById('hbg');
-const mob=document.getElementById('mobNav');
-if(ham) ham.addEventListener('click',function(){
- this.classList.toggle('open');
- mob&&mob.classList.toggle('open');
-});
-function closeMob(){
- ham&&ham.classList.remove('open');
- mob&&mob.classList.remove('open');
-}
-document.addEventListener('keydown',e=>{
- if(e.key==='Escape'){
- closeMob();
- closeLB();
- closeGT();
- }
-});
-
-// ── GLOSSARY TOOLTIP ──
-function openGT(term,def,example){
- const ft=document.getElementById('glFeatureTerm');
- const fd=document.getElementById('glFeatureDef');
- const fe=document.getElementById('glFeatureExample');
- const feature=document.getElementById('glFeature');
- if(ft) ft.textContent=term||'';
- if(fd) fd.textContent=def||'';
- if(fe) fe.textContent=example||'';
- if(feature){
-  feature.classList.add('show');
-  feature.scrollIntoView({behavior:'smooth', block:'nearest'});
- }
-}
-document.querySelectorAll('.gt').forEach(el=>{
- el.setAttribute('tabindex','0');
- el.addEventListener('click',()=>openGT(el.dataset.term,el.dataset.def,el.dataset.example||''));
- el.addEventListener('keydown',e=>{
- if(e.key==='Enter' || e.key===' '){
- e.preventDefault();
- openGT(el.dataset.term,el.dataset.def,el.dataset.example||'');
- }
- });
-});
-
-
-document.querySelectorAll('.gl-card').forEach(card=>{
- card.addEventListener('click',()=>card.classList.toggle('is-flipped'));
- card.addEventListener('keydown',e=>{
-  if(e.key==='Enter' || e.key===' '){
-   e.preventDefault();
-   card.classList.toggle('is-flipped');
-  }
- });
-});
-
-function syncThemeUi(){
- const isLight=document.body.classList.contains('light');
- const btn=document.getElementById('themeToggle');
- if(btn) btn.textContent=isLight?'☾ Dark':'☀ Light';
-}
-syncThemeUi();
-
-function closeGT(){
- const feature=document.getElementById('glFeature');
- if(feature) feature.classList.remove('pulse');
-}
-
-// ── GLOSSARY SEARCH ──
-function filterGlossary(val){
- const v=val.toLowerCase().trim();
- const cards=document.querySelectorAll('.gl-card');
- let visible=0;
- cards.forEach(c=>{
- const term=(c.querySelector('.gl-term')?.textContent||'').toLowerCase();
- const def=(c.querySelector('.gl-def')?.textContent||'').toLowerCase();
- const show=!v||term.includes(v)||def.includes(v);
- c.style.display=show?'':'none';
- if(show)visible++;
- });
- const nr=document.getElementById('glNoResults');
- if(nr) nr.style.display=visible===0?'block':'none';
-}
-
-// ── CASE FILTER ──
-function filterCases(era,btn){
- document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
- btn.classList.add('active');
- document.querySelectorAll('.cc').forEach(c=>{
- c.style.display=(era==='all'||c.dataset.era===era)?'':'none';
- });
-}
-
-// ── MODULE TOGGLE + COMPLETION ──
-const completedModsRaw=JSON.parse(localStorage.getItem('completedMods')||'[]');
-const completedMods=new Set(
- completedModsRaw
-  .map(v=>String(v).replace(/^0+/,'')||'0')
-  .filter(v=>/^\d+$/.test(v) && +v>=1 && +v<=8)
-  .map(v=>String(v).padStart(2,'0'))
-);
-localStorage.setItem('completedMods',JSON.stringify([...completedMods]));
-
-function toggleMod(header){
- const item=header.closest('.mod-item');
- if(!item)return;
- const body=item.querySelector('.mod-body');
- const arrow=header.querySelector('.mod-arrow');
- const isOpen=item.classList.contains('open');
- // close all others
- document.querySelectorAll('.mod-item.open').forEach(mi=>{
- mi.classList.remove('open');
- const b=mi.querySelector('.mod-body');
- const a=mi.querySelector('.mod-arrow');
- if(b) b.classList.remove('open');
- if(a) a.style.transform='rotate(0deg)';
- });
- if(!isOpen){
- item.classList.add('open');
- if(body) body.classList.add('open');
- if(arrow) arrow.style.transform='rotate(180deg)';
- // mark as read
- const id=item.id;
- if(id){
- const num=id.replace('modItem','');
- completedMods.add(num);
- localStorage.setItem('completedMods',JSON.stringify([...completedMods]));
- const badge=document.getElementById('chk'+num);
- if(badge) badge.style.display='inline-block';
- updateModPill();
- }
- }
-}
-
-function updateModPill(){
- const count=Math.min(completedMods.size,8);
- const pill=document.getElementById('modPill');
- const txt=document.getElementById('modPillText');
- const fill=document.getElementById('modPillFill');
- const headerCount=document.querySelector('.modules-counter');
- if(txt) txt.textContent=count+' / 8 modules read';
- if(fill) fill.style.width=(count/8*100)+'%';
- if(headerCount) headerCount.textContent=count+' / 8 read';
- if(pill) pill.classList.toggle('done',count>=8);
-}
-
-// restore completed on load
-completedMods.forEach(num=>{
- const badge=document.getElementById('chk'+num);
- if(badge) badge.style.display='inline-block';
- const item=document.getElementById('modItem'+num);
- if(item) item.classList.add('was-read');
-});
-updateModPill();
-
-
-// ── MODULE ATLAS ──
-function updateAtlasStates(){
-  document.querySelectorAll('.atlas-card').forEach(card=>{
-    const target=card.dataset.target;
-    const item=target?document.getElementById(target):null;
-    card.classList.toggle('is-open', !!(item && item.classList.contains('open')));
-    if(target){
-      const num=target.replace('modItem','');
-      card.classList.toggle('is-read', completedMods.has(num));
-    }
-  });
-}
-function openModuleById(id){
-  const item=document.getElementById(id);
-  if(!item)return;
-  const header=item.querySelector('.mod-header');
-  if(!header)return;
-  if(!item.classList.contains('open')){ toggleMod(header); }
-  item.scrollIntoView({behavior:'smooth', block:'start'});
-  updateAtlasStates();
-}
-const _toggleMod = toggleMod;
-toggleMod = function(header){
-  _toggleMod(header);
-  updateAtlasStates();
-};
-updateAtlasStates();
-
-// ── ACTIVE NAV ──
-const allSections=document.querySelectorAll('section[id],div[id="top"]');
-const navLinks=document.querySelectorAll('.nav-links a[data-section]');
-const navObs=new IntersectionObserver(entries=>{
- entries.forEach(e=>{
- if(e.isIntersecting){
- const id=e.target.id;
- navLinks.forEach(a=>a.classList.toggle('active',a.dataset.section===id));
- document.querySelectorAll('.st-dot').forEach(d=>d.classList.toggle('active',d.dataset.sec===id));
- }
- });
-},{threshold:0.25,rootMargin:'-10% 0px -60% 0px'});
-allSections.forEach(s=>navObs.observe(s));
-
-// ── SECTION TRACKER DOTS ──
-const trackerSections=[
- {id:'about',label:'About'},{id:'timeline',label:'Timeline'},{id:'tropes',label:'Tropes'},
- {id:'framework',label:'Framework'},{id:'cases',label:'Cases'},{id:'modules',label:'Modules'},
- {id:'media',label:'Media'},{id:'glossary',label:'Glossary'},{id:'glaad',label:'GLAAD'},
- {id:'counter',label:'Counter'},{id:'analyze',label:'Analyze'},{id:'quiz',label:'Quiz'},
- {id:'resources',label:'Sources'},
-];
-const tracker=document.getElementById('secTracker');
-if(tracker&&window.innerWidth>=920){
- trackerSections.forEach(s=>{
- const btn=document.createElement('button');
- btn.className='st-dot'; btn.dataset.sec=s.id; btn.title=s.label;
- btn.innerHTML=`<span class="st-dot-label">${s.label}</span>`;
- btn.onclick=()=>document.getElementById(s.id)?.scrollIntoView({behavior:'smooth'});
- tracker.appendChild(btn);
- });
-}
-
-// ── LIGHTBOX ──
-let _lbImgs=[];
-let _lbIdx=0;
-
-function _buildImgList(){
- _lbImgs=Array.from(document.querySelectorAll('.img-block img')).map(img=>{
- const block=img.closest('.img-block');
- return{
- src:img.src, alt:img.alt,
- cap:block?.querySelector('.img-cap')?.textContent||'',
- role:block?.querySelector('.img-role')?.textContent||''
- };
- });
-}
-
-document.addEventListener('click',e=>{
- if(e.target.matches('.img-block img')){
- _buildImgList();
- _lbIdx=_lbImgs.findIndex(i=>i.src===e.target.src);
- if(_lbIdx<0)_lbIdx=0;
- _renderLb();
- document.getElementById('lb').classList.add('show');
- document.body.style.overflow='hidden';
- }
-});
-
-function _renderLb(){
- const item=_lbImgs[_lbIdx]||{src:'',alt:'',cap:'',role:''};
- document.getElementById('lbImg').src=item.src;
- document.getElementById('lbImg').alt=item.alt;
- document.getElementById('lbCap').textContent=item.cap;
- document.getElementById('lbRole').textContent=item.role;
- document.getElementById('lbCtr').textContent=_lbImgs.length>1?(_lbIdx+1)+' / '+_lbImgs.length:'';
-}
-
-function lbNav(dir){
- if(!_lbImgs.length)return;
- _lbIdx=(_lbIdx+dir+_lbImgs.length)%_lbImgs.length;
- _renderLb();
-}
-
-function closeLB(){
- const ov=document.getElementById('lb');
- if(ov) ov.classList.remove('show');
- document.body.style.overflow='';
-}
-
-document.getElementById('lb')?.addEventListener('click',e=>{if(e.target===e.currentTarget)closeLB();});
-
-// ── KEYBOARD ──
-document.addEventListener('keydown',e=>{
- const lb=document.getElementById('lb');
- if(lb?.classList.contains('show')){
- if(e.key==='ArrowLeft') lbNav(-1);
- else if(e.key==='ArrowRight') lbNav(1);
- return;
- }
- // Quiz shortcuts
- const opts=document.querySelectorAll('.qz-opt');
- if(['1','2','3','4'].includes(e.key)&&opts.length&&!answered){
- const i=parseInt(e.key)-1;
- if(opts[i]) answerQ(i,opts[i]);
- }
- if(e.key==='Enter'&&answered){
- const nb=document.getElementById('nextBtn');
- if(nb&&nb.style.display!=='none') nextQ();
- }
-});
-
-// ── IMG LOAD DETECTION ──
-function initImgFade(){
- document.querySelectorAll('.img-block img').forEach(img=>{
- const block=img.closest('.img-block');
- if(!block)return;
- if(img.complete&&img.naturalWidth>0){block.classList.add('has-img');}
- else{img.addEventListener('load',()=>block.classList.add('has-img'));}
- });
-}
-initImgFade();
-new MutationObserver(()=>initImgFade()).observe(document.body,{childList:true,subtree:true});
-
-// ── ANALYSIS TOOL ──
-function runAnalysis(){
- const title=document.getElementById('filmTitle').value||'Untitled Film';
- const role=document.getElementById('narRole').value;
- const outcome=document.getElementById('outcome').value;
- const vis=document.querySelector('input[name="vis"]:checked')?.value;
- const ctx=document.getElementById('ctx').value;
- const notes=document.getElementById('notes').value;
- if(!role||!outcome||!vis||!ctx){alert('Please complete fields 1-4.');return;}
- const rL={hero:'Hero / Protagonist',villain:'Villain / Antagonist',comic:'Comic Relief',victim:'Victim / Passive',supporting:'Supporting',erased:'Erased'};
- const oL={punished:'Punished',redeemed:'Redeemed (conditional)',erased:'Erased / Removed',thrives:'Thrives Authentically',ambiguous:'Ambiguous'};
- const vL={explicit:'Explicit',coded:'Coded (implied)',mixed:'Mixed'};
- const cL={precode:'Pre-Code Era',code:'Production Code (1930-68)',postcode:'Post-Code (1968-90)',modern:'Modern / Streaming'};
- const pats={
- villain_punished:"This matches Russo's Villainization and Punishment pattern, one of the most pervasive combinations in Hollywood history.",
- hero_punished:"This matches the Tragic Gay Figure pattern: a sympathetic queer protagonist whose story ends in suffering. Russo argues this is Hollywood's safe compromise, allow queer humanity while denying queer happiness.",
- hero_thrives:"This is the counter-narrative Russo hoped for: queer protagonists who are visible, humanized, and permitted to survive and thrive. Historically rare.",
- hero_ambiguous:"Progress in visibility, but incomplete. Russo would ask: does ambiguity serve the story, or protect the studio from taking a position?",
- comic_punished:"The Effeminate Comic pattern: queer identity trivialized then punished, telling audiences that queerness is both ridiculous and dangerous.",
- victim_punished:"Queer characters as victims who are ultimately punished, one of the most common Production Code outcomes.",
- supporting_erased:"Token inclusion with no narrative investment. GLAAD documents this as the most common form of representation in contemporary studio films.",
- };
- const matchText=pats[`${role}_${outcome}`]||`This film shows a queer character in a ${(rL[role]||'').toLowerCase()} role with a ${(oL[outcome]||'').toLowerCase()} outcome, a combination worth examining against Russo's documented patterns.`;
- document.getElementById('aoFilm').textContent=title;
- document.getElementById('aoGrid').innerHTML=`
- <div class="ao-item"><div class="ao-lbl">Narrative Role</div><div class="ao-val">${rL[role]||role}</div></div>
- <div class="ao-item"><div class="ao-lbl">Emotional Outcome</div><div class="ao-val">${oL[outcome]||outcome}</div></div>
- <div class="ao-item"><div class="ao-lbl">Visibility</div><div class="ao-val">${vL[vis]||vis}</div></div>
- <div class="ao-item"><div class="ao-lbl">Era / Context</div><div class="ao-val">${cL[ctx]||ctx}</div></div>
- ${notes?`<div class="ao-item" style="grid-column:1/-1"><div class="ao-lbl">Cultural Notes</div><div class="ao-val">${notes}</div></div>`:''}
- `;
- document.getElementById('aoMatch').textContent=matchText;
- const out=document.getElementById('azOut');
- out.classList.add('show');
- out.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
-
-// ── QUIZ ──
-const QS=[
- {q:"What did Vito Russo argue was Hollywood's primary role in shaping attitudes toward queer communities?",
- opts:["Passively reflecting pre-existing public attitudes","Actively constructing and normalizing stigma through narrative choices","Promoting queer liberation through coded representation","Ignoring queer communities entirely"],
- ans:1,fb:"Russo's central argument is that Hollywood actively constructed, rather than merely reflected, attitudes toward queer people through deliberate patterns of representation, censorship, and narrative framing."},
- {q:"The Motion Picture Production Code (1930-1968) explicitly prohibited:",
- opts:["Scenes of graphic violence","Depictions of 'sex perversion,' effectively banning overt queer representation","Political content that criticized the U.S. government","Foreign-language dialogue without subtitles"],
- ans:1,fb:"The Production Code's prohibition on 'sex perversion' banned overt queer representation for nearly four decades, forcing filmmakers to either erase queerness entirely or encode it, almost always in villainous or tragic roles."},
- {q:"Which is NOT one of the four primary queer stereotypes Russo identifies?",
- opts:["The Tragic Gay Figure","The Predatory Villain","The Heroic Liberator","The Effeminate Comic"],
- ans:2,fb:"Russo's four patterns are: The Tragic Gay Figure, The Predatory Villain, The Effeminate Comic Stereotype, and The Doomed Outsider. The 'Heroic Liberator' does not appear, its absence is part of his argument."},
- {q:"'Coding' in queer film history refers to:",
- opts:["Software used to add subtitles to foreign films","Embedding queer identity through indirect signals rather than explicit statement","The MPAA film rating system","A method of writing screenplays that obscures the plot"],
- ans:1,fb:"Coding refers to signaling queer identity through indirect means such as costume, mannerisms, voice, and relationships, without ever explicitly naming it. Under the Production Code, this was the only permitted form of queer representation."},
- {q:"When Cruising (1980) was released, the gay community responded with:",
- opts:["Widespread celebration as a milestone in visibility","Indifference, as the film was poorly distributed","Mass protests over its association of homosexuality with danger and deviance","A campaign to nominate it for Academy Awards"],
- ans:2,fb:"Cruising sparked major protests from the gay community, who argued that the film's linkage of homosexuality with serial killing and predatory behavior was harmful, particularly at a moment when the gay rights movement was fighting for public legitimacy."},
- {q:"According to GLAAD's recent Studio Responsibility Index, what percentage of major studio films included LGBTQ characters?",
- opts:["About 10%","About 28.5%","About 50%","About 60%"],
- ans:1,fb:"GLAAD's 2023 Studio Responsibility Index reported that 100 of 350 2022 releases, or 28.5%, included LGBTQ characters. That still means well over two thirds of the tracked films were not LGBTQ-inclusive."},
- {q:"Russo's concept of 'subtext' in classic Hollywood refers to:",
- opts:["The written dialogue in a screenplay","Queer identity communicated indirectly through visual and behavioral cues, never explicitly named","The meaning of a film's title","The ending of a film that contradicts its opening premise"],
- ans:1,fb:"Subtext is meaning implied rather than stated. Under the Production Code, filmmakers could not name queerness, so they embedded it in costume, gesture, relationships, and reaction."},
- {q:"Which film is most often cited as a counter-example to Russo's 'Tragic Gay Figure' pattern in contemporary cinema?",
- opts:["Brokeback Mountain (2005)","Philadelphia (1993)","Moonlight (2016)","The Boys in the Band (1970)"],
- ans:2,fb:"Moonlight (2016) is widely cited as a film that consciously resists each of Russo's four dominant tropes: Chiron is the humanized protagonist, he survives and is not punished, and his queerness is named and centered without apology."},
-];
-
-let curQ=0,answered=false,score=0;
-
-function updateQzProgress(){
- const pf=document.getElementById('qzProg');
- if(pf) pf.style.width=((curQ/QS.length)*100)+'%';
-}
-
-function loadQ(){
- const q=QS[curQ];
- updateQzProgress();
- document.getElementById('qzCtr').textContent=`Question ${curQ+1} of ${QS.length}`;
- document.getElementById('qzQ').textContent=q.q;
- const fb=document.getElementById('qzFb');
- fb.className='qz-fb'; fb.textContent='';
- document.getElementById('nextBtn').style.display='none';
- const sc=document.getElementById('qzScore');
- sc.style.display='none';
- const qr=document.getElementById('qzRestart');
- qr.style.display='none';
- answered=false;
- const opts=document.getElementById('qzOpts');
- opts.innerHTML='';
- q.opts.forEach((o,i)=>{
- const b=document.createElement('button');
- b.className='qz-opt'; b.textContent=o;
- b.onclick=()=>answerQ(i,b);
- opts.appendChild(b);
- });
-}
-
-function answerQ(idx,btn){
- if(answered)return;
- answered=true;
- const q=QS[curQ];
- document.querySelectorAll('.qz-opt')[q.ans].classList.add('ok');
- const fb=document.getElementById('qzFb');
- if(idx===q.ans){score++;btn.classList.add('ok');fb.textContent='✓ Correct! '+q.fb;fb.className='qz-fb ok show';}
- else{btn.classList.add('err');fb.textContent='✗ '+q.fb;fb.className='qz-fb err show';}
- if(curQ<QS.length-1){
- document.getElementById('nextBtn').style.display='';
- } else {
- const pf=document.getElementById('qzProg');
- if(pf) pf.style.width='100%';
- const sc=document.getElementById('qzScore');
- sc.style.display='block';
- const p=Math.round((score/QS.length)*100);
- const stars=p>=88?'★★★★★':p>=75?'★★★★☆':p>=62?'★★★☆☆':p>=50?'★★☆☆☆':'★☆☆☆☆';
- sc.innerHTML=`<div class="qz-score-stars">${stars}</div>You scored <strong>${score} of ${QS.length}</strong> (${p}%)<br><span style="font-size:.82rem;color:var(--muted)">${p>=88?'Excellent, you have a strong grasp of the Russo framework.':p>=62?'Good foundation, revisit the Framework and Timeline sections for any gaps.':'Review the Timeline, Tropes, and Framework sections, then try again.'}</span>`;
- document.getElementById('qzRestart').style.display='block';
- }
-}
-function nextQ(){curQ++;loadQ();}
-function restartQuiz(){curQ=0;score=0;answered=false;document.getElementById('qzRestart').style.display='none';loadQ();}
-loadQ();
-
-// ── THEME TOGGLE ──
-function toggleTheme(){
- const isLight=document.body.classList.toggle('light');
- syncThemeUi();
- localStorage.setItem('theme',isLight?'light':'dark');
-}
-if(localStorage.getItem('theme')==='light'){
- document.body.classList.add('light');
-}
-syncThemeUi();
-
-// ── COPY CITATION ──
-function copyCite(){
- const text=`Hoang, Dang, Tom Mai, and Nguyen Bao Anh Le. The Celluloid Closet: Queer Representation in Film. WMST 2300: Introduction to LGBTQ Studies, University of Georgia, 2025. Based on Russo, Vito. The Celluloid Closet: Homosexuality in the Movies. Revised Edition, Harper & Row, 1987.`;
- navigator.clipboard.writeText(text).then(()=>{
- const btn=document.getElementById('citeCopyBtn');
- if(!btn)return;
- btn.textContent='✓ Copied!';
- btn.classList.add('done');
- setTimeout(()=>{btn.textContent='Copy Citation';btn.classList.remove('done');},2500);
- }).catch(()=>{
- const el=document.createElement('textarea');
- el.value=text;document.body.appendChild(el);el.select();
- document.execCommand('copy');document.body.removeChild(el);
- });
-}
-
-// ── HERO COUNTERS ──
-(function(){
- const stats=document.querySelectorAll('.hc-num[data-count]');
- if(!stats.length)return;
- setTimeout(()=>{
- stats.forEach(el=>{
- const target=parseInt(el.dataset.count||el.textContent);
- if(!target)return;
- let cur=0;
- const t=setInterval(()=>{
- cur=Math.min(cur+target/60,target);
- el.textContent=Math.round(cur);
- if(cur>=target)clearInterval(t);
- },1400/60);
- });
- },700);
-})();
-
-</script>
 <script>
 try{ updateAtlasStates(); }catch(e){}
 document.addEventListener('click', function(e){
@@ -6060,415 +5737,91 @@ document.addEventListener('DOMContentLoaded',()=>{
   updateAtlasStates();
 });
 </script>
-<script>
-(function(){
-  const STORAGE_KEY='cc_completed_mods_v2';
 
-  // migrate old module state safely
-  try{
-    const raw=JSON.parse(localStorage.getItem(STORAGE_KEY) || localStorage.getItem('completedMods') || '[]');
-    const clean=[...new Set((Array.isArray(raw)?raw:[])
-      .map(v=>String(v).replace(/^0+/,'') || '0')
-      .filter(v=>/^\d+$/.test(v) && +v>=1 && +v<=8)
-      .map(v=>String(v).padStart(2,'0')))];
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(clean));
-  }catch(e){
-    localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
-  }
 
-  // better module pill count
-  window.getCompletedModules = function(){
-    try{
-      return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'));
-    }catch(e){
-      return new Set();
-    }
-  };
 
-  window.forceUpdateModuleCount = function(){
-    const completedMods = window.getCompletedModules();
-    const count=Math.min(completedMods.size,8);
-    const pill=document.getElementById('modPill');
-    const txt=document.getElementById('modPillText');
-    const fill=document.getElementById('modPillFill');
-    const headerCount=document.querySelector('.modules-counter');
-    if(txt) txt.textContent=count+' / 8 modules read';
-    if(fill) fill.style.width=(count/8*100)+'%';
-    if(headerCount) headerCount.textContent=count+' / 8 read';
-    if(pill) pill.classList.toggle('done',count>=8);
-  };
 
-  // rewire toggleMod to use the new key
-  if(typeof toggleMod === 'function'){
-    const originalToggleMod = toggleMod;
-    toggleMod = function(header){
-      const item=header.closest('.mod-item');
-      const beforeOpen=item && item.classList.contains('open');
-      originalToggleMod(header);
-      if(item && !beforeOpen && item.id){
-        const set = window.getCompletedModules();
-        const num=item.id.replace('modItem','');
-        set.add(num);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify([...set]));
-      }
-      window.forceUpdateModuleCount();
-      if(typeof updateAtlasStates === 'function'){ updateAtlasStates(); }
-    };
-  }
-  window.forceUpdateModuleCount();
 
-  // make theme also affect <html>
-  if(typeof syncThemeUi === 'function'){
-    const originalSyncThemeUi = syncThemeUi;
-    syncThemeUi = function(){
-      originalSyncThemeUi();
-      document.documentElement.classList.toggle('light-mode', document.body.classList.contains('light'));
-    };
-    syncThemeUi();
-  }else{
-    document.documentElement.classList.toggle('light-mode', document.body.classList.contains('light'));
-  }
 
-  // popup glossary for terms outside glossary section
-  const gtBackdrop=document.getElementById('gtBackdrop');
-  const gtPop=document.getElementById('gtPop');
-  const gtTerm=document.getElementById('gtTerm');
-  const gtDef=document.getElementById('gtDef');
-  const gtExample=document.getElementById('gtExample');
 
-  window.openGT = function(term, def, example){
-    if(gtTerm) gtTerm.textContent = term || '';
-    if(gtDef) gtDef.textContent = def || '';
-    if(gtExample) gtExample.textContent = example || '';
-    if(gtBackdrop) gtBackdrop.classList.add('show');
-    if(gtPop) gtPop.classList.add('show');
-  };
 
-  window.closeGT = function(){
-    if(gtBackdrop) gtBackdrop.classList.remove('show');
-    if(gtPop) gtPop.classList.remove('show');
-  };
 
-  // external hard terms open popup only
-  document.querySelectorAll('.gt').forEach(el=>{
-    el.setAttribute('tabindex','0');
-    el.addEventListener('click',()=>openGT(el.dataset.term, el.dataset.def, el.dataset.example || ''));
-    el.addEventListener('keydown',e=>{
-      if(e.key==='Enter' || e.key===' '){
-        e.preventDefault();
-        openGT(el.dataset.term, el.dataset.def, el.dataset.example || '');
-      }
-    });
-  });
 
-  // glossary cards only flip, do not scroll or update the feature box
-  document.querySelectorAll('.gl-card').forEach(card=>{
-    card.setAttribute('tabindex','0');
-    card.setAttribute('role','button');
-    card.setAttribute('aria-label', `Flip glossary card for ${card.dataset.term || 'term'}`);
-    card.addEventListener('click',()=>card.classList.toggle('is-flipped'));
-    card.addEventListener('keydown',e=>{
-      if(e.key==='Enter' || e.key===' '){
-        e.preventDefault();
-        card.classList.toggle('is-flipped');
-      }
-    });
-  });
 
-  // glossary search uses data attributes instead of removed inner classes
-  window.filterGlossary = function(val){
-    const v=(val||'').toLowerCase().trim();
-    const cards=document.querySelectorAll('.gl-card');
-    let visible=0;
-    cards.forEach(card=>{
-      const term=(card.dataset.term||'').toLowerCase();
-      const def=(card.dataset.def||'').toLowerCase();
-      const ex=(card.dataset.example||'').toLowerCase();
-      const show=!v || term.includes(v) || def.includes(v) || ex.includes(v);
-      card.style.display = show ? '' : 'none';
-      if(show) visible++;
-    });
-    const nr=document.getElementById('glNoResults');
-    if(nr) nr.style.display = visible===0 ? 'block' : 'none';
-  };
 
-  // move quote + guiding question into note card, and move feature image below
-  document.querySelectorAll('.mod-item').forEach(item=>{
-    const combo=item.querySelector('.module-media-combo');
-    const top=item.querySelector('.module-media-top');
-    const gallery=item.querySelector('.module-media-gallery');
-    const feature=top ? top.querySelector('.media-feature') : null;
-    const chart=top ? top.querySelector('.media-chart') : null;
-    const quote=item.querySelector('.mod-quote');
-    const q=item.querySelector('.mod-q');
-    if(combo && top && gallery && feature){
-      feature.classList.add('feature-promoted');
-      gallery.prepend(feature);
-    }
-    if(top && chart && quote && q && !top.querySelector('.media-note-card')){
-      const note=document.createElement('div');
-      note.className='media-note-card reveal';
-      note.innerHTML='<div class="media-note-kicker">Reading lens</div>';
-      note.appendChild(quote);
-      note.appendChild(q);
-      top.appendChild(note);
-    }
-  });
-
-  // auto-glossify a few key terms across the site
-  const glossaryMap = {};
-  document.querySelectorAll('.gl-card').forEach(card=>{
-    glossaryMap[card.dataset.term] = {
-      def: card.dataset.def || '',
-      example: card.dataset.example || ''
-    };
-  });
-  const enrichTerms = [
-    'Production Code','Hays Code','Coding','Subtext','Trope','Erasure',
-    'Villainization','Bury Your Gays','Closet Mentality','Sissy',
-    'Intersectionality','Visibility','Activism'
-  ].filter(t=>glossaryMap[t]);
-
-  function wrapGlossaryTerms(root){
-    const walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-      acceptNode(node){
-        if(!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-        const parent=node.parentNode;
-        if(!parent) return NodeFilter.FILTER_REJECT;
-        if(parent.closest('#glossary, script, style, .gt, .gl-card, .gl-feature, .gt-pop')) return NodeFilter.FILTER_REJECT;
-        return NodeFilter.FILTER_ACCEPT;
-      }
-    });
-    const textNodes=[];
-    while(walker.nextNode()) textNodes.push(walker.currentNode);
-    const terms=[...enrichTerms].sort((a,b)=>b.length-a.length);
-    textNodes.forEach(node=>{
-      let text=node.nodeValue;
-      let replaced=false;
-      for(const term of terms){
-        const info=glossaryMap[term];
-        const re=new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`);
-        if(re.test(text)){
-          const frag=document.createDocumentFragment();
-          const parts=text.split(re);
-          const match=text.match(re);
-          if(!match) continue;
-          frag.appendChild(document.createTextNode(parts[0]));
-          const span=document.createElement('span');
-          span.className='gt';
-          span.dataset.term=term;
-          span.dataset.def=info.def;
-          span.dataset.example=info.example;
-          span.tabIndex=0;
-          span.textContent=match[0];
-          span.addEventListener('click',()=>openGT(term, info.def, info.example));
-          span.addEventListener('keydown',e=>{
-            if(e.key==='Enter' || e.key===' '){
-              e.preventDefault();
-              openGT(term, info.def, info.example);
-            }
-          });
-          frag.appendChild(span);
-          frag.appendChild(document.createTextNode(parts.slice(1).join(match[0])));
-          node.parentNode.replaceChild(frag, node);
-          replaced=true;
-          break;
-        }
-      }
-      if(replaced){ /* no-op */ }
-    });
-  }
-
-  document.querySelectorAll('.about-text, .tl-track, .mod-text-col, .tc, .media-info, .res-grid, .cnt-grid, .disc-list').forEach(wrapGlossaryTerms);
-
-})();
-</script>
-
-<script>
-(function(){
-  // robust glossary flip with event delegation
-  document.addEventListener('click', function(e){
-    const card = e.target.closest('#glossary .gl-card');
-    if(card){
-      card.classList.toggle('is-flipped');
-    }
-  });
-  document.addEventListener('keydown', function(e){
-    const card = e.target.closest && e.target.closest('#glossary .gl-card');
-    if(card && (e.key === 'Enter' || e.key === ' ')){
-      e.preventDefault();
-      card.classList.toggle('is-flipped');
-    }
-  });
-
-  // make sure glossary cards are keyboard focusable
-  document.querySelectorAll('#glossary .gl-card').forEach(card=>{
-    card.setAttribute('tabindex','0');
-    card.setAttribute('role','button');
-    card.setAttribute('aria-label', 'Flip glossary card for ' + (card.dataset.term || 'term'));
-  });
-
-  // tighten chart viewbox so labels are visible
-  document.querySelectorAll('#modules .media-chart svg').forEach(svg=>{
-    if(svg.dataset.vbFixed) return;
-    const vb = (svg.getAttribute('viewBox') || '').trim().split(/\s+/).map(Number);
-    if(vb.length === 4 && vb.every(v => !Number.isNaN(v))){
-      const [x,y,w,h] = vb;
-      svg.setAttribute('viewBox', [x,y,w,h+18].join(' '));
-      svg.dataset.vbFixed = '1';
-    }
-    svg.style.overflow = 'visible';
-  });
-
-  // sync html class with theme every time
-  if(typeof syncThemeUi === 'function'){
-    const oldSync = syncThemeUi;
-    syncThemeUi = function(){
-      oldSync();
-      document.documentElement.classList.toggle('light-mode', document.body.classList.contains('light'));
-    };
-    syncThemeUi();
-  } else {
-    document.documentElement.classList.toggle('light-mode', document.body.classList.contains('light'));
-  }
-})();
-</script>
 
 
 <script>
 (function(){
-  // Clone glossary cards to remove older click handlers that were toggling twice
-  const cards = Array.from(document.querySelectorAll('#glossary .gl-card'));
-  cards.forEach(card=>{
-    const clone = card.cloneNode(true);
-    card.parentNode.replaceChild(clone, card);
-  });
-
   function bindGlossaryCards(){
-    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+    const cards = document.querySelectorAll('#glossary .gl-card');
+    cards.forEach(card=>{
+      card.classList.add('visible');
+      card.style.display = '';
+      card.style.opacity = '1';
+      card.style.visibility = 'visible';
+      card.style.transform = 'none';
       card.setAttribute('tabindex','0');
       card.setAttribute('role','button');
-      card.setAttribute('aria-label', 'Flip glossary card for ' + (card.dataset.term || 'term'));
+      card.setAttribute('aria-label','Flip glossary card for ' + (card.dataset.term || 'term'));
+      card.onclick = null;
+      card.onkeydown = null;
+      if(card.dataset.boundFlip === '1') return;
+      card.dataset.boundFlip = '1';
+
       card.addEventListener('click', function(e){
-        // glossary cards should only flip, never open popup
         e.preventDefault();
         e.stopPropagation();
         this.classList.toggle('is-flipped');
-      });
+      }, {capture:false});
+
       card.addEventListener('keydown', function(e){
         if(e.key === 'Enter' || e.key === ' '){
           e.preventDefault();
           e.stopPropagation();
           this.classList.toggle('is-flipped');
         }
-      });
+      }, {capture:false});
     });
   }
-  bindGlossaryCards();
 
-  // Override search one more time using data attributes only
   window.filterGlossary = function(val){
     const v = (val || '').toLowerCase().trim();
     let visible = 0;
     document.querySelectorAll('#glossary .gl-card').forEach(card=>{
-      const text = [
+      const haystack = [
         card.dataset.term || '',
         card.dataset.def || '',
         card.dataset.example || ''
       ].join(' ').toLowerCase();
-      const show = !v || text.includes(v);
+      const show = !v || haystack.includes(v);
       card.style.display = show ? '' : 'none';
-      if(show) visible++;
-    });
-    const nr=document.getElementById('glNoResults');
-    if(nr) nr.style.display = visible === 0 ? 'block' : 'none';
-  };
-
-  // Ensure popup glossary terms outside glossary still work
-  document.querySelectorAll('.gt').forEach(el=>{
-    el.onclick = function(ev){
-      ev.preventDefault();
-      ev.stopPropagation();
-      if(window.openGT){
-        window.openGT(el.dataset.term, el.dataset.def, el.dataset.example || '');
+      if(show){
+        card.style.opacity = '1';
+        card.style.visibility = 'visible';
       }
-    };
-  });
-
-  // Theme sync
-  document.documentElement.classList.toggle('light-mode', document.body.classList.contains('light'));
-})();
-</script>
-
-
-<script>
-(function(){
-  function rebindGlossaryCards(){
-    const originalCards = Array.from(document.querySelectorAll('#glossary .gl-card'));
-    originalCards.forEach(card=>{
-      const clone = card.cloneNode(true);
-      clone.classList.remove('is-flipped');
-      clone.classList.remove('visible');
-      clone.classList.add('visible');
-      clone.setAttribute('tabindex','0');
-      clone.setAttribute('role','button');
-      clone.setAttribute('aria-label','Flip glossary card for ' + (clone.dataset.term || 'term'));
-      card.parentNode.replaceChild(clone, card);
-    });
-
-    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
-      card.addEventListener('click', function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        this.classList.toggle('is-flipped');
-      });
-      card.addEventListener('keydown', function(e){
-        if(e.key === 'Enter' || e.key === ' '){
-          e.preventDefault();
-          e.stopPropagation();
-          this.classList.toggle('is-flipped');
-        }
-      });
-    });
-  }
-
-  function glossarySearch(val){
-    const v = (val || '').toLowerCase().trim();
-    let visible = 0;
-    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
-      const text = [
-        card.dataset.term || '',
-        card.dataset.def || '',
-        card.dataset.example || ''
-      ].join(' ').toLowerCase();
-      const show = !v || text.includes(v);
-      card.style.display = show ? '' : 'none';
       if(show) visible++;
     });
     const nr = document.getElementById('glNoResults');
     if(nr) nr.style.display = visible === 0 ? 'block' : 'none';
-  }
+  };
 
-  window.filterGlossary = glossarySearch;
-
-  document.addEventListener('DOMContentLoaded', function(){
-    rebindGlossaryCards();
+  function initGlossary(){
+    bindGlossaryCards();
     const input = document.getElementById('glSearch');
     if(input){
       input.value = '';
-      input.oninput = function(){ glossarySearch(this.value); };
+      input.oninput = function(){ window.filterGlossary(this.value); };
     }
-    glossarySearch('');
-  });
-
-  // also run now in case DOM is already ready
-  rebindGlossaryCards();
-  const inputNow = document.getElementById('glSearch');
-  if(inputNow){
-    inputNow.value = '';
-    inputNow.oninput = function(){ glossarySearch(this.value); };
+    window.filterGlossary('');
   }
-  glossarySearch('');
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initGlossary);
+  } else {
+    initGlossary();
+  }
+  setTimeout(initGlossary, 120);
 })();
 </script>
 
