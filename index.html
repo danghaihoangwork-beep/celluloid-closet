@@ -4205,6 +4205,182 @@ body.light .chart-box p{
   color:#697c95 !important;
 }
 
+
+/* ==== v14 glossary hard fix ==== */
+#glossary .gl-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:1rem !important;
+  margin-top:.25rem;
+}
+#glossary .gl-card{
+  display:block !important;
+  position:relative !important;
+  min-height:250px !important;
+  perspective:1400px !important;
+  -webkit-perspective:1400px !important;
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  padding:0 !important;
+  overflow:visible !important;
+  cursor:pointer !important;
+}
+#glossary .gl-card.reveal{
+  opacity:1 !important;
+  transform:none !important;
+}
+#glossary .gl-card::before{
+  display:none !important;
+}
+#glossary .gl-card::after{
+  content:'Flip card' !important;
+  position:absolute !important;
+  right:.85rem !important;
+  top:.85rem !important;
+  font-family:var(--mono) !important;
+  font-size:.5rem !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+  color:rgba(215,179,91,.62) !important;
+  pointer-events:none !important;
+  z-index:4 !important;
+}
+#glossary .gl-flip{
+  position:relative !important;
+  width:100% !important;
+  min-height:250px !important;
+  transform-style:preserve-3d !important;
+  -webkit-transform-style:preserve-3d !important;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1) !important;
+}
+#glossary .gl-card.is-flipped .gl-flip{
+  transform:rotateY(180deg) !important;
+}
+#glossary .gl-face{
+  position:absolute !important;
+  inset:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  min-height:250px !important;
+  padding:1.2rem 1.15rem 1.05rem !important;
+  border-radius:24px !important;
+  backface-visibility:hidden !important;
+  -webkit-backface-visibility:hidden !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  background:
+    radial-gradient(circle at top right, rgba(215,179,91,.08), transparent 34%),
+    linear-gradient(180deg, rgba(33,46,71,.98) 0%, rgba(22,32,51,.98) 100%) !important;
+  box-shadow:0 16px 30px rgba(0,0,0,.22) !important;
+  overflow:hidden !important;
+}
+#glossary .gl-front{transform:rotateY(0deg) !important;}
+#glossary .gl-back{transform:rotateY(180deg) !important;}
+#glossary .gl-face-kicker{
+  font-family:var(--mono) !important;
+  font-size:.54rem !important;
+  letter-spacing:.18em !important;
+  text-transform:uppercase !important;
+  color:var(--accent) !important;
+  margin-bottom:.6rem !important;
+}
+#glossary .gl-face-term{
+  font-family:var(--serif) !important;
+  font-size:1.95rem !important;
+  line-height:1.02 !important;
+  font-style:italic !important;
+  font-weight:700 !important;
+  color:var(--text) !important;
+  max-width:12ch !important;
+}
+#glossary .gl-face-hint{
+  font-family:var(--mono) !important;
+  font-size:.54rem !important;
+  letter-spacing:.16em !important;
+  text-transform:uppercase !important;
+  color:var(--text-muted) !important;
+}
+#glossary .gl-face-def{
+  font-size:.88rem !important;
+  line-height:1.72 !important;
+  color:var(--text-soft) !important;
+}
+#glossary .gl-face-example{
+  margin-top:.9rem !important;
+  padding:.85rem .9rem 0 !important;
+  border-top:1px solid rgba(255,255,255,.08) !important;
+  color:var(--text-soft) !important;
+  font-size:.82rem !important;
+  line-height:1.68 !important;
+  background:transparent !important;
+}
+#glossary .gl-card:hover .gl-face,
+#glossary .gl-card:focus-visible .gl-face{
+  box-shadow:0 18px 34px rgba(0,0,0,.28), 0 0 22px rgba(215,179,91,.08) !important;
+}
+#glossary .gl-search-wrap{
+  max-width:660px !important;
+}
+#glossary .gl-search{
+  background:rgba(255,255,255,.05) !important;
+}
+#glossary .gl-feature{
+  display:block !important;
+}
+#glossary .gl-no-results{
+  display:none;
+  margin:.25rem 0 1rem;
+}
+
+body.light #glossary .gl-card::after{
+  color:rgba(140,103,37,.58) !important;
+}
+body.light #glossary .gl-face{
+  background:
+    radial-gradient(circle at top right, rgba(184,136,46,.05), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(243,246,251,.99) 100%) !important;
+  border-color:rgba(25,37,57,.10) !important;
+  box-shadow:0 14px 26px rgba(20,30,48,.07) !important;
+}
+body.light #glossary .gl-face-kicker{
+  color:#b8882e !important;
+}
+body.light #glossary .gl-face-term{
+  color:#1c2738 !important;
+}
+body.light #glossary .gl-face-hint{
+  color:#7a8799 !important;
+}
+body.light #glossary .gl-face-def{
+  color:#4f627c !important;
+}
+body.light #glossary .gl-face-example{
+  color:#62748d !important;
+  border-top-color:rgba(25,37,57,.08) !important;
+}
+body.light #glossary .gl-search{
+  background:rgba(255,255,255,.96) !important;
+  color:#162033 !important;
+  border-color:rgba(25,37,57,.10) !important;
+}
+
+@media(max-width:1180px){
+  #glossary .gl-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+@media(max-width:760px){
+  #glossary .gl-grid{
+    grid-template-columns:1fr !important;
+  }
+  #glossary .gl-card,
+  #glossary .gl-flip,
+  #glossary .gl-face{
+    min-height:230px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -6221,6 +6397,78 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   // Theme sync
   document.documentElement.classList.toggle('light-mode', document.body.classList.contains('light'));
+})();
+</script>
+
+
+<script>
+(function(){
+  function rebindGlossaryCards(){
+    const originalCards = Array.from(document.querySelectorAll('#glossary .gl-card'));
+    originalCards.forEach(card=>{
+      const clone = card.cloneNode(true);
+      clone.classList.remove('is-flipped');
+      clone.classList.remove('visible');
+      clone.classList.add('visible');
+      clone.setAttribute('tabindex','0');
+      clone.setAttribute('role','button');
+      clone.setAttribute('aria-label','Flip glossary card for ' + (clone.dataset.term || 'term'));
+      card.parentNode.replaceChild(clone, card);
+    });
+
+    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+      card.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        this.classList.toggle('is-flipped');
+      });
+      card.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          e.stopPropagation();
+          this.classList.toggle('is-flipped');
+        }
+      });
+    });
+  }
+
+  function glossarySearch(val){
+    const v = (val || '').toLowerCase().trim();
+    let visible = 0;
+    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+      const text = [
+        card.dataset.term || '',
+        card.dataset.def || '',
+        card.dataset.example || ''
+      ].join(' ').toLowerCase();
+      const show = !v || text.includes(v);
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    const nr = document.getElementById('glNoResults');
+    if(nr) nr.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  window.filterGlossary = glossarySearch;
+
+  document.addEventListener('DOMContentLoaded', function(){
+    rebindGlossaryCards();
+    const input = document.getElementById('glSearch');
+    if(input){
+      input.value = '';
+      input.oninput = function(){ glossarySearch(this.value); };
+    }
+    glossarySearch('');
+  });
+
+  // also run now in case DOM is already ready
+  rebindGlossaryCards();
+  const inputNow = document.getElementById('glSearch');
+  if(inputNow){
+    inputNow.value = '';
+    inputNow.oninput = function(){ glossarySearch(this.value); };
+  }
+  glossarySearch('');
 })();
 </script>
 
