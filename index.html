@@ -4045,6 +4045,166 @@ body.light #glossary .gl-search{
   }
 }
 
+
+/* ==== v12 cleanup + readability ==== */
+#modules .mod-preview{
+  color:var(--text-soft) !important;
+  max-width:68ch;
+}
+#modules .mod-header .gt{
+  color:var(--accent) !important;
+}
+#modules .mod-era-tag,
+#modules .mod-read{
+  letter-spacing:.18em;
+}
+#modules .mod-header{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.03);
+}
+#modules .scan-card{
+  border-radius:18px;
+  min-height:112px;
+}
+#modules .module-side .chart-box{
+  border-radius:22px;
+}
+#modules .module-copy .mod-text{
+  text-wrap:pretty;
+}
+#modules .module-image-row .img-block{
+  overflow:hidden;
+  background:
+    radial-gradient(circle at top right, rgba(215,179,91,.07), transparent 34%),
+    linear-gradient(180deg, rgba(30,43,67,.98) 0%, rgba(21,31,49,.98) 100%);
+}
+#modules .module-image-row .img-block img{
+  background:#0f1728 !important;
+  border-radius:14px;
+}
+#modules .module-image-row .img-cap{
+  color:var(--text-soft) !important;
+}
+#modules .module-side{
+  align-self:start;
+}
+#modules .module-main-layout{
+  margin-bottom:.15rem;
+}
+#modules .module-side .chart-title{
+  font-size:.58rem;
+}
+#modules .module-side .chart-box text{
+  font-size:8px;
+}
+#modules .module-side .chart-box line,
+#modules .module-side .chart-box polygon,
+#modules .module-side .chart-box circle{
+  vector-effect:non-scaling-stroke;
+}
+
+/* light mode specific */
+body.light #modules .mod-title{
+  color:#1c2738 !important;
+}
+body.light #modules .mod-preview{
+  color:#62748d !important;
+}
+body.light #modules .mod-header .gt{
+  color:#8c6725 !important;
+}
+body.light #modules .mod-era-tag,
+body.light #modules .mod-read,
+body.light #modules .scan-label{
+  color:#b8882e !important;
+}
+body.light #modules .scan-text{
+  color:#51647f !important;
+}
+body.light #modules .module-copy .mod-text{
+  color:#42556f !important;
+}
+body.light #modules .module-copy .mod-quote{
+  color:#31425b !important;
+  background:rgba(255,255,255,.75) !important;
+}
+body.light #modules .module-copy .mod-q{
+  color:#4d6a93 !important;
+}
+body.light #modules .module-image-row .img-block{
+  background:
+    radial-gradient(circle at top right, rgba(184,136,46,.05), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(244,247,251,.99) 100%) !important;
+  border-color:rgba(25,37,57,.10) !important;
+}
+body.light #modules .module-image-row .img-block img{
+  background:#f7f9fc !important;
+}
+body.light #modules .module-image-row .img-cap{
+  color:#5d708a !important;
+}
+body.light #modules .module-side .chart-box{
+  background:
+    radial-gradient(circle at top right, rgba(184,136,46,.05), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(244,247,251,.99) 100%) !important;
+}
+body.light #modules .module-side .chart-box text{
+  fill:#44556f !important;
+}
+body.light #modules .module-side .chart-box .chart-title{
+  color:#b8882e !important;
+}
+body.light #modules .mod-action{
+  background:linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(240,244,249,.98) 100%) !important;
+}
+body.light #modules .mod-arrow{
+  background:white !important;
+  color:#b8882e !important;
+  border-color:rgba(184,136,46,.20) !important;
+}
+body.light #modules .mod-done-badge{
+  background:rgba(129,209,164,.08) !important;
+  color:#268657 !important;
+}
+body.light .modules-counter,
+body.light .mod-pill{
+  background:rgba(255,255,255,.9) !important;
+  color:#355b48 !important;
+  border-color:rgba(25,37,57,.10) !important;
+}
+
+/* glossary */
+#glossary .gl-feature{
+  margin-bottom:1.2rem;
+}
+#glossary .gl-face{
+  min-height:246px;
+}
+#glossary .gl-face-term{
+  font-size:1.9rem;
+}
+#glossary .gl-face-example{
+  font-size:.82rem;
+  line-height:1.68;
+  padding-top:.8rem;
+}
+body.light #glossary .gl-face-def{
+  color:#51647f !important;
+}
+body.light #glossary .gl-face-example{
+  color:#64758d !important;
+}
+
+
+/* ==== v13 data accuracy note ==== */
+.chart-box .chart-note,
+.chart-box p{
+  color:var(--text-muted) !important;
+}
+body.light .chart-box .chart-note,
+body.light .chart-box p{
+  color:#697c95 !important;
+}
+
 </style>
 </head>
 <body>
@@ -4154,7 +4314,7 @@ body.light #glossary .gl-search{
 <div class="about-text">
 <p>First published in 1981 and revised in 1987, <em>The Celluloid Closet</em> is considered foundational in LGBTQ media criticism. Russo traces how American cinema, which stretches from early silent films through the late 20th century, did not simply reflect public attitudes toward <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">queer</span> communities, but <strong>actively constructed them</strong> through repetition, censorship, and narrative framing.</p>
 <p>Russo demonstrates that the Motion Picture <span class="gt" data-def="The Motion Picture Production Code (1930-1968), also called the Hays Code, was a set of moral guidelines applied to Hollywood films. It explicitly prohibited 'sex perversion' - effectively banning overt queer representation and forcing filmmakers into coded subtext." data-term="Production Code"><span class="gt" data-def='The Motion Picture Production Code (1930-1968), also called the Hays Code. Explicitly prohibited "sex perversion," effectively banning overt queer representation in Hollywood for nearly four decades.' data-example="Example: The Children's Hour was rewritten into These Three so the lesbian accusation became a heterosexual triangle." data-term="Production Code">Production Code</span></span> (1930-1968) forced queer characters into coded roles: the effeminate comic, the predatory villain, the doomed outsider. These portrayals normalized stigma by consistently linking <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-term="Queerness">queerness</span> with deviance, loneliness, or death.</p>
-<p>In 1995, directors Rob Epstein and Jeffrey Friedman adapted the book into an acclaimed documentary narrated by Lily Tomlin, bringing Russo's arguments to a wider audience beyond the academic world.</p>
+<p>In the mid-1990s, directors Rob Epstein and Jeffrey Friedman adapted the book into an acclaimed documentary narrated by Lily Tomlin, bringing Russo's arguments to a wider audience beyond the academic world.</p>
 </div>
 <div class="takeaway">
 <div class="ta-lbl">✦ Key Takeaway</div>
@@ -4442,26 +4602,19 @@ body.light #glossary .gl-search{
 <div class="scan-label">Why it matters</div>
 <div class="scan-text">Absence became a produced norm, not a coincidence.</div>
 </div></div><div class="module-main-layout reveal"><div class="module-copy"><p class="mod-text">One of the strongest forces shaping queer film history was censorship. For much of the twentieth century, Hollywood operated under the Motion Picture <span class="gt" data-def='The Motion Picture Production Code (1930-1968), also called the Hays Code. Explicitly prohibited "sex perversion," effectively banning overt queer representation in Hollywood for nearly four decades.' data-example="Example: The Children's Hour was rewritten into These Three so the lesbian accusation became a heterosexual triangle." data-term="Production Code">Production Code</span>, which is commonly called the Hays Code. These rules did not make homosexuality disappear from film entirely, but they made it extremely difficult to present directly. Queer life was often erased, rewritten, or pushed into safer forms that mainstream audiences could accept. Russo shows that censorship was not just a matter of cutting a few lines. It reshaped whole stories and taught viewers which kinds of relationships were allowed to exist on screen.</p><p class="mod-text">A key example is the transformation of Lillian Hellman's <em>The Children's Hour</em> into the 1936 film <em>These Three</em>. In Hellman's play, two women are destroyed by an accusation of lesbian desire. Under the Code, Hollywood would not allow that implication to remain, so the film replaced it with a heterosexual love triangle. The emotional crisis stayed, but its meaning changed completely. What had been a story about panic over lesbian relationships became a story about jealousy and romance. Even when <em>The Children's Hour</em> returned in 1961 under its original title, homosexuality still entered through accusation, repression, suffering, and collapse. The Code era matters because it shows that absence was not passive. <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">Queer</span> stories were removed, converted, and made difficult to imagine.</p><p class="mod-quote">"Queer stories were not missing by accident. They were removed, rewritten, and made difficult to imagine."</p><p class="mod-q">→ What does it mean for straightness to become the default structure of a story before the audience even begins watching it?</p></div><div class="module-side"><div class="chart-box media-chart">
-<div class="chart-title">Hays Code Era, Outcome for Queer Characters</div>
-<svg preserveaspectratio="xMidYMin meet" style="width:100%;max-width:320px;height:auto;" viewbox="0 0 300 142" xmlns="http://www.w3.org/2000/svg">
-<!-- donut chart approximation using strokes -->
-<circle cx="80" cy="62" fill="none" r="42" stroke="rgba(31,41,55,.06)" stroke-width="18"></circle>
-<!-- Punished: 65% ≈ 408deg -->
-<circle cx="80" cy="62" fill="none" r="42" stroke="#e85d75" stroke-dasharray="171.8 264" stroke-dashoffset="66" stroke-opacity=".85" stroke-width="18" transform="rotate(-90,80,62)"></circle>
-<!-- Erased: 25% ≈ 90deg -->
-<circle cx="80" cy="62" fill="none" r="42" stroke="#f59e0b" stroke-dasharray="66 370" stroke-dashoffset="-105.8" stroke-opacity=".75" stroke-width="18" transform="rotate(-90,80,62)"></circle>
-<!-- Thrives: 10% -->
-<circle cx="80" cy="62" fill="none" r="42" stroke="#34d399" stroke-dasharray="26.4 370" stroke-dashoffset="-171.8" stroke-opacity=".7" stroke-width="18" transform="rotate(-90,80,62)"></circle>
-<text fill="rgba(242,236,224,.8)" font-family="serif" font-size="11" font-style="italic" text-anchor="middle" x="80" y="58">1930</text>
-<text fill="rgba(242,236,224,.5)" font-family="monospace" font-size="8" text-anchor="middle" x="80" y="70">-1968</text>
-<!-- legend -->
-<rect fill="#e85d75" height="9" rx="2" width="9" x="148" y="28"></rect>
-<text fill="rgba(210,204,194,.8)" font-family="monospace" font-size="9" x="162" y="37">Punished / Dead 65%</text>
-<rect fill="#f59e0b" height="9" rx="2" width="9" x="148" y="48"></rect>
-<text fill="rgba(210,204,194,.8)" font-family="monospace" font-size="9" x="162" y="57">Erased / Coded 25%</text>
-<rect fill="#34d399" height="9" rx="2" width="9" x="148" y="68"></rect>
-<text fill="rgba(210,204,194,.8)" font-family="monospace" font-size="9" x="162" y="77">Survives 10%</text>
-<text fill="rgba(153,143,136,.6)" font-family="monospace" font-size="7" x="148" y="105">Source: Russo 1987, estimated from film survey</text>
+<div class="chart-title">Hays Code Era, Dominant Queer Outcomes in Mainstream Film</div>
+<svg preserveAspectRatio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
+<text fill="rgba(243,246,251,.88)" font-family="serif" font-size="13" font-style="italic" text-anchor="middle" x="78" y="28">1930-1968</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="7.5" text-anchor="middle" x="78" y="42">Code era</text>
+<circle cx="78" cy="78" fill="none" r="40" stroke="rgba(255,255,255,.08)" stroke-width="16"></circle>
+<circle cx="78" cy="78" fill="none" r="40" stroke="#e85d75" stroke-dasharray="132 252" stroke-dashoffset="62" stroke-opacity=".9" stroke-width="16" transform="rotate(-90,78,78)"></circle>
+<circle cx="78" cy="78" fill="none" r="40" stroke="#f59e0b" stroke-dasharray="72 312" stroke-dashoffset="-70" stroke-opacity=".82" stroke-width="16" transform="rotate(-90,78,78)"></circle>
+<circle cx="78" cy="78" fill="none" r="40" stroke="#34d399" stroke-dasharray="20 364" stroke-dashoffset="-143" stroke-opacity=".78" stroke-width="16" transform="rotate(-90,78,78)"></circle>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" x="152" y="58">Punishment and narrative damage</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="7" x="152" y="72">Most common ending pattern</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" x="152" y="95">Coding, erasure, or indirectness</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="7" x="152" y="109">Open queer life remains rare</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="18" y="138">Course visualization based on Russo's historical analysis, not a formal dataset.</text>
 </svg>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">1936, Censored Version</div>
@@ -4595,19 +4748,19 @@ body.light #glossary .gl-search{
 <div class="scan-label">Why it matters</div>
 <div class="scan-text">Compassion stayed tied to destruction, not ordinary life.</div>
 </div></div><div class="module-main-layout reveal"><div class="module-copy"><p class="mod-text">For much of film history, <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">queerness</span> was allowed into visibility mainly through pain. Gay and lesbian characters were shown as burdened, ruined, or destroyed. Russo argues that tragedy became one of the most socially acceptable ways for mainstream movies to acknowledge homosexuality. If queer people could not be fully erased from the screen, they could still be framed as suffering. That pattern appears in films such as <em>The Children's Hour</em> and <em>Victim</em>, which are often praised for seriousness and sympathy, yet still rely on suffering as the main condition through which queer life becomes narratively acceptable.</p><p class="mod-text">In <em>The Children's Hour</em>, same-sex desire enters through accusation and public scandal. In <em>Victim</em>, visibility arrives through blackmail, fear, and exposure. Russo does not argue that <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">queer</span> films should never depict pain, because queer history includes real pain. The problem is repetition. When movies repeatedly link homosexuality to breakdown, shame, blackmail, and death, tragedy becomes the script that defines what a queer story is allowed to be. Straight audiences may even feel compassionate, but that compassion remains tied to destruction. Sympathy alone does not undo the pattern if queer life is still imaginable only through loss.</p><p class="mod-quote">"Sympathy is not liberation if compassion is granted only through destruction."</p><p class="mod-q">→ What kinds of queer stories disappear when tragedy becomes the most acceptable form of visibility?</p></div><div class="module-side"><div class="chart-box media-chart">
-<div class="chart-title">"Bury Your Gays", Queer Death Rates vs. Straight Characters</div>
-<svg preserveaspectratio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewbox="0 0 340 112" xmlns="http://www.w3.org/2000/svg">
-<text fill="rgba(210,204,194,.65)" font-family="monospace" font-size="8" x="10" y="18">Queer characters</text>
-<text fill="rgba(210,204,194,.65)" font-family="monospace" font-size="8" x="10" y="55">Straight characters</text>
-<!-- queer bar -->
-<rect fill="#e85d75" height="14" opacity=".8" rx="3" width="192" x="120" y="8"></rect>
-<text fill="rgba(232,96,117,.9)" font-family="serif" font-size="8.5" font-style="italic" x="317" y="19">65%</text>
-<!-- straight bar -->
-<rect fill="#34d399" height="14" opacity=".7" rx="3" width="74" x="120" y="44"></rect>
-<text fill="rgba(52,211,153,.9)" font-family="serif" font-size="8.5" font-style="italic" x="199" y="55">25%</text>
-<!-- divider -->
-<line stroke="rgba(31,41,55,.07)" stroke-width="1" x1="10" x2="330" y1="75" y2="75"></line>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="10" y="85">Rate of death or punishment by end of narrative. GLAAD Studio Responsibility Index, 2023.</text>
+<div class="chart-title">Narrative Endings, What Russo's Pattern Warns Against</div>
+<svg preserveAspectRatio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewBox="0 0 350 126" xmlns="http://www.w3.org/2000/svg">
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="16" y="20">Queer arcs in older mainstream patterns</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="16" y="63">More ordinary straight narrative endings</text>
+<rect fill="rgba(255,255,255,.06)" height="16" rx="4" width="205" x="120" y="8"></rect>
+<rect fill="#e85d75" height="16" opacity=".88" rx="4" width="158" x="120" y="8"></rect>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" x="126" y="20">punishment / death / social ruin appears disproportionately often</text>
+<rect fill="rgba(255,255,255,.06)" height="16" rx="4" width="205" x="120" y="50"></rect>
+<rect fill="#34d399" height="16" opacity=".8" rx="4" width="98" x="120" y="50"></rect>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" x="126" y="62">continuity, recovery, or open future more available</text>
+<line stroke="rgba(255,255,255,.08)" stroke-width="1" x1="16" x2="335" y1="82" y2="82"></line>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="16" y="95">Interpretive course comparison, included to explain Russo's critique rather than claim an official percentage.</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="16" y="106">The key idea is the pattern: queer characters are more often framed as narratively expendable.</text>
 </svg>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">Emotional Evidence</div>
@@ -4648,31 +4801,28 @@ body.light #glossary .gl-search{
 <div class="scan-label">Why it matters</div>
 <div class="scan-text">Repeated menace trained audiences to read queerness as risk.</div>
 </div></div><div class="module-main-layout reveal"><div class="module-copy"><p class="mod-text">Besides tragedy, menace became another major pattern in queer <span class="gt" data-def="The presence and portrayal of a group in media. Russo argues representation is not neutral, the way groups are depicted actively shapes public attitudes and self-perception within those communities." data-example="Example: Russo argues that repeated screen images train audiences to see some lives as ordinary and others as deviant." data-term="Representation">representation</span>. American films repeatedly connected homosexuality with danger, instability, or moral corruption. Russo argues that queer characters were often made visible not as ordinary people, but as figures who threatened the social order. Horror and crime genres were especially useful for this because they allowed filmmakers to suggest queer desire while surrounding it with fear.</p><p class="mod-text">An early example is <em>Dracula's Daughter</em>, where same-sex desire is pushed into the figure of the monster. Lesbian implication becomes charged, fascinating, and forbidden, but it is also framed as dangerous. <em>Cruising</em> offers a later version of the same pattern. By then homosexuality can be mentioned more openly, yet queer male spaces are still shown as dark, unstable, and threatening. Russo's larger point is that <span class="gt" data-def="The narrative pattern of making queer characters into antagonists, predators, or psychopaths, associating queerness with moral danger or deviance. One of Russo's most documented patterns." data-example="Example: Dracula's Daughter and Cruising turn queer desire into something dangerous or threatening." data-term="Villainization">villainization</span> serves as a cultural defense. A society uncomfortable with sexual difference can manage that discomfort by turning the queer figure into a warning sign. This pattern matters beyond the screen because repeated portrayals of queer people as threats make fear feel natural and exclusion feel justified.</p><p class="mod-quote">"Queerness became easiest to show when it could be made frightening."</p><p class="mod-q">→ How does repetition change the effect of a single villain when most ordinary queer lives are still missing from the screen?</p></div><div class="module-side"><div class="chart-box media-chart">
-<div class="chart-title">Villain Trope, Frequency by Era</div>
-<svg preserveaspectratio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewbox="0 0 340 122" xmlns="http://www.w3.org/2000/svg">
-<line stroke="rgba(255,255,255,.1)" stroke-width="1" x1="40" x2="320" y1="80" y2="80"></line>
-<line stroke="rgba(31,41,55,.07)" stroke-width="1" x1="40" x2="40" y1="80" y2="10"></line>
-<!-- bars -->
-<rect fill="#f59e0b" height="15" opacity=".6" rx="2" width="28" x="55" y="65"></rect>
-<rect fill="#e85d75" height="40" opacity=".8" rx="2" width="28" x="103" y="40"></rect>
-<rect fill="#e85d75" height="58" opacity=".95" rx="2" width="28" x="151" y="22"></rect>
-<rect fill="#f59e0b" height="30" opacity=".75" rx="2" width="28" x="199" y="50"></rect>
-<rect fill="#60a5fa" height="22" opacity=".7" rx="2" width="28" x="247" y="58"></rect>
-<rect fill="#34d399" height="16" opacity=".7" rx="2" width="28" x="295" y="64"></rect>
-<!-- % labels -->
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="69" y="62">22%</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="117" y="37">46%</text>
-<text fill="rgba(210,204,194,.9)" font-family="monospace" font-size="7" text-anchor="middle" x="165" y="19">58%</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="213" y="47">35%</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="261" y="55">26%</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="309" y="61">18%</text>
-<!-- era labels -->
-<text fill="rgba(153,143,136,.7)" font-family="monospace" font-size="6.5" text-anchor="middle" x="69" y="93">Pre-Code</text>
-<text fill="rgba(153,143,136,.7)" font-family="monospace" font-size="6.5" text-anchor="middle" x="117" y="93">Code</text>
-<text fill="rgba(153,143,136,.7)" font-family="monospace" font-size="6.5" text-anchor="middle" x="165" y="93">Post-Code</text>
-<text fill="rgba(153,143,136,.7)" font-family="monospace" font-size="6.5" text-anchor="middle" x="213" y="93">AIDS Era</text>
-<text fill="rgba(153,143,136,.7)" font-family="monospace" font-size="6.5" text-anchor="middle" x="261" y="93">2000s</text>
-<text fill="rgba(153,143,136,.7)" font-family="monospace" font-size="6.5" text-anchor="middle" x="309" y="93">Streaming</text>
+<div class="chart-title">Villain Coding Across Periods, Relative Prominence</div>
+<svg preserveAspectRatio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewBox="0 0 350 132" xmlns="http://www.w3.org/2000/svg">
+<line stroke="rgba(255,255,255,.1)" stroke-width="1" x1="38" x2="332" y1="88" y2="88"></line>
+<rect fill="#f59e0b" height="20" opacity=".72" rx="3" width="30" x="52" y="68"></rect>
+<rect fill="#e85d75" height="45" opacity=".84" rx="3" width="30" x="100" y="43"></rect>
+<rect fill="#e85d75" height="58" opacity=".92" rx="3" width="30" x="148" y="30"></rect>
+<rect fill="#f59e0b" height="34" opacity=".78" rx="3" width="30" x="196" y="54"></rect>
+<rect fill="#60a5fa" height="24" opacity=".75" rx="3" width="30" x="244" y="64"></rect>
+<rect fill="#34d399" height="18" opacity=".75" rx="3" width="30" x="292" y="70"></rect>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="67" y="63">low</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="115" y="38">high</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="163" y="25">peak</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="211" y="49">high</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="259" y="59">moderate</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7" text-anchor="middle" x="307" y="65">lower</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="67" y="102">Pre-Code</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="115" y="102">Code</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="163" y="102">Post-Code</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="211" y="102">AIDS era</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="259" y="102">2000s</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="307" y="102">Streaming</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="38" y="120">Relative prominence only, based on recurring screen patterns discussed in Russo and follow-up course readings.</text>
 </svg>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">Dracula's Daughter, Context Poster</div>
@@ -4721,18 +4871,22 @@ body.light #glossary .gl-search{
 <div class="scan-label">Why it matters</div>
 <div class="scan-text">Visibility through illness is still a conditional kind of recognition.</div>
 </div></div><div class="module-main-layout reveal"><div class="module-copy"><p class="mod-text">The AIDS crisis transformed queer visibility in American media. By the 1980s, homosexuality could no longer be censored in the same way it had been earlier. Illness and public fear pushed queer life into national attention. Russo argues, however, that this new visibility did not automatically produce fair <span class="gt" data-def="The presence and portrayal of a group in media. Russo argues representation is not neutral, the way groups are depicted actively shapes public attitudes and self-perception within those communities." data-example="Example: Russo argues that repeated screen images train audiences to see some lives as ordinary and others as deviant." data-term="Representation">representation</span>. Media responses to AIDS often mixed sympathy with distortion, allowing queer people to appear more openly while still framing them through crisis, fear, and heterosexual reassurance.</p><p class="mod-text">One of Russo's key examples is <em>An Early Frost</em>. It mattered because a gay man with AIDS became central to a mainstream television drama, which would have been much harder in earlier decades. Yet the emotional focus often shifts toward the straight family around him, whose grief and moral response shape the story. The gay character is visible, but his subjectivity is partly displaced. By contrast, films such as <em>Parting Glances</em> move closer to <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">queer</span>-centered emotional life, showing friendship, support, and community under pressure rather than turning gay existence into a crisis for outsiders. The AIDS era marked a real turning point, but visibility granted mainly through illness remained conditional and incomplete.</p><p class="mod-quote">"Visibility granted only through crisis is still a limited form of recognition."</p><p class="mod-q">→ Whose emotions dominate an AIDS-era film, and how does that choice change what the audience learns about queer life?</p></div><div class="module-side"><div class="chart-box media-chart">
-<div class="chart-title">AIDS Films in Mainstream Media, Tone Analysis (1985-1995)</div>
-<svg preserveaspectratio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewbox="0 0 320 102" xmlns="http://www.w3.org/2000/svg">
-<!-- stacked horizontal bars -->
-<text fill="rgba(210,204,194,.65)" font-family="monospace" font-size="8" x="10" y="20">Tragedy / Death-focused</text>
-<text fill="rgba(210,204,194,.65)" font-family="monospace" font-size="8" x="10" y="42">Mixed / Ambiguous</text>
-<text fill="rgba(210,204,194,.65)" font-family="monospace" font-size="8" x="10" y="64">Affirming / Humanizing</text>
-<rect fill="#e85d75" height="12" opacity=".8" rx="2" width="128" x="165" y="10"></rect>
-<text fill="rgba(232,96,117,.9)" font-family="monospace" font-size="8" x="297" y="20">71%</text>
-<rect fill="#f59e0b" height="12" opacity=".75" rx="2" width="48" x="165" y="32"></rect>
-<text fill="rgba(245,158,11,.9)" font-family="monospace" font-size="8" x="217" y="42">21%</text>
-<rect fill="#34d399" height="12" opacity=".7" rx="2" width="16" x="165" y="54"></rect>
-<text fill="rgba(52,211,153,.9)" font-family="monospace" font-size="8" x="185" y="64">8%</text>
+<div class="chart-title">AIDS-Era Mainstream Tone, Relative Emphasis</div>
+<svg preserveAspectRatio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewBox="0 0 340 118" xmlns="http://www.w3.org/2000/svg">
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="12" y="22">Tragedy / death-centered narratives</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="12" y="48">Mixed, cautious, or family-centered narratives</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="12" y="74">Affirming / community-centered narratives</text>
+<rect fill="rgba(255,255,255,.06)" height="12" rx="3" width="136" x="190" y="12"></rect>
+<rect fill="#e85d75" height="12" rx="3" width="120" x="190" y="12"></rect>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.2" x="192" y="22">dominant</text>
+<rect fill="rgba(255,255,255,.06)" height="12" rx="3" width="136" x="190" y="38"></rect>
+<rect fill="#f59e0b" height="12" rx="3" width="68" x="190" y="38"></rect>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.2" x="192" y="48">present</text>
+<rect fill="rgba(255,255,255,.06)" height="12" rx="3" width="136" x="190" y="64"></rect>
+<rect fill="#34d399" height="12" rx="3" width="28" x="190" y="64"></rect>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.2" x="192" y="74">limited</text>
+<line stroke="rgba(255,255,255,.08)" stroke-width="1" x1="12" x2="330" y1="90" y2="90"></line>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="12" y="104">Interpretive summary based on the pattern Russo identifies, not an official numerical dataset.</text>
 </svg>
 <p style="font-size:.67rem;color:var(--muted);margin-top:.3rem;">Based on Russo (1987) and Benshoff &amp; Griffin (2006) analysis of mainstream AIDS-era releases.</p>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
@@ -4849,22 +5003,19 @@ body.light #glossary .gl-search{
 <div class="scan-label">Why it matters</div>
 <div class="scan-text">The harder question is still what world the image is building.</div>
 </div></div><div class="module-main-layout reveal"><div class="module-copy"><p class="mod-text">Contemporary media looks very different from the world described in the earliest chapters of <em>The Celluloid Closet</em>. <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">Queer</span> characters are now much more visible, and streaming platforms have made queer stories more central, emotionally direct, and varied in genre and tone. Yet Russo's framework still matters because greater visibility does not automatically erase older patterns of distortion. The present is best understood through both progress and persistence.</p><p class="mod-text">A series such as <em>Heartstopper</em> shows real progress. Its <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">queer</span> characters are central, tender, and fully human without being reduced to scandal, comedy, or punishment. At the same time, texts such as <em>Disclosure</em> remind us that inclusion is not the same as justice, especially in trans representation. Streaming has widened the field and created room for more queer storytelling, but it has also increased the stakes because images now travel quickly and shape public feeling in real time. Russo's warning still applies: we should judge representation not only by whether queer people appear, but by how they appear, who gets dignity, and which identities remain shallow, conditional, or excluded.</p><p class="mod-quote">"More visible queer presence can look like success, but the harder question is what kind of world the screen is still building."</p><p class="mod-q">→ Which kinds of queer stories feel normal on streaming platforms today, and which ones still seem hardest for the industry to center?</p></div><div class="module-side"><div class="chart-box media-chart">
-<div class="chart-title">GLAAD Studio Responsibility, Progress vs. Persistence (2023)</div>
-<svg preserveaspectratio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewbox="0 0 360 132" xmlns="http://www.w3.org/2000/svg">
-<!-- radar-style grid -->
-<polygon fill="none" points="180,20 310,62 260,110 100,110 50,62" stroke="rgba(31,41,55,.06)" stroke-width="1"></polygon>
-<polygon fill="none" points="180,40 270,68 237,100 123,100 90,68" stroke="rgba(31,41,55,.06)" stroke-width="1"></polygon>
-<!-- data shape -->
-<polygon fill="rgba(212,168,67,.12)" points="180,48 258,75 230,98 130,98 102,75" stroke="rgba(212,168,67,.6)" stroke-width="1.5"></polygon>
-<!-- labels -->
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="middle" x="180" y="15">Visibility</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="start" x="330" y="66">Trans Rep.</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="middle" x="265" y="114">Protagonists</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="middle" x="95" y="114">POC leads</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="start" x="10" y="66">Depth</text>
-<!-- center label -->
-<text fill="rgba(212,168,67,.5)" font-family="monospace" font-size="8" text-anchor="middle" x="180" y="72">2023</text>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="180" y="82">GLAAD SRI</text>
+<div class="chart-title">Contemporary Representation, Key Areas to Watch</div>
+<svg preserveAspectRatio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewBox="0 0 360 138" xmlns="http://www.w3.org/2000/svg">
+<polygon fill="none" points="180,22 310,64 260,112 100,112 50,64" stroke="rgba(255,255,255,.08)" stroke-width="1"></polygon>
+<polygon fill="none" points="180,42 270,70 237,102 123,102 90,70" stroke="rgba(255,255,255,.08)" stroke-width="1"></polygon>
+<polygon fill="rgba(212,168,67,.10)" points="180,48 248,77 222,100 132,100 106,76" stroke="rgba(212,168,67,.62)" stroke-width="1.5"></polygon>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="middle" x="180" y="16">Visibility</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="start" x="327" y="68">Trans rep.</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="middle" x="265" y="116">Protagonists</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="middle" x="95" y="116">POC leads</text>
+<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="start" x="14" y="68">Narrative depth</text>
+<text fill="rgba(212,168,67,.68)" font-family="monospace" font-size="8" text-anchor="middle" x="180" y="74">course lens</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" text-anchor="middle" x="180" y="86">in dialogue with GLAAD concerns</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="40" y="132">Interpretive framework for discussion, not an official GLAAD scorecard graphic.</text>
 </svg>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">Heartstopper, Context Poster</div>
@@ -4878,7 +5029,7 @@ body.light #glossary .gl-search{
 </div><div class="img-block">
 <div class="img-role">Disclosure, Context Poster</div>
 <img alt="Disclosure (2020) poster" loading="lazy" src="M8/DisclosurePoster.jpg"/>
-<div class="img-cap">Disclosure (2020, Netflix): Laverne Cox's documentary examining how trans people have been represented throughout Hollywood history.</div>
+<div class="img-cap">Disclosure (2020, Netflix): Sam Feder's documentary featuring Laverne Cox examining how trans people have been represented throughout Hollywood history.</div>
 </div><div class="img-block">
 <div class="img-role">Analytical Evidence</div>
 <img alt="Disclosure interview still" loading="lazy" src="M8/DisclosureStill.jpg"/>
@@ -4957,29 +5108,29 @@ body.light #glossary .gl-search{
 <p class="slead">GLAAD's annual Studio Responsibility Index tracks LGBTQ representation in major Hollywood releases. Their data allows us to measure, decades later, whether the patterns Russo identified have shifted.</p>
 <div class="bar-grid" id="barGrid">
 <div class="bar-item reveal">
-<div class="bar-top"><span class="bar-label">Major studio releases including LGBTQ characters</span><span class="bar-pct" data-target="26">0%</span></div>
-<div class="bar-track"><div class="bar-fill" data-pct="26"></div></div>
-<div class="bar-note">Up from near zero in Russo's era, but still less than 1 in 3 major studio films.</div>
+<div class="bar-top"><span class="bar-label">Major-studio releases including LGBTQ characters</span><span class="bar-pct" data-target="28.5">0%</span></div>
+<div class="bar-track"><div class="bar-fill" data-pct="28.5"></div></div>
+<div class="bar-note">GLAAD's 2023 Studio Responsibility Index found 100 of 350 2022 releases, or 28.5%, were LGBTQ-inclusive.</div>
 </div>
 <div class="bar-item reveal">
-<div class="bar-top"><span class="bar-label">LGBTQ characters who are trans or non-binary</span><span class="bar-pct" data-target="18">0%</span></div>
-<div class="bar-track"><div class="bar-fill" data-pct="18"></div></div>
-<div class="bar-note">Trans people remain severely underrepresented on screen despite growing visibility conversations.</div>
+<div class="bar-top"><span class="bar-label">Films that included transgender characters</span><span class="bar-pct" data-target="3.4">0%</span></div>
+<div class="bar-track"><div class="bar-fill" data-pct="3.4"></div></div>
+<div class="bar-note">The same report counted 12 of 350 films with transgender characters, still a very small share of major releases.</div>
 </div>
 <div class="bar-item reveal">
-<div class="bar-top"><span class="bar-label">LGBTQ characters with under 3 minutes of screen time</span><span class="bar-pct" data-target="66">0%</span></div>
-<div class="bar-track"><div class="bar-fill" data-pct="66"></div></div>
-<div class="bar-note">Two thirds of all queer characters in major films are effectively cameos, present but not meaningfully developed.</div>
+<div class="bar-top"><span class="bar-label">LGBTQ characters with under 1 minute of screen time</span><span class="bar-pct" data-target="29">0%</span></div>
+<div class="bar-track"><div class="bar-fill" data-pct="29"></div></div>
+<div class="bar-note">GLAAD counted 86 of 292 LGBTQ characters, or 29%, with under one minute of screen time.</div>
 </div>
 <div class="bar-item reveal">
-<div class="bar-top"><span class="bar-label">Films with queer characters of color as leads</span><span class="bar-pct" data-target="12">0%</span></div>
-<div class="bar-track"><div class="bar-fill" data-pct="12"></div></div>
-<div class="bar-note">Queer representation remains disproportionately white, reflecting a persistent intersectional blind spot.</div>
+<div class="bar-top"><span class="bar-label">LGBTQ characters who were people of color</span><span class="bar-pct" data-target="40">0%</span></div>
+<div class="bar-track"><div class="bar-fill" data-pct="40"></div></div>
+<div class="bar-note">GLAAD reported that 117 of 292 LGBTQ characters, or 40%, were characters of color.</div>
 </div>
 </div>
 <div class="dyk reveal">
 <span class="dyk-icon">◈</span>
-<p class="dyk-text"><strong>Did you know?</strong> GLAAD has documented that in years where a "landmark" queer film wins major awards, overall studio representation of LGBTQ characters in other releases frequently decreases, as if studios treat one successful film as permission to ignore the rest of their slate.</p>
+<p class="dyk-text"><strong>Did you know?</strong> A single high-profile inclusive film does not automatically mean the wider studio slate is inclusive. GLAAD evaluates the full yearly pattern, not just one breakout title.</p>
 </div>
 <div class="pp-grid">
 <div class="pp-col pp-prog">
@@ -5239,9 +5390,14 @@ const barObs=new IntersectionObserver(es=>es.forEach(e=>{
  setTimeout(()=>{b.style.width=b.dataset.pct+'%';},100);
  });
  e.target.querySelectorAll('.bar-pct[data-target]').forEach(el=>{
- const target=parseInt(el.dataset.target);
+ const target=parseFloat(el.dataset.target);
  let cur=0; const dur=1200,steps=60,inc=target/steps;
- const t=setInterval(()=>{cur=Math.min(cur+inc,target);el.textContent=Math.round(cur)+'%';if(cur>=target)clearInterval(t);},dur/steps);
+ const t=setInterval(()=>{
+  cur=Math.min(cur+inc,target);
+  const isWhole=Math.abs(target-Math.round(target))<0.01;
+  el.textContent=(isWhole?Math.round(cur).toString():cur.toFixed(1))+'%';
+  if(cur>=target)clearInterval(t);
+ },dur/steps);
  });
  barObs.unobserve(e.target);
  }
@@ -5601,8 +5757,8 @@ const QS=[
  opts:["Widespread celebration as a milestone in visibility","Indifference, as the film was poorly distributed","Mass protests over its association of homosexuality with danger and deviance","A campaign to nominate it for Academy Awards"],
  ans:2,fb:"Cruising sparked major protests from the gay community, who argued that the film's linkage of homosexuality with serial killing and predatory behavior was harmful, particularly at a moment when the gay rights movement was fighting for public legitimacy."},
  {q:"According to GLAAD's recent Studio Responsibility Index, what percentage of major studio films included LGBTQ characters?",
- opts:["About 10%","About 26%","About 50%","About 60%"],
- ans:1,fb:"GLAAD reports that roughly 26% of major studio releases included LGBTQ characters, meaning nearly three quarters of Hollywood's output still features no queer representation at all."},
+ opts:["About 10%","About 28.5%","About 50%","About 60%"],
+ ans:1,fb:"GLAAD's 2023 Studio Responsibility Index reported that 100 of 350 2022 releases, or 28.5%, included LGBTQ characters. That still means well over two thirds of the tracked films were not LGBTQ-inclusive."},
  {q:"Russo's concept of 'subtext' in classic Hollywood refers to:",
  opts:["The written dialogue in a screenplay","Queer identity communicated indirectly through visual and behavioral cues, never explicitly named","The meaning of a film's title","The ending of a film that contradicts its opening premise"],
  ans:1,fb:"Subtext is meaning implied rather than stated. Under the Production Code, filmmakers could not name queerness, so they embedded it in costume, gesture, relationships, and reaction."},
@@ -5999,6 +6155,72 @@ document.addEventListener('DOMContentLoaded',()=>{
   } else {
     document.documentElement.classList.toggle('light-mode', document.body.classList.contains('light'));
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  // Clone glossary cards to remove older click handlers that were toggling twice
+  const cards = Array.from(document.querySelectorAll('#glossary .gl-card'));
+  cards.forEach(card=>{
+    const clone = card.cloneNode(true);
+    card.parentNode.replaceChild(clone, card);
+  });
+
+  function bindGlossaryCards(){
+    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+      card.setAttribute('tabindex','0');
+      card.setAttribute('role','button');
+      card.setAttribute('aria-label', 'Flip glossary card for ' + (card.dataset.term || 'term'));
+      card.addEventListener('click', function(e){
+        // glossary cards should only flip, never open popup
+        e.preventDefault();
+        e.stopPropagation();
+        this.classList.toggle('is-flipped');
+      });
+      card.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          e.stopPropagation();
+          this.classList.toggle('is-flipped');
+        }
+      });
+    });
+  }
+  bindGlossaryCards();
+
+  // Override search one more time using data attributes only
+  window.filterGlossary = function(val){
+    const v = (val || '').toLowerCase().trim();
+    let visible = 0;
+    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+      const text = [
+        card.dataset.term || '',
+        card.dataset.def || '',
+        card.dataset.example || ''
+      ].join(' ').toLowerCase();
+      const show = !v || text.includes(v);
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    const nr=document.getElementById('glNoResults');
+    if(nr) nr.style.display = visible === 0 ? 'block' : 'none';
+  };
+
+  // Ensure popup glossary terms outside glossary still work
+  document.querySelectorAll('.gt').forEach(el=>{
+    el.onclick = function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      if(window.openGT){
+        window.openGT(el.dataset.term, el.dataset.def, el.dataset.example || '');
+      }
+    };
+  });
+
+  // Theme sync
+  document.documentElement.classList.toggle('light-mode', document.body.classList.contains('light'));
 })();
 </script>
 
