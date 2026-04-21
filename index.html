@@ -4838,6 +4838,55 @@ body.light .hero-counters .hc-num{
   cursor:pointer;
 }
 
+
+/* ==== v24 glossary flip + module chart bounds ==== */
+#glossary .gl-grid{
+  position:relative;
+}
+#glossary .gl-card{
+  position:relative !important;
+  transform-style:preserve-3d !important;
+  -webkit-transform-style:preserve-3d !important;
+}
+#glossary .gl-flip{
+  position:relative !important;
+  transform-style:preserve-3d !important;
+  -webkit-transform-style:preserve-3d !important;
+  will-change:transform;
+}
+#glossary .gl-face,
+#glossary .gl-face *{
+  pointer-events:none !important;
+}
+#glossary .gl-card.is-flipped .gl-flip{
+  transform:rotateY(180deg) !important;
+}
+#glossary .gl-card:focus-visible{
+  outline:2px solid rgba(215,179,91,.45);
+  outline-offset:4px;
+}
+body.light #glossary .gl-card:focus-visible{
+  outline-color:rgba(184,136,46,.45);
+}
+
+/* keep all chart content inside module boxes */
+#modules .module-side .chart-box{
+  overflow:hidden !important;
+}
+#modules .module-side .chart-box svg{
+  width:100% !important;
+  height:auto !important;
+  display:block;
+  overflow:visible;
+}
+#modules .module-side .chart-box text{
+  font-size:7px !important;
+}
+#modules .module-side .chart-box .chart-title{
+  line-height:1.6;
+  max-width:100%;
+}
+
 </style>
 </head>
 <body>
@@ -5247,7 +5296,7 @@ body.light .hero-counters .hc-num{
 <text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="7" x="152" y="72">Most common ending pattern</text>
 <text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" x="152" y="95">Coding, erasure, or indirectness</text>
 <text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="7" x="152" y="109">Open queer life remains rare</text>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="18" y="138">Course visualization based on Russo's historical analysis, not a formal dataset.</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="18" y="138">Course visualization based on Russo's historical analysis.</text>
 </svg>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">1936, Censored Version</div>
@@ -5392,8 +5441,8 @@ body.light .hero-counters .hc-num{
 <rect fill="#34d399" height="16" opacity=".8" rx="4" width="98" x="120" y="50"></rect>
 <text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" x="126" y="62">continuity, recovery, or open future more available</text>
 <line stroke="rgba(255,255,255,.08)" stroke-width="1" x1="16" x2="335" y1="82" y2="82"></line>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="16" y="95">Interpretive course comparison, included to explain Russo's critique rather than claim an official percentage.</text>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="16" y="106">The key idea is the pattern: queer characters are more often framed as narratively expendable.</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="16" y="95">Interpretive teaching comparison, not an official percentage.</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="16" y="106">The point is the pattern, not a fixed dataset.</text>
 </svg>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">Emotional Evidence</div>
@@ -5455,7 +5504,7 @@ body.light .hero-counters .hc-num{
 <text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="211" y="102">AIDS era</text>
 <text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="259" y="102">2000s</text>
 <text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" text-anchor="middle" x="307" y="102">Streaming</text>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="38" y="120">Relative prominence only, based on recurring screen patterns discussed in Russo and follow-up course readings.</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="38" y="120">Relative prominence based on course reading patterns.</text>
 </svg>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">Dracula's Daughter, Context Poster</div>
@@ -5519,7 +5568,7 @@ body.light .hero-counters .hc-num{
 <rect fill="#34d399" height="12" rx="3" width="28" x="190" y="64"></rect>
 <text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.2" x="192" y="74">limited</text>
 <line stroke="rgba(255,255,255,.08)" stroke-width="1" x1="12" x2="330" y1="90" y2="90"></line>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="12" y="104">Interpretive summary based on the pattern Russo identifies, not an official numerical dataset.</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="12" y="104">Interpretive summary, not an official dataset.</text>
 </svg>
 <p style="font-size:.67rem;color:var(--muted);margin-top:.3rem;">Based on Russo (1987) and Benshoff &amp; Griffin (2006) analysis of mainstream AIDS-era releases.</p>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
@@ -5648,7 +5697,7 @@ body.light .hero-counters .hc-num{
 <text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" text-anchor="start" x="14" y="68">Narrative depth</text>
 <text fill="rgba(212,168,67,.68)" font-family="monospace" font-size="8" text-anchor="middle" x="180" y="74">course lens</text>
 <text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" text-anchor="middle" x="180" y="86">in dialogue with GLAAD concerns</text>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="40" y="132">Interpretive framework for discussion, not an official GLAAD scorecard graphic.</text>
+<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="40" y="132">Interpretive framework, not an official GLAAD graphic.</text>
 </svg>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">Heartstopper, Context Poster</div>
@@ -7630,6 +7679,69 @@ document.addEventListener('DOMContentLoaded',()=>{
     initSite();
   }
   setTimeout(initSite, 150);
+})();
+</script>
+
+
+<script>
+(function(){
+  // Delegated glossary flip so clicking anywhere on a card always flips it
+  function initGlossaryFlipFix(){
+    const grid = document.querySelector('#glossary .gl-grid');
+    if(!grid) return;
+    if(grid.dataset.flipFixBound === '1') return;
+    grid.dataset.flipFixBound = '1';
+
+    grid.addEventListener('click', function(ev){
+      const card = ev.target.closest('.gl-card');
+      if(!card) return;
+      ev.preventDefault();
+      card.classList.toggle('is-flipped');
+    });
+
+    grid.addEventListener('keydown', function(ev){
+      const card = ev.target.closest('.gl-card');
+      if(!card) return;
+      if(ev.key === 'Enter' || ev.key === ' '){
+        ev.preventDefault();
+        card.classList.toggle('is-flipped');
+      }
+    });
+
+    grid.querySelectorAll('.gl-card').forEach(card=>{
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', 'Flip glossary card for ' + (card.dataset.term || 'term'));
+    });
+  }
+
+  // Tighten chart text so footnotes stay inside module cards
+  function normalizeModuleCharts(){
+    document.querySelectorAll('#modules .module-side .chart-box svg').forEach(svg=>{
+      svg.querySelectorAll('text').forEach(t=>{
+        const txt = (t.textContent || '').trim();
+        if(txt.length > 42){
+          t.setAttribute('font-size', '5.8');
+        }else if(txt.length > 30){
+          t.setAttribute('font-size', '6.4');
+        }else{
+          t.setAttribute('font-size', '7');
+        }
+      });
+    });
+  }
+
+  function initV24(){
+    initGlossaryFlipFix();
+    normalizeModuleCharts();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initV24);
+  }else{
+    initV24();
+  }
+  setTimeout(initV24, 150);
 })();
 </script>
 
