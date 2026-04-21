@@ -4887,6 +4887,84 @@ body.light #glossary .gl-card:focus-visible{
   max-width:100%;
 }
 
+
+/* ==== v25 glossary absolute flip + module chart cleanup ==== */
+
+/* Make glossary cards truly flippable */
+#glossary .gl-card{
+  position:relative !important;
+  perspective:1600px !important;
+  -webkit-perspective:1600px !important;
+  isolation:isolate;
+}
+#glossary .gl-flip{
+  position:relative !important;
+  width:100% !important;
+  min-height:250px !important;
+  transform-style:preserve-3d !important;
+  -webkit-transform-style:preserve-3d !important;
+  transition:transform .72s cubic-bezier(.2,.7,.2,1) !important;
+  pointer-events:none;
+}
+#glossary .gl-front,
+#glossary .gl-back{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  backface-visibility:hidden !important;
+  -webkit-backface-visibility:hidden !important;
+  transform-style:preserve-3d !important;
+}
+#glossary .gl-front{transform:rotateY(0deg) !important;}
+#glossary .gl-back{transform:rotateY(180deg) !important;}
+#glossary .gl-card.is-flipped .gl-flip{
+  transform:rotateY(180deg) !important;
+}
+#glossary .gl-card,
+#glossary .gl-card *{
+  -webkit-tap-highlight-color: transparent;
+}
+#glossary .gl-card::after{
+  content:'Click to flip' !important;
+}
+#glossary .gl-card .gl-face{
+  min-height:250px !important;
+}
+#glossary .gl-card .gl-face-example{
+  font-size:.8rem !important;
+}
+
+/* Module chart fixes */
+#modules .module-side .chart-box{
+  overflow:hidden !important;
+  padding:1rem .95rem 1rem !important;
+}
+#modules .module-side .chart-box svg{
+  width:100% !important;
+  height:auto !important;
+  display:block !important;
+}
+#modules .module-side .chart-box text{
+  font-size:6.2px !important;
+}
+#modules .module-side .chart-box .chart-title{
+  font-size:.5rem !important;
+  letter-spacing:.15em !important;
+  line-height:1.5 !important;
+  max-width:100% !important;
+}
+#modules .module-side .chart-box .chart-note,
+#modules .module-side .chart-box p{
+  font-size:.68rem !important;
+  line-height:1.45 !important;
+  max-width:100% !important;
+  overflow-wrap:anywhere;
+}
+body.light #modules .module-side .chart-box text{
+  fill:#4a5d77 !important;
+}
+
 </style>
 </head>
 <body>
@@ -7683,65 +7761,73 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 
 
+
+
+
 <script>
 (function(){
-  // Delegated glossary flip so clicking anywhere on a card always flips it
-  function initGlossaryFlipFix(){
-    const grid = document.querySelector('#glossary .gl-grid');
-    if(!grid) return;
-    if(grid.dataset.flipFixBound === '1') return;
-    grid.dataset.flipFixBound = '1';
-
-    grid.addEventListener('click', function(ev){
-      const card = ev.target.closest('.gl-card');
-      if(!card) return;
-      ev.preventDefault();
-      card.classList.toggle('is-flipped');
-    });
-
-    grid.addEventListener('keydown', function(ev){
-      const card = ev.target.closest('.gl-card');
-      if(!card) return;
-      if(ev.key === 'Enter' || ev.key === ' '){
-        ev.preventDefault();
-        card.classList.toggle('is-flipped');
-      }
-    });
-
-    grid.querySelectorAll('.gl-card').forEach(card=>{
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'button');
+  // Hard bind glossary flipping directly to each card
+  function bindGlossaryCardsHard(){
+    const cards = document.querySelectorAll('#glossary .gl-card');
+    cards.forEach(card=>{
+      card.classList.add('visible');
+      card.style.display = '';
+      card.style.opacity = '1';
+      card.style.visibility = 'visible';
+      card.style.transform = 'none';
+      card.setAttribute('tabindex','0');
+      card.setAttribute('role','button');
       card.setAttribute('aria-label', 'Flip glossary card for ' + (card.dataset.term || 'term'));
+      // Replace node to clear all old listeners
+      const clone = card.cloneNode(true);
+      card.parentNode.replaceChild(clone, card);
+    });
+
+    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+      card.onclick = function(ev){
+        ev.preventDefault();
+        ev.stopPropagation();
+        this.classList.toggle('is-flipped');
+        return false;
+      };
+      card.onkeydown = function(ev){
+        if(ev.key === 'Enter' || ev.key === ' '){
+          ev.preventDefault();
+          ev.stopPropagation();
+          this.classList.toggle('is-flipped');
+          return false;
+        }
+      };
     });
   }
 
-  // Tighten chart text so footnotes stay inside module cards
-  function normalizeModuleCharts(){
+  // Tighten all module charts again
+  function normalizeChartsHard(){
     document.querySelectorAll('#modules .module-side .chart-box svg').forEach(svg=>{
       svg.querySelectorAll('text').forEach(t=>{
         const txt = (t.textContent || '').trim();
-        if(txt.length > 42){
-          t.setAttribute('font-size', '5.8');
-        }else if(txt.length > 30){
-          t.setAttribute('font-size', '6.4');
+        if(txt.length > 34){
+          t.setAttribute('font-size', '5.4');
+        }else if(txt.length > 22){
+          t.setAttribute('font-size', '5.9');
         }else{
-          t.setAttribute('font-size', '7');
+          t.setAttribute('font-size', '6.2');
         }
       });
     });
   }
 
-  function initV24(){
-    initGlossaryFlipFix();
-    normalizeModuleCharts();
+  function initV25(){
+    bindGlossaryCardsHard();
+    normalizeChartsHard();
   }
 
   if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initV24);
+    document.addEventListener('DOMContentLoaded', initV25);
   }else{
-    initV24();
+    initV25();
   }
-  setTimeout(initV24, 150);
+  setTimeout(initV25, 180);
 })();
 </script>
 
