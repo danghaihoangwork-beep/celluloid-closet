@@ -4565,6 +4565,279 @@ body.light #glossary .gl-face-example{
   #glossary .gl-face{min-height:230px !important;}
 }
 
+
+/* ==== v17 module accordion fix ==== */
+.mod-item > .mod-body{
+  display:none !important;
+}
+.mod-item.open > .mod-body{
+  display:block !important;
+}
+.mod-header{
+  cursor:pointer !important;
+}
+.mod-header *{
+  pointer-events:none;
+}
+
+
+/* ==== v18 module content + hero stats restore ==== */
+.mod-item.open .reveal,
+.mod-item.open .scan-card,
+.mod-item.open .module-main-layout,
+.mod-item.open .module-image-row{
+  opacity:1 !important;
+  transform:none !important;
+  visibility:visible !important;
+}
+.hero-counters .hc-num{
+  min-width:1.5ch;
+}
+
+
+/* ==== v19 inline glossary popup restore ==== */
+.gt{
+  border-bottom:1px dashed rgba(215,179,91,.42);
+  color:var(--accent);
+  cursor:pointer;
+  transition:color .2s ease, box-shadow .2s ease, border-color .2s ease;
+  box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;
+}
+.gt:hover,
+.gt:focus{
+  color:var(--accent-2);
+  border-bottom-color:rgba(215,179,91,.72);
+  outline:none;
+  box-shadow:0 0 0 4px rgba(215,179,91,.06);
+}
+.gt-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(8,13,24,.58);
+  backdrop-filter:blur(8px);
+  z-index:1998;
+  display:none;
+}
+.gt-backdrop.show{
+  display:block;
+}
+.gt-pop{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:min(560px,92vw);
+  max-height:min(76vh,680px);
+  overflow:auto;
+  display:none;
+  background:
+    radial-gradient(circle at top right, rgba(215,179,91,.10), transparent 34%),
+    linear-gradient(180deg, rgba(36,50,75,.98) 0%, rgba(22,32,51,.98) 100%);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:24px;
+  padding:1.2rem 1.2rem 1.1rem;
+  box-shadow:0 26px 70px rgba(0,0,0,.36);
+  z-index:2000;
+}
+.gt-pop.show{
+  display:block;
+}
+.gt-term{
+  font-family:var(--serif);
+  font-size:1.7rem;
+  font-style:italic;
+  color:var(--accent);
+  margin-bottom:.55rem;
+  padding-right:2rem;
+}
+.gt-def{
+  font-size:.98rem;
+  line-height:1.82;
+  color:var(--text-soft);
+}
+.gt-example{
+  margin-top:.95rem;
+  padding:.9rem .95rem;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border-left:3px solid rgba(215,179,91,.9);
+  color:var(--text-soft);
+  font-size:.86rem;
+  line-height:1.74;
+}
+.gt-close{
+  position:absolute;
+  top:.85rem;
+  right:.95rem;
+  width:34px;
+  height:34px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  color:var(--text-muted);
+  cursor:pointer;
+}
+.gt-close:hover{
+  color:var(--accent);
+  border-color:rgba(215,179,91,.18);
+  background:rgba(215,179,91,.08);
+}
+body.light .gt{
+  color:#8c6725;
+  border-bottom-color:rgba(140,103,37,.34);
+}
+body.light .gt:hover,
+body.light .gt:focus{
+  color:#6f4f1d;
+  border-bottom-color:rgba(140,103,37,.6);
+}
+body.light .gt-backdrop{
+  background:rgba(240,239,235,.55);
+}
+body.light .gt-pop{
+  background:
+    radial-gradient(circle at top right, rgba(184,136,46,.05), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(243,246,251,.99) 100%) !important;
+  border-color:rgba(25,37,57,.10) !important;
+  box-shadow:0 18px 36px rgba(20,30,48,.10) !important;
+}
+body.light .gt-term{
+  color:#b8882e !important;
+}
+body.light .gt-def{
+  color:#4f627c !important;
+}
+body.light .gt-example{
+  color:#62748d !important;
+  background:rgba(255,255,255,.7) !important;
+  border-left-color:#b8882e !important;
+}
+body.light .gt-close{
+  background:white !important;
+  color:#6d7e94 !important;
+  border-color:rgba(25,37,57,.10) !important;
+}
+
+
+/* ==== v20 restore quiz + GLAAD bars ==== */
+.glaad-source-card{
+  margin:1rem 0 1.35rem;
+  padding:1rem 1.05rem;
+  border-radius:18px;
+  background:
+    radial-gradient(circle at top right, rgba(215,179,91,.08), transparent 34%),
+    linear-gradient(180deg, rgba(33,46,71,.98) 0%, rgba(22,32,51,.98) 100%);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 12px 24px rgba(0,0,0,.18);
+}
+.glaad-source-kicker{
+  font-family:var(--mono);
+  font-size:.54rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:.45rem;
+}
+.glaad-source-text{
+  color:var(--text-soft);
+  font-size:.88rem;
+  line-height:1.72;
+}
+.bar-fill{
+  width:0%;
+  transition:width 1.1s ease;
+}
+body.light .glaad-source-card{
+  background:
+    radial-gradient(circle at top right, rgba(184,136,46,.05), transparent 34%),
+    linear-gradient(180deg, rgba(255,255,255,.98) 0%, rgba(243,246,251,.99) 100%) !important;
+  border-color:rgba(25,37,57,.10) !important;
+  box-shadow:0 14px 26px rgba(20,30,48,.07) !important;
+}
+body.light .glaad-source-kicker{
+  color:#b8882e !important;
+}
+body.light .glaad-source-text{
+  color:#50627b !important;
+}
+
+
+/* ==== v21 utility + logo patch ==== */
+.site-brand{
+  display:inline-flex !important;
+  align-items:center;
+  gap:.7rem;
+}
+.uga-logo{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+  border-radius:8px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  padding:.18rem;
+  box-shadow:0 6px 16px rgba(0,0,0,.14);
+}
+body.light .uga-logo{
+  background:rgba(255,255,255,.95);
+  border-color:rgba(25,37,57,.10);
+  box-shadow:0 8px 18px rgba(20,30,48,.06);
+}
+
+
+/* ==== v22 stability patch ==== */
+.hero-counters .hc-num{
+  color:var(--accent) !important;
+  opacity:1 !important;
+}
+.hero-counters .hc{
+  min-width:106px;
+}
+.bar-fill{
+  min-width:0;
+}
+#qzQ:empty::before{
+  content:'Loading quiz...';
+  color:var(--text-soft);
+}
+body.light .hero-counters .hc-num{
+  color:#b8882e !important;
+}
+
+
+/* ==== v23 global stability pass ==== */
+.reveal{
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+}
+.tl-item{
+  opacity:1 !important;
+  transform:none !important;
+}
+.hero-counters .hc-num{
+  opacity:1 !important;
+}
+.qz-opt{
+  display:block !important;
+}
+.mob-nav.open{
+  display:block !important;
+}
+.gt,
+.gl-card,
+.mod-header,
+.atlas-card,
+.img-block img,
+.fb,
+.qdot,
+.quote-cpbtn,
+#themeToggle,
+#hbg{
+  cursor:pointer;
+}
+
 </style>
 </head>
 <body>
@@ -4585,7 +4858,7 @@ body.light #glossary .gl-face-example{
 <!-- NAV -->
 <nav>
 <div class="nav-wrap">
-<a class="logo" href="#top">The Celluloid Closet</a>
+<a class="logo site-brand" href="#top"><img class="uga-logo" src="uga-logo.png" alt="UGA logo" onerror="this.style.display='none'"/><span>The Celluloid Closet</span></a>
 <ul class="nav-links">
 <li><a data-section="about" href="#about">About</a></li>
 <li><a data-section="timeline" href="#timeline">Timeline</a></li>
@@ -4593,8 +4866,8 @@ body.light #glossary .gl-face-example{
 <li><a data-section="modules" href="#modules">Modules</a></li>
 <li><a data-section="media" href="#media">Media</a></li>
 <li><a data-section="glossary" href="#glossary">Glossary</a></li>
-<li><a data-section="tropefreq" href="#tropefreq">Charts</a></li>
-<li><a data-section="discussion" href="#discussion">Discuss</a></li>
+<li><a data-section="glaad" href="#glaad">Charts</a></li>
+<li><a data-section="analyze" href="#analyze">Discuss</a></li>
 <li><a data-section="glaad" href="#glaad">GLAAD</a></li>
 <li><a data-section="counter" href="#counter">Counter</a></li>
 <li><a data-section="analyze" href="#analyze">Analyze</a></li>
@@ -4616,8 +4889,8 @@ body.light #glossary .gl-face-example{
 <a href="#modules" onclick="closeMob()">8 Modules</a>
 <a href="#media" onclick="closeMob()">Media</a>
 <a href="#glossary" onclick="closeMob()">Glossary</a>
-<a href="#tropefreq" onclick="closeMob()">Trope Chart</a>
-<a href="#discussion" onclick="closeMob()">Discussion</a>
+<a href="#glaad" onclick="closeMob()">Charts</a>
+<a href="#analyze" onclick="closeMob()">Discuss</a>
 <a href="#glaad" onclick="closeMob()">GLAAD Data</a>
 <a href="#counter" onclick="closeMob()">Counter-Narratives</a>
 <a href="#analyze" onclick="closeMob()">Analyze a Film</a>
@@ -4635,10 +4908,10 @@ body.light #glossary .gl-face-example{
 <p class="hero-sub">How Hollywood constructed, censored, and coded queer communities across a century of American cinema, which Vito Russo examines in his foundational analysis.</p>
 <div class="hero-byline">Dang Hoang  ·  Tom Mai  ·  Nguyen Bao Anh Le</div>
 <div class="hero-counters">
-<div class="hc"><div class="hc-num" data-count="8">0</div><div class="hc-lbl">Modules</div></div>
-<div class="hc"><div class="hc-num" data-count="100">0</div><div class="hc-lbl">Years of Film</div></div>
-<div class="hc"><div class="hc-num" data-count="6">0</div><div class="hc-lbl">Case Studies</div></div>
-<div class="hc"><div class="hc-num" data-count="4">0</div><div class="hc-lbl">Core Tropes</div></div>
+<div class="hc"><div class="hc-num" data-count="8">8</div><div class="hc-lbl">Modules</div></div>
+<div class="hc"><div class="hc-num" data-count="100">100</div><div class="hc-lbl">Years of Film</div></div>
+<div class="hc"><div class="hc-num" data-count="6">6</div><div class="hc-lbl">Case Studies</div></div>
+<div class="hc"><div class="hc-num" data-count="4">4</div><div class="hc-lbl">Core Tropes</div></div>
 </div>
 <div class="hero-cta">
 <a class="cta-main" href="#modules">↓ Explore the Modules</a>
@@ -5466,25 +5739,35 @@ body.light #glossary .gl-face-example{
 <h2 class="stitle">GLAAD Data: What Has Changed?</h2>
 <div class="divider"></div>
 <p class="slead">GLAAD's annual Studio Responsibility Index tracks LGBTQ representation in major Hollywood releases. Their data allows us to measure, decades later, whether the patterns Russo identified have shifted.</p>
+
+<div class="glaad-source-card reveal">
+  <div class="glaad-source-kicker">Dataset basis</div>
+  <div class="glaad-source-text">
+    This section uses figures from GLAAD's 2023 Studio Responsibility Index, which reviewed 350 major-studio releases from 2022.
+    The numbers shown here summarize the official report: 100 of 350 films were LGBTQ-inclusive, 12 of 350 films included transgender characters,
+    86 of 292 LGBTQ characters had under one minute of screen time, and 117 of 292 LGBTQ characters were people of color.
+  </div>
+</div>
+
 <div class="bar-grid" id="barGrid">
 <div class="bar-item reveal">
-<div class="bar-top"><span class="bar-label">Major-studio releases including LGBTQ characters</span><span class="bar-pct" data-target="28.5">0%</span></div>
-<div class="bar-track"><div class="bar-fill" data-pct="28.5"></div></div>
+<div class="bar-top"><span class="bar-label">Major-studio releases including LGBTQ characters</span><span class="bar-pct" data-target="28.5">28.5%</span></div>
+<div class="bar-track"><div class="bar-fill" data-pct="28.5" style="width:28.5%"></div></div>
 <div class="bar-note">GLAAD's 2023 Studio Responsibility Index found 100 of 350 2022 releases, or 28.5%, were LGBTQ-inclusive.</div>
 </div>
 <div class="bar-item reveal">
-<div class="bar-top"><span class="bar-label">Films that included transgender characters</span><span class="bar-pct" data-target="3.4">0%</span></div>
-<div class="bar-track"><div class="bar-fill" data-pct="3.4"></div></div>
+<div class="bar-top"><span class="bar-label">Films that included transgender characters</span><span class="bar-pct" data-target="3.4">3.4%</span></div>
+<div class="bar-track"><div class="bar-fill" data-pct="3.4" style="width:3.4%"></div></div>
 <div class="bar-note">The same report counted 12 of 350 films with transgender characters, still a very small share of major releases.</div>
 </div>
 <div class="bar-item reveal">
-<div class="bar-top"><span class="bar-label">LGBTQ characters with under 1 minute of screen time</span><span class="bar-pct" data-target="29">0%</span></div>
-<div class="bar-track"><div class="bar-fill" data-pct="29"></div></div>
+<div class="bar-top"><span class="bar-label">LGBTQ characters with under 1 minute of screen time</span><span class="bar-pct" data-target="29">29%</span></div>
+<div class="bar-track"><div class="bar-fill" data-pct="29" style="width:29%"></div></div>
 <div class="bar-note">GLAAD counted 86 of 292 LGBTQ characters, or 29%, with under one minute of screen time.</div>
 </div>
 <div class="bar-item reveal">
-<div class="bar-top"><span class="bar-label">LGBTQ characters who were people of color</span><span class="bar-pct" data-target="40">0%</span></div>
-<div class="bar-track"><div class="bar-fill" data-pct="40"></div></div>
+<div class="bar-top"><span class="bar-label">LGBTQ characters who were people of color</span><span class="bar-pct" data-target="40">40%</span></div>
+<div class="bar-track"><div class="bar-fill" data-pct="40" style="width:40%"></div></div>
 <div class="bar-note">GLAAD reported that 117 of 292 LGBTQ characters, or 40%, were characters of color.</div>
 </div>
 </div>
@@ -5503,7 +5786,7 @@ body.light #glossary .gl-face-example{
 <div class="pp-col pp-persist">
 <div class="pp-head">What Still Persists</div>
 <div class="pp-item">Queer characters still die at disproportionate rates in major narratives ("Bury Your Gays")</div>
-<div class="pp-item">Trans representation remains near zero in major studio releases</div>
+<div class="pp-item">Trans representation remains rare in major studio releases</div>
 <div class="pp-item">LGBTQ characters of color remain significantly underrepresented</div>
 <div class="pp-item">Many LGBTQ inclusions are token, brief appearances with no narrative depth or consequence</div>
 </div>
@@ -5560,8 +5843,13 @@ body.light #glossary .gl-face-example{
 <div class="qz-card">
 <div class="qz-progress"><div class="qz-progress-fill" id="qzProg"></div></div>
 <div class="qz-ctr" id="qzCtr">Question 1 of 8</div>
-<div class="qz-q" id="qzQ"></div>
-<div class="qz-opts" id="qzOpts"></div>
+<div class="qz-q" id="qzQ">What did Vito Russo argue was Hollywood's primary role in shaping attitudes toward queer communities?</div>
+<div class="qz-opts" id="qzOpts">
+<button class="qz-opt" type="button">Passively reflecting pre-existing public attitudes</button>
+<button class="qz-opt" type="button">Actively constructing and normalizing stigma through narrative choices</button>
+<button class="qz-opt" type="button">Promoting queer liberation through coded representation</button>
+<button class="qz-opt" type="button">Ignoring queer communities entirely</button>
+</div>
 <div class="qz-fb" id="qzFb"></div>
 <div class="qz-nav"><button class="qz-btn" id="nextBtn" onclick="nextQ()" style="display:none;">Next →</button></div>
 <div id="qzScore"></div>
@@ -5822,6 +6110,1526 @@ document.addEventListener('DOMContentLoaded',()=>{
     initGlossary();
   }
   setTimeout(initGlossary, 120);
+})();
+</script>
+
+
+<script>
+(function(){
+  const MODULE_STORAGE_KEY = 'cc_modules_read_v17';
+
+  function getReadModules(){
+    try{
+      const raw = JSON.parse(localStorage.getItem(MODULE_STORAGE_KEY) || '[]');
+      return new Set(
+        (Array.isArray(raw) ? raw : [])
+          .map(v => String(v).padStart(2,'0'))
+          .filter(v => /^0[1-8]$/.test(v))
+      );
+    }catch(e){
+      return new Set();
+    }
+  }
+
+  function saveReadModules(set){
+    localStorage.setItem(MODULE_STORAGE_KEY, JSON.stringify([...set].sort()));
+  }
+
+  window.updateModPill = function(){
+    const read = getReadModules();
+    const count = Math.min(read.size, 8);
+    const pillText = document.getElementById('modPillText');
+    const pillFill = document.getElementById('modPillFill');
+    const topCounter = document.querySelector('.modules-counter');
+    if(pillText){ pillText.textContent = count + ' / 8 modules read'; }
+    if(pillFill){ pillFill.style.width = ((count/8)*100) + '%'; }
+    if(topCounter){ topCounter.textContent = count + ' / 8 read'; }
+  };
+
+  window.updateAtlasStates = function(){
+    const read = getReadModules();
+    document.querySelectorAll('.atlas-card').forEach(card=>{
+      const target = card.getAttribute('data-target');
+      const item = target ? document.getElementById(target) : null;
+      const num = target ? target.replace('modItem','') : '';
+      card.classList.toggle('is-open', !!(item && item.classList.contains('open')));
+      card.classList.toggle('is-read', read.has(num));
+    });
+  };
+
+  window.toggleMod = function(headerEl){
+    const item = headerEl && headerEl.closest ? headerEl.closest('.mod-item') : null;
+    if(!item) return;
+
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.mod-item.open').forEach(openItem=>{
+      if(openItem !== item){
+        openItem.classList.remove('open');
+      }
+    });
+
+    if(isOpen){
+      item.classList.remove('open');
+    }else{
+      item.classList.add('open');
+      const num = item.id.replace('modItem','');
+      const read = getReadModules();
+      read.add(num);
+      saveReadModules(read);
+    }
+
+    updateAtlasStates();
+    updateModPill();
+  };
+
+  window.openModuleById = function(id){
+    const item = document.getElementById(id);
+    if(!item) return;
+    const alreadyOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.mod-item.open').forEach(openItem=>{
+      if(openItem !== item){
+        openItem.classList.remove('open');
+      }
+    });
+
+    if(!alreadyOpen){
+      item.classList.add('open');
+      const num = id.replace('modItem','');
+      const read = getReadModules();
+      read.add(num);
+      saveReadModules(read);
+    }
+
+    updateAtlasStates();
+    updateModPill();
+
+    item.scrollIntoView({behavior:'smooth', block:'start'});
+  };
+
+  function initModules(){
+    document.querySelectorAll('.mod-item').forEach((item, index)=>{
+      if(index === 0 && !document.querySelector('.mod-item.open')){
+        item.classList.add('open');
+      }
+    });
+    updateAtlasStates();
+    updateModPill();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initModules);
+  }else{
+    initModules();
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  // Restore reveal behavior
+  function markVisibleInOpenModules(){
+    document.querySelectorAll('.mod-item.open .reveal').forEach(el=>{
+      el.classList.add('visible');
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      el.style.visibility = 'visible';
+    });
+  }
+
+  function initRevealObserver(){
+    const targets = document.querySelectorAll('.reveal, .tl-item');
+    if(!targets.length) return;
+
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {threshold:0.08});
+
+    targets.forEach(el=>obs.observe(el));
+    markVisibleInOpenModules();
+  }
+
+  // Restore hero counter animation / values
+  function animateHeroCounters(){
+    document.querySelectorAll('.hero-counters .hc-num[data-count]').forEach(el=>{
+      if(el.dataset.doneCount === '1') return;
+      const target = parseInt(el.dataset.count || '0', 10);
+      if(Number.isNaN(target)) return;
+      let current = 0;
+      const duration = 900;
+      const steps = 45;
+      const inc = target / steps;
+      el.textContent = '0';
+      const timer = setInterval(()=>{
+        current = Math.min(current + inc, target);
+        el.textContent = String(Math.round(current));
+        if(current >= target){
+          clearInterval(timer);
+          el.textContent = String(target);
+          el.dataset.doneCount = '1';
+        }
+      }, duration / steps);
+    });
+  }
+
+  // Patch module open so content is visible immediately
+  const oldToggle = window.toggleMod;
+  if(typeof oldToggle === 'function'){
+    window.toggleMod = function(headerEl){
+      oldToggle(headerEl);
+      markVisibleInOpenModules();
+    };
+  }
+
+  const oldOpenById = window.openModuleById;
+  if(typeof oldOpenById === 'function'){
+    window.openModuleById = function(id){
+      oldOpenById(id);
+      markVisibleInOpenModules();
+    };
+  }
+
+  function initV18(){
+    initRevealObserver();
+    animateHeroCounters();
+    markVisibleInOpenModules();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initV18);
+  } else {
+    initV18();
+  }
+  setTimeout(initV18, 120);
+})();
+</script>
+
+
+<script>
+(function(){
+  function ensureGlossaryPopup(){
+    let backdrop = document.getElementById('gtBackdrop');
+    let pop = document.getElementById('gtPop');
+    if(!backdrop){
+      backdrop = document.createElement('div');
+      backdrop.id = 'gtBackdrop';
+      backdrop.className = 'gt-backdrop';
+      document.body.appendChild(backdrop);
+    }
+    if(!pop){
+      pop = document.createElement('div');
+      pop.id = 'gtPop';
+      pop.className = 'gt-pop';
+      pop.setAttribute('role','dialog');
+      pop.setAttribute('aria-modal','true');
+      pop.innerHTML = '<button class="gt-close" type="button">✕</button><div class="gt-term" id="gtTerm"></div><div class="gt-def" id="gtDef"></div><div class="gt-example" id="gtExample"></div>';
+      document.body.appendChild(pop);
+    }
+    const closeBtn = pop.querySelector('.gt-close');
+    function closeGT(){
+      backdrop.classList.remove('show');
+      pop.classList.remove('show');
+    }
+    window.closeGT = closeGT;
+    window.openGT = function(term, def, example){
+      const t = pop.querySelector('#gtTerm');
+      const d = pop.querySelector('#gtDef');
+      const e = pop.querySelector('#gtExample');
+      if(t) t.textContent = term || '';
+      if(d) d.textContent = def || '';
+      if(e){
+        if(example){
+          e.textContent = example;
+          e.style.display = 'block';
+        }else{
+          e.textContent = '';
+          e.style.display = 'none';
+        }
+      }
+      backdrop.classList.add('show');
+      pop.classList.add('show');
+    };
+    backdrop.onclick = closeGT;
+    if(closeBtn) closeBtn.onclick = closeGT;
+    document.addEventListener('keydown', function(ev){
+      if(ev.key === 'Escape' && pop.classList.contains('show')){
+        closeGT();
+      }
+    });
+  }
+
+  function bindInlineGlossaryTerms(){
+    document.querySelectorAll('.gt').forEach(el=>{
+      el.setAttribute('tabindex','0');
+      el.setAttribute('role','button');
+      el.onclick = function(ev){
+        ev.preventDefault();
+        ev.stopPropagation();
+        window.openGT(
+          el.dataset.term || el.textContent.trim(),
+          el.dataset.def || '',
+          el.dataset.example || ''
+        );
+      };
+      el.onkeydown = function(ev){
+        if(ev.key === 'Enter' || ev.key === ' '){
+          ev.preventDefault();
+          ev.stopPropagation();
+          window.openGT(
+            el.dataset.term || el.textContent.trim(),
+            el.dataset.def || '',
+            el.dataset.example || ''
+          );
+        }
+      };
+    });
+  }
+
+  function initInlineGlossary(){
+    ensureGlossaryPopup();
+    bindInlineGlossaryTerms();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initInlineGlossary);
+  }else{
+    initInlineGlossary();
+  }
+  setTimeout(initInlineGlossary, 120);
+})();
+</script>
+
+
+<script>
+(function(){
+  // ===== restore GLAAD bar values and animation =====
+  function animateBars(){
+    const grid = document.getElementById('barGrid');
+    if(!grid) return;
+    grid.querySelectorAll('.bar-fill[data-pct]').forEach(fill=>{
+      const pct = parseFloat(fill.dataset.pct || '0');
+      fill.style.width = pct + '%';
+    });
+    grid.querySelectorAll('.bar-pct[data-target]').forEach(el=>{
+      const target = parseFloat(el.dataset.target || '0');
+      const whole = Math.abs(target - Math.round(target)) < 0.01;
+      let cur = 0;
+      const duration = 1000;
+      const steps = 40;
+      const inc = target / steps;
+      if(el.dataset.animatedBar === '1'){
+        el.textContent = (whole ? String(Math.round(target)) : target.toFixed(1)) + '%';
+        return;
+      }
+      el.dataset.animatedBar = '1';
+      const timer = setInterval(()=>{
+        cur = Math.min(cur + inc, target);
+        el.textContent = (whole ? String(Math.round(cur)) : cur.toFixed(1)) + '%';
+        if(cur >= target){
+          clearInterval(timer);
+          el.textContent = (whole ? String(Math.round(target)) : target.toFixed(1)) + '%';
+        }
+      }, duration / steps);
+    });
+  }
+
+  // ===== restore quiz =====
+  const QS = [
+    {
+      q: "What did Vito Russo argue was Hollywood's primary role in shaping attitudes toward queer communities?",
+      opts: [
+        "Passively reflecting pre-existing public attitudes",
+        "Actively constructing and normalizing stigma through narrative choices",
+        "Promoting queer liberation through coded representation",
+        "Ignoring queer communities entirely"
+      ],
+      ans: 1,
+      fb: "Russo's central argument is that Hollywood actively constructed, rather than merely reflected, attitudes toward queer people through deliberate patterns of representation, censorship, and narrative framing."
+    },
+    {
+      q: "The Motion Picture Production Code, active for much of 1930 to 1968, explicitly prohibited:",
+      opts: [
+        "Scenes of graphic violence",
+        "Depictions of 'sex perversion,' effectively banning overt queer representation",
+        "Political content critical of the U.S. government",
+        "Foreign-language dialogue without subtitles"
+      ],
+      ans: 1,
+      fb: "The Production Code's ban on 'sex perversion' made overt queer representation almost impossible in mainstream Hollywood and pushed queer meaning into erasure, coding, or stereotype."
+    },
+    {
+      q: "Which is NOT one of the major patterns Russo criticizes in queer film history?",
+      opts: [
+        "The Tragic Gay Figure",
+        "The Predatory Villain",
+        "The Heroic Liberator",
+        "The Effeminate Comic"
+      ],
+      ans: 2,
+      fb: "Russo repeatedly critiques patterns such as the tragic figure, the villain, the effeminate comic stereotype, and the broader logic of exclusion. The 'Heroic Liberator' is not one of his recurring Hollywood patterns."
+    },
+    {
+      q: "'Coding' in classic Hollywood most nearly refers to:",
+      opts: [
+        "Software used to subtitle films",
+        "Queer identity communicated through indirect signals rather than direct statement",
+        "The MPAA rating system",
+        "A hidden screenplay structure"
+      ],
+      ans: 1,
+      fb: "Coding means queerness is implied through costume, gesture, dialogue, tone, or relationships instead of being named openly."
+    },
+    {
+      q: "Why did Cruising, released in 1980, provoke protests from gay audiences and activists?",
+      opts: [
+        "It was celebrated too early as a masterpiece",
+        "It associated homosexuality with danger, deviance, and violence",
+        "It had no queer characters at all",
+        "It was banned before anyone could see it"
+      ],
+      ans: 1,
+      fb: "Cruising became controversial because many viewers saw it as reinforcing the idea that queer male spaces were dark, unstable, and threatening."
+    },
+    {
+      q: "According to GLAAD's 2023 Studio Responsibility Index, what share of the tracked 2022 major-studio releases included LGBTQ characters?",
+      opts: [
+        "About 10%",
+        "About 28.5%",
+        "About 50%",
+        "About 60%"
+      ],
+      ans: 1,
+      fb: "GLAAD reported that 100 of 350 tracked releases were LGBTQ-inclusive, which equals 28.5%."
+    },
+    {
+      q: "What is Russo's concern with visibility that comes mainly through tragedy, scandal, or illness?",
+      opts: [
+        "Visibility always solves representation problems",
+        "It may still teach audiences that queer life is defined by damage or suffering",
+        "It makes every film apolitical",
+        "It removes all subtext from cinema"
+      ],
+      ans: 1,
+      fb: "Russo's point is that visibility alone is not enough. The deeper question is what meanings the screen attaches to queer life."
+    },
+    {
+      q: "Which contemporary example is most often used in this site as evidence of real progress in queer-centered storytelling?",
+      opts: [
+        "Heartstopper",
+        "Dracula's Daughter",
+        "The Children's Hour",
+        "Cruising"
+      ],
+      ans: 0,
+      fb: "Heartstopper is used here as an example of contemporary streaming-era progress because queer characters are central, tender, and not reduced to punishment or fear."
+    }
+  ];
+
+  let curQ = 0;
+  let answered = false;
+  let score = 0;
+
+  function updateQzProgress(){
+    const pf = document.getElementById('qzProg');
+    if(pf){ pf.style.width = ((curQ / QS.length) * 100) + '%'; }
+  }
+
+  function loadQ(){
+    const ctr = document.getElementById('qzCtr');
+    const qEl = document.getElementById('qzQ');
+    const optsEl = document.getElementById('qzOpts');
+    const fb = document.getElementById('qzFb');
+    const next = document.getElementById('nextBtn');
+    const scoreEl = document.getElementById('qzScore');
+    const restart = document.getElementById('qzRestart');
+    if(!ctr || !qEl || !optsEl || !fb || !next || !scoreEl || !restart) return;
+
+    const q = QS[curQ];
+    ctr.textContent = `Question ${curQ + 1} of ${QS.length}`;
+    qEl.textContent = q.q;
+    optsEl.innerHTML = '';
+    fb.className = 'qz-fb';
+    fb.textContent = '';
+    next.style.display = 'none';
+    scoreEl.style.display = 'none';
+    restart.style.display = 'none';
+    answered = false;
+    updateQzProgress();
+
+    q.opts.forEach((opt, idx)=>{
+      const btn = document.createElement('button');
+      btn.className = 'qz-opt';
+      btn.type = 'button';
+      btn.textContent = opt;
+      btn.addEventListener('click', ()=>answerQ(idx, btn));
+      optsEl.appendChild(btn);
+    });
+  }
+
+  function answerQ(idx, btn){
+    if(answered) return;
+    answered = true;
+    const q = QS[curQ];
+    const buttons = document.querySelectorAll('#qzOpts .qz-opt');
+    if(buttons[q.ans]) buttons[q.ans].classList.add('ok');
+    const fb = document.getElementById('qzFb');
+    if(idx === q.ans){
+      score++;
+      btn.classList.add('ok');
+      fb.textContent = '✓ Correct! ' + q.fb;
+      fb.className = 'qz-fb ok show';
+    }else{
+      btn.classList.add('err');
+      fb.textContent = '✗ ' + q.fb;
+      fb.className = 'qz-fb err show';
+    }
+
+    if(curQ < QS.length - 1){
+      document.getElementById('nextBtn').style.display = '';
+    }else{
+      const pf = document.getElementById('qzProg');
+      if(pf) pf.style.width = '100%';
+      const sc = document.getElementById('qzScore');
+      const p = Math.round((score / QS.length) * 100);
+      const stars = p >= 88 ? '★★★★★' : p >= 75 ? '★★★★☆' : p >= 62 ? '★★★☆☆' : p >= 50 ? '★★☆☆☆' : '★☆☆☆☆';
+      sc.style.display = 'block';
+      sc.innerHTML = `<div class="qz-score-stars">${stars}</div>You scored <strong>${score} of ${QS.length}</strong> (${p}%)<br><span style="font-size:.82rem;color:var(--muted)">${p >= 88 ? 'Excellent, you have a strong grasp of the Russo framework.' : p >= 62 ? 'Good foundation, revisit the Framework and Timeline sections for any gaps.' : 'Review the Timeline, Tropes, and Framework sections, then try again.'}</span>`;
+      document.getElementById('qzRestart').style.display = 'block';
+    }
+  }
+
+  window.nextQ = function(){
+    if(curQ < QS.length - 1){
+      curQ++;
+      loadQ();
+    }
+  };
+
+  window.restartQuiz = function(){
+    curQ = 0;
+    score = 0;
+    answered = false;
+    loadQ();
+  };
+
+  function initQuiz(){
+    const quiz = document.getElementById('quiz');
+    if(!quiz) return;
+    loadQ();
+    document.addEventListener('keydown', function(ev){
+      if(!quiz) return;
+      const visible = quiz.getBoundingClientRect().top < window.innerHeight && quiz.getBoundingClientRect().bottom > 0;
+      if(!visible) return;
+
+      if(['1','2','3','4'].includes(ev.key) && !answered){
+        const idx = parseInt(ev.key, 10) - 1;
+        const btns = document.querySelectorAll('#qzOpts .qz-opt');
+        if(btns[idx]) btns[idx].click();
+      } else if(ev.key === 'Enter' && answered && curQ < QS.length - 1){
+        nextQ();
+      }
+    });
+  }
+
+  function initV20(){
+    animateBars();
+    initQuiz();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initV20);
+  } else {
+    initV20();
+  }
+  setTimeout(initV20, 120);
+})();
+</script>
+
+
+<script>
+(function(){
+  // ===== Theme =====
+  window.syncThemeUi = function(){
+    const isLight = document.body.classList.contains('light');
+    document.documentElement.classList.toggle('light-mode', isLight);
+    const btn = document.getElementById('themeToggle');
+    if(btn){ btn.textContent = isLight ? '☾ Dark' : '☀ Light'; }
+  };
+
+  window.toggleTheme = function(){
+    const isLight = document.body.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    syncThemeUi();
+  };
+
+  function applyStoredTheme(){
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light'){
+      document.body.classList.add('light');
+    }else{
+      document.body.classList.remove('light');
+    }
+    syncThemeUi();
+  }
+
+  // ===== Mobile menu =====
+  const ham = document.getElementById('hbg');
+  const mob = document.getElementById('mobNav');
+  window.closeMob = function(){
+    if(ham) ham.classList.remove('open');
+    if(mob) mob.classList.remove('open');
+  };
+  function initMobileMenu(){
+    if(ham){
+      ham.onclick = function(){
+        ham.classList.toggle('open');
+        if(mob) mob.classList.toggle('open');
+      };
+    }
+  }
+
+  // ===== Lightbox =====
+  let _lbImgs = [];
+  let _lbIdx = 0;
+
+  function buildImgList(){
+    _lbImgs = Array.from(document.querySelectorAll('.img-block img')).map(img=>{
+      const block = img.closest('.img-block');
+      return {
+        src: img.getAttribute('src') || img.src,
+        alt: img.getAttribute('alt') || '',
+        cap: block?.querySelector('.img-cap')?.textContent || '',
+        role: block?.querySelector('.img-role')?.textContent || ''
+      };
+    });
+  }
+
+  function renderLb(){
+    const item = _lbImgs[_lbIdx] || {src:'', alt:'', cap:'', role:''};
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
+    const lbRole = document.getElementById('lbRole');
+    const lbCtr = document.getElementById('lbCtr');
+    if(lbImg){ lbImg.src = item.src; lbImg.alt = item.alt; }
+    if(lbCap){ lbCap.textContent = item.cap; }
+    if(lbRole){ lbRole.textContent = item.role; }
+    if(lbCtr){ lbCtr.textContent = _lbImgs.length > 1 ? (_lbIdx + 1) + ' / ' + _lbImgs.length : ''; }
+  }
+
+  window.lbNav = function(dir){
+    if(!_lbImgs.length) return;
+    _lbIdx = (_lbIdx + dir + _lbImgs.length) % _lbImgs.length;
+    renderLb();
+  };
+
+  window.closeLB = function(){
+    const lb = document.getElementById('lb');
+    if(lb) lb.classList.remove('show');
+    document.body.style.overflow = '';
+  };
+
+  function initLightbox(){
+    document.querySelectorAll('.img-block img').forEach(img=>{
+      img.onclick = function(e){
+        e.preventDefault();
+        buildImgList();
+        const src = img.getAttribute('src') || img.src;
+        const idx = _lbImgs.findIndex(x => x.src === src || x.src === img.src);
+        _lbIdx = idx >= 0 ? idx : 0;
+        renderLb();
+        const lb = document.getElementById('lb');
+        if(lb) lb.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      };
+    });
+    const lb = document.getElementById('lb');
+    if(lb){
+      lb.addEventListener('click', function(e){
+        if(e.target === lb) closeLB();
+      });
+    }
+  }
+
+  // ===== Quote carousel =====
+  let qIdx = 0;
+  function renderQuoteDots(){
+    const dots = document.getElementById('qDots');
+    const slides = document.querySelectorAll('.quote-slide');
+    if(!dots || !slides.length) return;
+    dots.innerHTML = '';
+    slides.forEach((_, i)=>{
+      const b = document.createElement('button');
+      b.className = 'qdot' + (i === qIdx ? ' active' : '');
+      b.type = 'button';
+      b.onclick = function(){ qIdx = i; showQuote(qIdx); };
+      dots.appendChild(b);
+    });
+  }
+  function showQuote(i){
+    const slides = document.querySelectorAll('.quote-slide');
+    if(!slides.length) return;
+    qIdx = (i + slides.length) % slides.length;
+    slides.forEach((s, idx)=>s.classList.toggle('active', idx === qIdx));
+    document.querySelectorAll('#qDots .qdot').forEach((d, idx)=>d.classList.toggle('active', idx === qIdx));
+  }
+  function initQuotes(){
+    const slides = document.querySelectorAll('.quote-slide');
+    if(!slides.length) return;
+    renderQuoteDots();
+    showQuote(0);
+  }
+  window.copyQuote = async function(){
+    const active = document.querySelector('.quote-slide.active');
+    if(!active) return;
+    const txt = (active.querySelector('.quote-text')?.textContent || '').trim();
+    const src = (active.querySelector('.quote-src')?.textContent || '').trim();
+    const payload = txt + (src ? '\n' + src : '');
+    try{
+      await navigator.clipboard.writeText(payload);
+      const btn = document.getElementById('quoteCopyBtn');
+      if(btn){
+        const old = btn.textContent;
+        btn.textContent = '✓ Copied';
+        setTimeout(()=>{ btn.textContent = old; }, 1200);
+      }
+    }catch(e){}
+  };
+
+  // ===== Case filter =====
+  window.filterCases = function(era, btn){
+    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    document.querySelectorAll('.cc').forEach(c=>{
+      c.style.display = (era === 'all' || c.dataset.era === era) ? '' : 'none';
+    });
+  };
+
+  // ===== Analysis tool =====
+  window.runAnalysis = function(){
+    const title = document.getElementById('filmTitle')?.value || 'Untitled Film';
+    const role = document.getElementById('narRole')?.value;
+    const outcome = document.getElementById('outcome')?.value;
+    const vis = document.querySelector('input[name="vis"]:checked')?.value;
+    const ctx = document.getElementById('ctx')?.value;
+    const notes = document.getElementById('notes')?.value || '';
+    if(!role || !outcome || !vis || !ctx){
+      alert('Please complete fields 1-4.');
+      return;
+    }
+
+    const rL = {hero:'Hero / Protagonist', villain:'Villain / Antagonist', comic:'Comic Relief', victim:'Victim / Passive', supporting:'Supporting', erased:'Erased'};
+    const oL = {punished:'Punished', redeemed:'Redeemed (conditional)', erased:'Erased / Removed', thrives:'Thrives Authentically', ambiguous:'Ambiguous'};
+    const vL = {explicit:'Explicit', coded:'Coded (implied)', mixed:'Mixed'};
+    const cL = {precode:'Pre-Code Era', code:'Production Code era', postcode:'Post-Code era', modern:'Modern / Streaming'};
+
+    const pats = {
+      villain_punished:"This matches Russo's villainization pattern, where queer difference is linked to danger and then contained or punished.",
+      hero_punished:"This aligns with the tragic gay figure pattern: a sympathetic queer protagonist who is still denied an ordinary future.",
+      hero_thrives:"This works as a counter-narrative to Russo's dominant patterns because the queer protagonist remains visible and intact.",
+      hero_ambiguous:"This suggests partial progress in visibility, but the ambiguity still matters and deserves close reading.",
+      comic_punished:"This echoes the effeminate comic pattern, where queerness is trivialized and made narratively disposable.",
+      victim_punished:"This reflects a familiar historical pattern in which queer characters are made vulnerable and then denied agency.",
+      supporting_erased:"This resembles token inclusion, where representation exists but has little narrative weight."
+    };
+
+    const matchText = pats[`${role}_${outcome}`] || `This film places a queer character in a ${(rL[role] || '').toLowerCase()} role with a ${(oL[outcome] || '').toLowerCase()} outcome, a combination worth comparing with Russo's framework.`;
+
+    const aoFilm = document.getElementById('aoFilm');
+    const aoGrid = document.getElementById('aoGrid');
+    const aoMatch = document.getElementById('aoMatch');
+    const azOut = document.getElementById('azOut');
+    if(aoFilm) aoFilm.textContent = title;
+    if(aoGrid){
+      aoGrid.innerHTML = `
+        <div class="ao-item"><div class="ao-lbl">Narrative Role</div><div class="ao-val">${rL[role] || role}</div></div>
+        <div class="ao-item"><div class="ao-lbl">Emotional Outcome</div><div class="ao-val">${oL[outcome] || outcome}</div></div>
+        <div class="ao-item"><div class="ao-lbl">Visibility</div><div class="ao-val">${vL[vis] || vis}</div></div>
+        <div class="ao-item"><div class="ao-lbl">Era / Context</div><div class="ao-val">${cL[ctx] || ctx}</div></div>
+        ${notes ? `<div class="ao-item" style="grid-column:1/-1"><div class="ao-lbl">Cultural Notes</div><div class="ao-val">${notes}</div></div>` : ''}
+      `;
+    }
+    if(aoMatch) aoMatch.textContent = matchText;
+    if(azOut){
+      azOut.classList.add('show');
+      azOut.style.display = 'block';
+      azOut.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+  };
+
+  // ===== Keyboard =====
+  function initKeyboard(){
+    document.addEventListener('keydown', function(e){
+      const lb = document.getElementById('lb');
+      if(e.key === 'Escape'){
+        closeMob();
+        if(window.closeGT) closeGT();
+        closeLB();
+      }
+      if(lb && lb.classList.contains('show')){
+        if(e.key === 'ArrowLeft') lbNav(-1);
+        else if(e.key === 'ArrowRight') lbNav(1);
+      }
+    });
+  }
+
+  // ===== Navigation active state =====
+  function initNavState(){
+    const links = document.querySelectorAll('.nav-links a[data-section]');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    if(!links.length || !sections.length) return;
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id = entry.target.id;
+          links.forEach(a=>a.classList.toggle('active', a.dataset.section === id));
+        }
+      });
+    }, {threshold:0.2, rootMargin:'-10% 0px -60% 0px'});
+    sections.forEach(sec=>obs.observe(sec));
+  }
+
+  function initUtilities(){
+    applyStoredTheme();
+    initMobileMenu();
+    initLightbox();
+    initQuotes();
+    initKeyboard();
+    initNavState();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initUtilities);
+  }else{
+    initUtilities();
+  }
+  setTimeout(initUtilities, 120);
+})();
+</script>
+
+
+<script>
+(function(){
+  // ===== final stability patch =====
+
+  // 1) Always show hero statistics
+  function restoreHeroStats(){
+    document.querySelectorAll('.hero-counters .hc-num[data-count]').forEach(el=>{
+      const target = el.dataset.count;
+      if(target){ el.textContent = String(target); }
+    });
+  }
+
+  // 2) Always show GLAAD bar values
+  function restoreBars(){
+    document.querySelectorAll('#barGrid .bar-fill[data-pct]').forEach(fill=>{
+      const pct = fill.dataset.pct || '0';
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('#barGrid .bar-pct[data-target]').forEach(el=>{
+      const target = parseFloat(el.dataset.target || '0');
+      const whole = Math.abs(target - Math.round(target)) < 0.01;
+      el.textContent = (whole ? String(Math.round(target)) : target.toFixed(1)) + '%';
+    });
+  }
+
+  // 3) Guarantee theme toggle works even if earlier code failed
+  window.syncThemeUi = function(){
+    const isLight = document.body.classList.contains('light');
+    document.documentElement.classList.toggle('light-mode', isLight);
+    const btn = document.getElementById('themeToggle');
+    if(btn){ btn.textContent = isLight ? '☾ Dark' : '☀ Light'; }
+  };
+  window.toggleTheme = function(){
+    const makeLight = !document.body.classList.contains('light');
+    document.body.classList.toggle('light', makeLight);
+    localStorage.setItem('theme', makeLight ? 'light' : 'dark');
+    syncThemeUi();
+  };
+  function applyThemeNow(){
+    const saved = localStorage.getItem('theme');
+    if(saved === 'light'){
+      document.body.classList.add('light');
+    }else{
+      document.body.classList.remove('light');
+    }
+    syncThemeUi();
+    const btn = document.getElementById('themeToggle');
+    if(btn){ btn.onclick = toggleTheme; }
+  }
+
+  // 4) Guarantee quiz first question appears if earlier script failed
+  function restoreQuizFallback(){
+    const qEl = document.getElementById('qzQ');
+    const optsEl = document.getElementById('qzOpts');
+    if(!qEl || !optsEl) return;
+    if(qEl.textContent.trim()) return;
+    qEl.textContent = "What did Vito Russo argue was Hollywood's primary role in shaping attitudes toward queer communities?";
+    optsEl.innerHTML = `
+      <button class="qz-opt" type="button">Passively reflecting pre-existing public attitudes</button>
+      <button class="qz-opt" type="button">Actively constructing and normalizing stigma through narrative choices</button>
+      <button class="qz-opt" type="button">Promoting queer liberation through coded representation</button>
+      <button class="qz-opt" type="button">Ignoring queer communities entirely</button>
+    `;
+  }
+
+  function initV22(){
+    restoreHeroStats();
+    restoreBars();
+    applyThemeNow();
+    restoreQuizFallback();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initV22);
+  } else {
+    initV22();
+  }
+  setTimeout(initV22, 120);
+})();
+</script>
+
+
+<script>
+(function(){
+  // ===== data =====
+  const QUIZ_DATA = [
+    {
+      q: "What did Vito Russo argue was Hollywood's primary role in shaping attitudes toward queer communities?",
+      opts: [
+        "Passively reflecting pre-existing public attitudes",
+        "Actively constructing and normalizing stigma through narrative choices",
+        "Promoting queer liberation through coded representation",
+        "Ignoring queer communities entirely"
+      ],
+      ans: 1,
+      fb: "Russo's core argument is that Hollywood did not merely mirror public opinion. It actively helped construct the meanings attached to queer life."
+    },
+    {
+      q: "The Motion Picture Production Code made overt queer representation difficult mainly by prohibiting:",
+      opts: [
+        "Independent filmmaking",
+        "References to 'sex perversion,' which was used to suppress open queer representation",
+        "Historical dramas",
+        "Subtitles in foreign films"
+      ],
+      ans: 1,
+      fb: "The Production Code's ban on 'sex perversion' pushed queer life into coding, erasure, and subtext rather than open acknowledgment."
+    },
+    {
+      q: "In this website, 'coding' refers to:",
+      opts: [
+        "Programming a streaming platform",
+        "Hiding a film's ending from audiences",
+        "Suggesting queer identity through indirect cues instead of naming it openly",
+        "Giving every queer character the same costume"
+      ],
+      ans: 2,
+      fb: "Coding means queerness is communicated indirectly through costume, gesture, dialogue, tone, or visual suggestion instead of being stated directly."
+    },
+    {
+      q: "Why is the 'tragic gay figure' pattern problematic?",
+      opts: [
+        "Because every tragic story is automatically bad art",
+        "Because it repeatedly teaches audiences that queer life is defined by suffering, punishment, or loss",
+        "Because it removes all visual style from a film",
+        "Because it only happens in comedy films"
+      ],
+      ans: 1,
+      fb: "Russo's concern is not that tragedy can never appear, but that repetition makes suffering feel like the natural script for queer life."
+    },
+    {
+      q: "Why did Cruising provoke backlash from many queer viewers and activists?",
+      opts: [
+        "It had no soundtrack",
+        "It was too short to be reviewed seriously",
+        "It linked homosexuality with danger, deviance, and violence",
+        "It refused to show New York City"
+      ],
+      ans: 2,
+      fb: "Cruising became controversial because many viewers saw it as reinforcing the idea that queer male spaces were threatening and unstable."
+    },
+    {
+      q: "According to GLAAD's 2023 Studio Responsibility Index, what share of the tracked 2022 major-studio releases included LGBTQ characters?",
+      opts: [
+        "About 10%",
+        "About 28.5%",
+        "About 50%",
+        "About 60%"
+      ],
+      ans: 1,
+      fb: "GLAAD reported that 100 of 350 tracked releases were LGBTQ-inclusive, which equals 28.5%."
+    },
+    {
+      q: "What is one key difference between older coded representation and many contemporary streaming examples used on this site?",
+      opts: [
+        "Streaming titles always avoid all stereotypes",
+        "Contemporary examples more often allow queer characters to be central, named, and emotionally legible",
+        "Older films never used costume or gesture",
+        "Streaming removed all historical influence from queer cinema"
+      ],
+      ans: 1,
+      fb: "A major shift is that many recent works allow queer characters to be central and explicitly recognized rather than hidden only in subtext."
+    },
+    {
+      q: "What is the main educational goal of the glossary interaction across the site?",
+      opts: [
+        "To replace all of the main content",
+        "To force users to leave the page every time they meet a difficult term",
+        "To support learning in context by explaining important terms without breaking reading flow",
+        "To display only decorative vocabulary"
+      ],
+      ans: 2,
+      fb: "The glossary system is meant to help users learn terms in context, either through flip cards in the glossary section or popup explanations in the main content."
+    }
+  ];
+
+  // ===== theme =====
+  function syncTheme(){
+    const isLight = document.body.classList.contains('light');
+    document.documentElement.classList.toggle('light-mode', isLight);
+    const btn = document.getElementById('themeToggle');
+    if(btn) btn.textContent = isLight ? '☾ Dark' : '☀ Light';
+  }
+  function applyTheme(){
+    const saved = localStorage.getItem('theme');
+    document.body.classList.toggle('light', saved === 'light');
+    syncTheme();
+  }
+  window.toggleTheme = function(){
+    const makeLight = !document.body.classList.contains('light');
+    document.body.classList.toggle('light', makeLight);
+    localStorage.setItem('theme', makeLight ? 'light' : 'dark');
+    syncTheme();
+  };
+
+  // ===== hero stats =====
+  function restoreHeroStats(){
+    document.querySelectorAll('.hero-counters .hc-num[data-count]').forEach(el=>{
+      const target = el.dataset.count;
+      if(target) el.textContent = String(target);
+    });
+  }
+
+  // ===== mobile nav =====
+  function initMobileNav(){
+    const ham = document.getElementById('hbg');
+    const mob = document.getElementById('mobNav');
+    window.closeMob = function(){
+      if(ham) ham.classList.remove('open');
+      if(mob) mob.classList.remove('open');
+    };
+    if(ham){
+      ham.onclick = function(){
+        ham.classList.toggle('open');
+        if(mob) mob.classList.toggle('open');
+      };
+    }
+  }
+
+  // ===== modules =====
+  const MOD_KEY = 'cc_modules_read_v23';
+  function getReadMods(){
+    try{
+      const raw = JSON.parse(localStorage.getItem(MOD_KEY) || '[]');
+      return new Set((Array.isArray(raw) ? raw : []).map(x=>String(x).padStart(2,'0')).filter(x=>/^0[1-8]$/.test(x)));
+    }catch(e){
+      return new Set();
+    }
+  }
+  function saveReadMods(set){
+    localStorage.setItem(MOD_KEY, JSON.stringify([...set].sort()));
+  }
+  function updateModuleUI(){
+    const read = getReadMods();
+    const count = Math.min(read.size, 8);
+    const pillText = document.getElementById('modPillText');
+    const pillFill = document.getElementById('modPillFill');
+    const counter = document.querySelector('.modules-counter');
+    if(pillText) pillText.textContent = count + ' / 8 modules read';
+    if(pillFill) pillFill.style.width = ((count/8)*100) + '%';
+    if(counter) counter.textContent = count + ' / 8 read';
+
+    document.querySelectorAll('.atlas-card').forEach(card=>{
+      const target = card.getAttribute('data-target');
+      const item = target ? document.getElementById(target) : null;
+      const num = target ? target.replace('modItem','') : '';
+      card.classList.toggle('is-open', !!(item && item.classList.contains('open')));
+      card.classList.toggle('is-read', read.has(num));
+    });
+  }
+  window.toggleMod = function(headerEl){
+    const item = headerEl && headerEl.closest ? headerEl.closest('.mod-item') : null;
+    if(!item) return;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.mod-item.open').forEach(el=>{
+      if(el !== item) el.classList.remove('open');
+    });
+    if(isOpen){
+      item.classList.remove('open');
+    }else{
+      item.classList.add('open');
+      const num = item.id.replace('modItem','');
+      const read = getReadMods();
+      read.add(num);
+      saveReadMods(read);
+    }
+    updateModuleUI();
+  };
+  window.openModuleById = function(id){
+    const item = document.getElementById(id);
+    if(!item) return;
+    document.querySelectorAll('.mod-item.open').forEach(el=>{
+      if(el !== item) el.classList.remove('open');
+    });
+    item.classList.add('open');
+    const num = id.replace('modItem','');
+    const read = getReadMods();
+    read.add(num);
+    saveReadMods(read);
+    updateModuleUI();
+    item.scrollIntoView({behavior:'smooth', block:'start'});
+  };
+  function initModules(){
+    const first = document.querySelector('.mod-item');
+    if(first && !document.querySelector('.mod-item.open')){
+      first.classList.add('open');
+    }
+    updateModuleUI();
+  }
+
+  // ===== glossary cards + popup =====
+  function ensureGlossaryPopup(){
+    let backdrop = document.getElementById('gtBackdrop');
+    let pop = document.getElementById('gtPop');
+    if(!backdrop){
+      backdrop = document.createElement('div');
+      backdrop.id = 'gtBackdrop';
+      backdrop.className = 'gt-backdrop';
+      document.body.appendChild(backdrop);
+    }
+    if(!pop){
+      pop = document.createElement('div');
+      pop.id = 'gtPop';
+      pop.className = 'gt-pop';
+      pop.setAttribute('role','dialog');
+      pop.setAttribute('aria-modal','true');
+      pop.innerHTML = '<button class="gt-close" type="button">✕</button><div class="gt-term" id="gtTerm"></div><div class="gt-def" id="gtDef"></div><div class="gt-example" id="gtExample"></div>';
+      document.body.appendChild(pop);
+    }
+    const close = function(){
+      backdrop.classList.remove('show');
+      pop.classList.remove('show');
+    };
+    backdrop.onclick = close;
+    const closeBtn = pop.querySelector('.gt-close');
+    if(closeBtn) closeBtn.onclick = close;
+    window.closeGT = close;
+    window.openGT = function(term, def, example){
+      const t = pop.querySelector('#gtTerm');
+      const d = pop.querySelector('#gtDef');
+      const e = pop.querySelector('#gtExample');
+      if(t) t.textContent = term || '';
+      if(d) d.textContent = def || '';
+      if(e){
+        if(example){
+          e.textContent = example;
+          e.style.display = 'block';
+        }else{
+          e.textContent = '';
+          e.style.display = 'none';
+        }
+      }
+      backdrop.classList.add('show');
+      pop.classList.add('show');
+    };
+  }
+  function initGlossaryTerms(){
+    ensureGlossaryPopup();
+    document.querySelectorAll('.gt').forEach(el=>{
+      el.setAttribute('tabindex','0');
+      el.setAttribute('role','button');
+      el.onclick = function(ev){
+        ev.preventDefault();
+        ev.stopPropagation();
+        window.openGT(el.dataset.term || el.textContent.trim(), el.dataset.def || '', el.dataset.example || '');
+      };
+      el.onkeydown = function(ev){
+        if(ev.key === 'Enter' || ev.key === ' '){
+          ev.preventDefault();
+          ev.stopPropagation();
+          window.openGT(el.dataset.term || el.textContent.trim(), el.dataset.def || '', el.dataset.example || '');
+        }
+      };
+    });
+    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+      card.classList.add('visible');
+      card.style.display = '';
+      card.style.opacity = '1';
+      card.style.visibility = 'visible';
+      card.style.transform = 'none';
+      card.setAttribute('tabindex','0');
+      card.setAttribute('role','button');
+      card.onclick = function(ev){
+        ev.preventDefault();
+        ev.stopPropagation();
+        this.classList.toggle('is-flipped');
+      };
+      card.onkeydown = function(ev){
+        if(ev.key === 'Enter' || ev.key === ' '){
+          ev.preventDefault();
+          ev.stopPropagation();
+          this.classList.toggle('is-flipped');
+        }
+      };
+    });
+  }
+  window.filterGlossary = function(val){
+    const v = (val || '').toLowerCase().trim();
+    let visible = 0;
+    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+      const text = [card.dataset.term || '', card.dataset.def || '', card.dataset.example || ''].join(' ').toLowerCase();
+      const show = !v || text.includes(v);
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    const nr = document.getElementById('glNoResults');
+    if(nr) nr.style.display = visible === 0 ? 'block' : 'none';
+  };
+
+  // ===== glaad bars =====
+  function restoreBars(){
+    document.querySelectorAll('#barGrid .bar-fill[data-pct]').forEach(fill=>{
+      const pct = fill.dataset.pct || '0';
+      fill.style.width = pct + '%';
+    });
+    document.querySelectorAll('#barGrid .bar-pct[data-target]').forEach(el=>{
+      const target = parseFloat(el.dataset.target || '0');
+      const whole = Math.abs(target - Math.round(target)) < 0.01;
+      el.textContent = (whole ? String(Math.round(target)) : target.toFixed(1)) + '%';
+    });
+  }
+
+  // ===== quiz =====
+  let curQ = 0, answered = false, score = 0;
+  function updateQuizProgress(){
+    const bar = document.getElementById('qzProg');
+    if(bar) bar.style.width = ((curQ / QUIZ_DATA.length) * 100) + '%';
+  }
+  function loadQuizQuestion(){
+    const ctr = document.getElementById('qzCtr');
+    const qEl = document.getElementById('qzQ');
+    const optsEl = document.getElementById('qzOpts');
+    const fb = document.getElementById('qzFb');
+    const next = document.getElementById('nextBtn');
+    const scoreEl = document.getElementById('qzScore');
+    const restart = document.getElementById('qzRestart');
+    if(!ctr || !qEl || !optsEl || !fb || !next || !scoreEl || !restart) return;
+    const q = QUIZ_DATA[curQ];
+    ctr.textContent = `Question ${curQ + 1} of ${QUIZ_DATA.length}`;
+    qEl.textContent = q.q;
+    optsEl.innerHTML = '';
+    fb.className = 'qz-fb';
+    fb.textContent = '';
+    next.style.display = 'none';
+    scoreEl.style.display = 'none';
+    restart.style.display = 'none';
+    answered = false;
+    updateQuizProgress();
+
+    q.opts.forEach((opt, idx)=>{
+      const btn = document.createElement('button');
+      btn.className = 'qz-opt';
+      btn.type = 'button';
+      btn.textContent = opt;
+      btn.onclick = ()=>answerQuiz(idx, btn);
+      optsEl.appendChild(btn);
+    });
+  }
+  function answerQuiz(idx, btn){
+    if(answered) return;
+    answered = true;
+    const q = QUIZ_DATA[curQ];
+    const btns = document.querySelectorAll('#qzOpts .qz-opt');
+    if(btns[q.ans]) btns[q.ans].classList.add('ok');
+    const fb = document.getElementById('qzFb');
+    if(idx === q.ans){
+      score++;
+      btn.classList.add('ok');
+      fb.textContent = '✓ Correct! ' + q.fb;
+      fb.className = 'qz-fb ok show';
+    }else{
+      btn.classList.add('err');
+      fb.textContent = '✗ ' + q.fb;
+      fb.className = 'qz-fb err show';
+    }
+    if(curQ < QUIZ_DATA.length - 1){
+      document.getElementById('nextBtn').style.display = '';
+    }else{
+      const p = Math.round((score / QUIZ_DATA.length) * 100);
+      const stars = p >= 88 ? '★★★★★' : p >= 75 ? '★★★★☆' : p >= 62 ? '★★★☆☆' : p >= 50 ? '★★☆☆☆' : '★☆☆☆☆';
+      const scoreEl = document.getElementById('qzScore');
+      scoreEl.style.display = 'block';
+      scoreEl.innerHTML = `<div class="qz-score-stars">${stars}</div>You scored <strong>${score} of ${QUIZ_DATA.length}</strong> (${p}%)<br><span style="font-size:.82rem;color:var(--muted)">${p >= 88 ? 'Excellent, you have a strong grasp of the Russo framework.' : p >= 62 ? 'Good foundation, revisit the Framework and Timeline sections for any gaps.' : 'Review the Timeline, Tropes, and Framework sections, then try again.'}</span>`;
+      document.getElementById('qzRestart').style.display = 'block';
+      const prog = document.getElementById('qzProg');
+      if(prog) prog.style.width = '100%';
+    }
+  }
+  window.nextQ = function(){
+    if(curQ < QUIZ_DATA.length - 1){
+      curQ++;
+      loadQuizQuestion();
+    }
+  };
+  window.restartQuiz = function(){
+    curQ = 0;
+    answered = false;
+    score = 0;
+    loadQuizQuestion();
+  };
+  function initQuiz(){
+    loadQuizQuestion();
+    document.addEventListener('keydown', function(ev){
+      const quiz = document.getElementById('quiz');
+      if(!quiz) return;
+      const rect = quiz.getBoundingClientRect();
+      const visible = rect.top < window.innerHeight && rect.bottom > 0;
+      if(!visible) return;
+      if(['1','2','3','4'].includes(ev.key) && !answered){
+        const idx = parseInt(ev.key, 10) - 1;
+        const btns = document.querySelectorAll('#qzOpts .qz-opt');
+        if(btns[idx]) btns[idx].click();
+      }else if(ev.key === 'Enter' && answered && curQ < QUIZ_DATA.length - 1){
+        nextQ();
+      }
+    });
+  }
+
+  // ===== quotes =====
+  let qIdx = 0;
+  function renderQuoteDots(){
+    const dots = document.getElementById('qDots');
+    const slides = document.querySelectorAll('.quote-slide');
+    if(!dots || !slides.length) return;
+    dots.innerHTML = '';
+    slides.forEach((_, i)=>{
+      const b = document.createElement('button');
+      b.className = 'qdot' + (i === qIdx ? ' active' : '');
+      b.type = 'button';
+      b.onclick = ()=>showQuote(i);
+      dots.appendChild(b);
+    });
+  }
+  function showQuote(i){
+    const slides = document.querySelectorAll('.quote-slide');
+    if(!slides.length) return;
+    qIdx = (i + slides.length) % slides.length;
+    slides.forEach((s, idx)=>s.classList.toggle('active', idx === qIdx));
+    document.querySelectorAll('#qDots .qdot').forEach((d, idx)=>d.classList.toggle('active', idx === qIdx));
+  }
+  window.copyQuote = async function(){
+    const active = document.querySelector('.quote-slide.active');
+    if(!active) return;
+    const txt = (active.querySelector('.quote-text')?.textContent || '').trim();
+    const src = (active.querySelector('.quote-src')?.textContent || '').trim();
+    try{
+      await navigator.clipboard.writeText(txt + (src ? '\n' + src : ''));
+      const btn = document.getElementById('quoteCopyBtn');
+      if(btn){
+        const old = btn.textContent;
+        btn.textContent = '✓ Copied';
+        setTimeout(()=>{ btn.textContent = old; }, 1200);
+      }
+    }catch(e){}
+  };
+  function initQuotes(){
+    renderQuoteDots();
+    showQuote(0);
+  }
+
+  // ===== case filter =====
+  window.filterCases = function(era, btn){
+    document.querySelectorAll('.fb').forEach(b=>b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    document.querySelectorAll('.cc').forEach(card=>{
+      card.style.display = (era === 'all' || card.dataset.era === era) ? '' : 'none';
+    });
+  };
+
+  // ===== image lightbox =====
+  let lightboxItems = [];
+  let lbIdx = 0;
+  function buildLightboxItems(){
+    lightboxItems = Array.from(document.querySelectorAll('.img-block img')).map(img=>{
+      const block = img.closest('.img-block');
+      return {
+        src: img.getAttribute('src') || img.src,
+        alt: img.getAttribute('alt') || '',
+        cap: block?.querySelector('.img-cap')?.textContent || '',
+        role: block?.querySelector('.img-role')?.textContent || ''
+      };
+    });
+  }
+  function renderLightbox(){
+    const item = lightboxItems[lbIdx] || {src:'',alt:'',cap:'',role:''};
+    const lb = document.getElementById('lb');
+    if(!lb) return;
+    const img = document.getElementById('lbImg');
+    const cap = document.getElementById('lbCap');
+    const role = document.getElementById('lbRole');
+    const ctr = document.getElementById('lbCtr');
+    if(img){ img.src = item.src; img.alt = item.alt; }
+    if(cap){ cap.textContent = item.cap; }
+    if(role){ role.textContent = item.role; }
+    if(ctr){ ctr.textContent = lightboxItems.length > 1 ? `${lbIdx + 1} / ${lightboxItems.length}` : ''; }
+  }
+  window.lbNav = function(dir){
+    if(!lightboxItems.length) return;
+    lbIdx = (lbIdx + dir + lightboxItems.length) % lightboxItems.length;
+    renderLightbox();
+  };
+  window.closeLB = function(){
+    const lb = document.getElementById('lb');
+    if(lb) lb.classList.remove('show');
+    document.body.style.overflow = '';
+  };
+  function initLightbox(){
+    document.querySelectorAll('.img-block img').forEach(img=>{
+      img.onclick = function(ev){
+        ev.preventDefault();
+        buildLightboxItems();
+        const src = img.getAttribute('src') || img.src;
+        const idx = lightboxItems.findIndex(x => x.src === src || x.src === img.src);
+        lbIdx = idx >= 0 ? idx : 0;
+        renderLightbox();
+        const lb = document.getElementById('lb');
+        if(lb) lb.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      };
+    });
+    const lb = document.getElementById('lb');
+    if(lb){
+      lb.onclick = function(ev){
+        if(ev.target === lb) closeLB();
+      };
+    }
+  }
+
+  // ===== analysis tool =====
+  window.runAnalysis = function(){
+    const title = document.getElementById('filmTitle')?.value || 'Untitled Film';
+    const role = document.getElementById('narRole')?.value;
+    const outcome = document.getElementById('outcome')?.value;
+    const vis = document.querySelector('input[name="vis"]:checked')?.value;
+    const ctx = document.getElementById('ctx')?.value;
+    const notes = document.getElementById('notes')?.value || '';
+    if(!role || !outcome || !vis || !ctx){
+      alert('Please complete fields 1-4.');
+      return;
+    }
+
+    const rL = {hero:'Hero / Protagonist', villain:'Villain / Antagonist', comic:'Comic Relief', victim:'Victim / Passive', supporting:'Supporting', erased:'Erased'};
+    const oL = {punished:'Punished', redeemed:'Redeemed (conditional)', erased:'Erased / Removed', thrives:'Thrives Authentically', ambiguous:'Ambiguous'};
+    const vL = {explicit:'Explicit', coded:'Coded (implied)', mixed:'Mixed'};
+    const cL = {precode:'Pre-Code Era', code:'Production Code era', postcode:'Post-Code era', modern:'Modern / Streaming'};
+    const patt = {
+      villain_punished:"This matches Russo's villainization pattern, where queer difference is linked to danger and then contained or punished.",
+      hero_punished:"This aligns with the tragic gay figure pattern, a sympathetic queer protagonist still denied an ordinary future.",
+      hero_thrives:"This works as a counter-narrative because the queer protagonist remains visible and intact.",
+      hero_ambiguous:"This suggests partial progress in visibility, but the ambiguity still matters.",
+      comic_punished:"This echoes the effeminate comic pattern, where queerness is trivialized and made narratively disposable.",
+      victim_punished:"This reflects a familiar pattern in which queer characters are made vulnerable and denied agency.",
+      supporting_erased:"This resembles token inclusion, where representation exists but has little narrative weight."
+    };
+    const match = patt[`${role}_${outcome}`] || `This film places a queer character in a ${(rL[role] || '').toLowerCase()} role with a ${(oL[outcome] || '').toLowerCase()} outcome, a combination worth comparing with Russo's framework.`;
+
+    const aoFilm = document.getElementById('aoFilm');
+    const aoGrid = document.getElementById('aoGrid');
+    const aoMatch = document.getElementById('aoMatch');
+    const azOut = document.getElementById('azOut');
+    if(aoFilm) aoFilm.textContent = title;
+    if(aoGrid){
+      aoGrid.innerHTML = `
+        <div class="ao-item"><div class="ao-lbl">Narrative Role</div><div class="ao-val">${rL[role] || role}</div></div>
+        <div class="ao-item"><div class="ao-lbl">Emotional Outcome</div><div class="ao-val">${oL[outcome] || outcome}</div></div>
+        <div class="ao-item"><div class="ao-lbl">Visibility</div><div class="ao-val">${vL[vis] || vis}</div></div>
+        <div class="ao-item"><div class="ao-lbl">Era / Context</div><div class="ao-val">${cL[ctx] || ctx}</div></div>
+        ${notes ? `<div class="ao-item" style="grid-column:1/-1"><div class="ao-lbl">Cultural Notes</div><div class="ao-val">${notes}</div></div>` : ''}
+      `;
+    }
+    if(aoMatch) aoMatch.textContent = match;
+    if(azOut){
+      azOut.classList.add('show');
+      azOut.style.display = 'block';
+      azOut.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }
+  };
+
+  // ===== nav active state =====
+  function initNavState(){
+    const links = document.querySelectorAll('.nav-links a[data-section]');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    if(!links.length || !sections.length) return;
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          const id = entry.target.id;
+          links.forEach(a=>a.classList.toggle('active', a.dataset.section === id));
+        }
+      });
+    }, {threshold:0.2, rootMargin:'-10% 0px -60% 0px'});
+    sections.forEach(sec=>obs.observe(sec));
+  }
+
+  // ===== keyboard =====
+  function initKeyboard(){
+    document.addEventListener('keydown', function(ev){
+      const lb = document.getElementById('lb');
+      if(ev.key === 'Escape'){
+        if(window.closeGT) closeGT();
+        closeLB();
+        closeMob();
+      }
+      if(lb && lb.classList.contains('show')){
+        if(ev.key === 'ArrowLeft') lbNav(-1);
+        if(ev.key === 'ArrowRight') lbNav(1);
+      }
+    });
+  }
+
+  // ===== boot =====
+  function initSite(){
+    applyTheme();
+    restoreHeroStats();
+    initMobileNav();
+    initModules();
+    initGlossaryTerms();
+    restoreBars();
+    initQuiz();
+    initQuotes();
+    initLightbox();
+    initNavState();
+    initKeyboard();
+    const glInput = document.getElementById('glSearch');
+    if(glInput){
+      glInput.value = '';
+      glInput.oninput = function(){ window.filterGlossary(this.value); };
+      window.filterGlossary('');
+    }
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initSite);
+  }else{
+    initSite();
+  }
+  setTimeout(initSite, 150);
 })();
 </script>
 
