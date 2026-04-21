@@ -4965,6 +4965,105 @@ body.light #modules .module-side .chart-box text{
   fill:#4a5d77 !important;
 }
 
+
+/* ==== v26 glossary flip final + safer module charts ==== */
+
+/* glossary cards: force true 3D flip with direct transform */
+#glossary .gl-card{
+  cursor:pointer !important;
+}
+#glossary .gl-flip{
+  transition:transform .72s cubic-bezier(.2,.7,.2,1) !important;
+  transform:rotateY(0deg);
+  transform-style:preserve-3d !important;
+  -webkit-transform-style:preserve-3d !important;
+}
+#glossary .gl-front,
+#glossary .gl-back{
+  backface-visibility:hidden !important;
+  -webkit-backface-visibility:hidden !important;
+}
+#glossary .gl-back{
+  transform:rotateY(180deg) !important;
+}
+#glossary .gl-card[data-flipped="1"] .gl-flip{
+  transform:rotateY(180deg) !important;
+}
+#glossary .gl-card::after{
+  content:'Click to flip' !important;
+}
+
+/* chart replacement blocks */
+#modules .chart-list-bars{
+  display:flex;
+  flex-direction:column;
+  gap:.9rem;
+  margin-top:.35rem;
+}
+#modules .chart-row{
+  display:grid;
+  grid-template-columns:1.08fr 1.15fr;
+  gap:.8rem;
+  align-items:center;
+}
+#modules .chart-row-label{
+  color:var(--text-soft);
+  font-family:var(--mono);
+  font-size:.72rem;
+  line-height:1.5;
+}
+#modules .chart-row-track{
+  position:relative;
+  height:26px;
+  border-radius:999px;
+  background:rgba(255,255,255,.06);
+  overflow:hidden;
+}
+#modules .chart-row-fill{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  border-radius:999px;
+}
+#modules .tragedy-fill{ background:#e85d75; }
+#modules .caution-fill{ background:#f59e0b; }
+#modules .affirm-fill{ background:#34d399; }
+#modules .chart-row-note{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  padding:0 .65rem;
+  color:#f7fafc;
+  font-family:var(--mono);
+  font-size:.66rem;
+  letter-spacing:.02em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+#modules .chart-mini-note{
+  color:var(--text-muted);
+  font-size:.72rem;
+  line-height:1.5;
+}
+body.light #modules .chart-row-label{
+  color:#4f627c !important;
+}
+body.light #modules .chart-row-track{
+  background:rgba(25,37,57,.08) !important;
+}
+body.light #modules .chart-mini-note{
+  color:#6a7d95 !important;
+}
+@media(max-width:980px){
+  #modules .chart-row{
+    grid-template-columns:1fr;
+    gap:.45rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5509,19 +5608,24 @@ body.light #modules .module-side .chart-box text{
 <div class="scan-text">Compassion stayed tied to destruction, not ordinary life.</div>
 </div></div><div class="module-main-layout reveal"><div class="module-copy"><p class="mod-text">For much of film history, <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">queerness</span> was allowed into visibility mainly through pain. Gay and lesbian characters were shown as burdened, ruined, or destroyed. Russo argues that tragedy became one of the most socially acceptable ways for mainstream movies to acknowledge homosexuality. If queer people could not be fully erased from the screen, they could still be framed as suffering. That pattern appears in films such as <em>The Children's Hour</em> and <em>Victim</em>, which are often praised for seriousness and sympathy, yet still rely on suffering as the main condition through which queer life becomes narratively acceptable.</p><p class="mod-text">In <em>The Children's Hour</em>, same-sex desire enters through accusation and public scandal. In <em>Victim</em>, visibility arrives through blackmail, fear, and exposure. Russo does not argue that <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">queer</span> films should never depict pain, because queer history includes real pain. The problem is repetition. When movies repeatedly link homosexuality to breakdown, shame, blackmail, and death, tragedy becomes the script that defines what a queer story is allowed to be. Straight audiences may even feel compassionate, but that compassion remains tied to destruction. Sympathy alone does not undo the pattern if queer life is still imaginable only through loss.</p><p class="mod-quote">"Sympathy is not liberation if compassion is granted only through destruction."</p><p class="mod-q">→ What kinds of queer stories disappear when tragedy becomes the most acceptable form of visibility?</p></div><div class="module-side"><div class="chart-box media-chart">
 <div class="chart-title">Narrative Endings, What Russo's Pattern Warns Against</div>
-<svg preserveAspectRatio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewBox="0 0 350 126" xmlns="http://www.w3.org/2000/svg">
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="16" y="20">Queer arcs in older mainstream patterns</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="16" y="63">More ordinary straight narrative endings</text>
-<rect fill="rgba(255,255,255,.06)" height="16" rx="4" width="205" x="120" y="8"></rect>
-<rect fill="#e85d75" height="16" opacity=".88" rx="4" width="158" x="120" y="8"></rect>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" x="126" y="20">punishment / death / social ruin appears disproportionately often</text>
-<rect fill="rgba(255,255,255,.06)" height="16" rx="4" width="205" x="120" y="50"></rect>
-<rect fill="#34d399" height="16" opacity=".8" rx="4" width="98" x="120" y="50"></rect>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.5" x="126" y="62">continuity, recovery, or open future more available</text>
-<line stroke="rgba(255,255,255,.08)" stroke-width="1" x1="16" x2="335" y1="82" y2="82"></line>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="16" y="95">Interpretive teaching comparison, not an official percentage.</text>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.5" x="16" y="106">The point is the pattern, not a fixed dataset.</text>
-</svg>
+<div class="chart-list-bars">
+  <div class="chart-row">
+    <div class="chart-row-label">Older queer mainstream arcs</div>
+    <div class="chart-row-track">
+      <div class="chart-row-fill tragedy-fill" style="width:77%"></div>
+      <div class="chart-row-note">punishment, death, or social ruin appears often</div>
+    </div>
+  </div>
+  <div class="chart-row">
+    <div class="chart-row-label">More ordinary straight narrative endings</div>
+    <div class="chart-row-track">
+      <div class="chart-row-fill affirm-fill" style="width:48%"></div>
+      <div class="chart-row-note">continuity, recovery, or open future more available</div>
+    </div>
+  </div>
+  <div class="chart-mini-note">Interpretive teaching comparison, not an official percentage.</div>
+  <div class="chart-mini-note">The point is the pattern, not a fixed dataset.</div>
+</div>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">Emotional Evidence</div>
 <img alt="The Children's Hour emotional still" loading="lazy" src="M4/TheChildrensHour2.jpg"/>
@@ -5632,22 +5736,30 @@ body.light #modules .module-side .chart-box text{
 <div class="scan-text">Visibility through illness is still a conditional kind of recognition.</div>
 </div></div><div class="module-main-layout reveal"><div class="module-copy"><p class="mod-text">The AIDS crisis transformed queer visibility in American media. By the 1980s, homosexuality could no longer be censored in the same way it had been earlier. Illness and public fear pushed queer life into national attention. Russo argues, however, that this new visibility did not automatically produce fair <span class="gt" data-def="The presence and portrayal of a group in media. Russo argues representation is not neutral, the way groups are depicted actively shapes public attitudes and self-perception within those communities." data-example="Example: Russo argues that repeated screen images train audiences to see some lives as ordinary and others as deviant." data-term="Representation">representation</span>. Media responses to AIDS often mixed sympathy with distortion, allowing queer people to appear more openly while still framing them through crisis, fear, and heterosexual reassurance.</p><p class="mod-text">One of Russo's key examples is <em>An Early Frost</em>. It mattered because a gay man with AIDS became central to a mainstream television drama, which would have been much harder in earlier decades. Yet the emotional focus often shifts toward the straight family around him, whose grief and moral response shape the story. The gay character is visible, but his subjectivity is partly displaced. By contrast, films such as <em>Parting Glances</em> move closer to <span class="gt" data-def="An umbrella term for sexual and gender identities outside heterosexuality and cisgender identity. Russo uses it to describe the spectrum of LGBTQ identities Hollywood depicted, almost always through a negative lens." data-example="Example: The term can describe LGBTQ identities broadly and also signal resistance to rigid labels." data-term="Queer">queer</span>-centered emotional life, showing friendship, support, and community under pressure rather than turning gay existence into a crisis for outsiders. The AIDS era marked a real turning point, but visibility granted mainly through illness remained conditional and incomplete.</p><p class="mod-quote">"Visibility granted only through crisis is still a limited form of recognition."</p><p class="mod-q">→ Whose emotions dominate an AIDS-era film, and how does that choice change what the audience learns about queer life?</p></div><div class="module-side"><div class="chart-box media-chart">
 <div class="chart-title">AIDS-Era Mainstream Tone, Relative Emphasis</div>
-<svg preserveAspectRatio="xMidYMin meet" style="width:100%;height:auto;overflow:visible;" viewBox="0 0 340 118" xmlns="http://www.w3.org/2000/svg">
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="12" y="22">Tragedy / death-centered narratives</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="12" y="48">Mixed, cautious, or family-centered narratives</text>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="8" x="12" y="74">Affirming / community-centered narratives</text>
-<rect fill="rgba(255,255,255,.06)" height="12" rx="3" width="136" x="190" y="12"></rect>
-<rect fill="#e85d75" height="12" rx="3" width="120" x="190" y="12"></rect>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.2" x="192" y="22">dominant</text>
-<rect fill="rgba(255,255,255,.06)" height="12" rx="3" width="136" x="190" y="38"></rect>
-<rect fill="#f59e0b" height="12" rx="3" width="68" x="190" y="38"></rect>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.2" x="192" y="48">present</text>
-<rect fill="rgba(255,255,255,.06)" height="12" rx="3" width="136" x="190" y="64"></rect>
-<rect fill="#34d399" height="12" rx="3" width="28" x="190" y="64"></rect>
-<text fill="rgba(243,246,251,.88)" font-family="monospace" font-size="7.2" x="192" y="74">limited</text>
-<line stroke="rgba(255,255,255,.08)" stroke-width="1" x1="12" x2="330" y1="90" y2="90"></line>
-<text fill="rgba(170,183,204,.88)" font-family="monospace" font-size="6.3" x="12" y="104">Interpretive summary, not an official dataset.</text>
-</svg>
+<div class="chart-list-bars">
+  <div class="chart-row">
+    <div class="chart-row-label">Tragedy or death-centered narratives</div>
+    <div class="chart-row-track">
+      <div class="chart-row-fill tragedy-fill" style="width:82%"></div>
+      <div class="chart-row-note">dominant</div>
+    </div>
+  </div>
+  <div class="chart-row">
+    <div class="chart-row-label">Mixed, cautious, or family-centered narratives</div>
+    <div class="chart-row-track">
+      <div class="chart-row-fill caution-fill" style="width:50%"></div>
+      <div class="chart-row-note">present</div>
+    </div>
+  </div>
+  <div class="chart-row">
+    <div class="chart-row-label">Affirming or community-centered narratives</div>
+    <div class="chart-row-track">
+      <div class="chart-row-fill affirm-fill" style="width:22%"></div>
+      <div class="chart-row-note">limited</div>
+    </div>
+  </div>
+  <div class="chart-mini-note">Interpretive summary, not an official dataset.</div>
+</div>
 <p style="font-size:.67rem;color:var(--muted);margin-top:.3rem;">Based on Russo (1987) and Benshoff &amp; Griffin (2006) analysis of mainstream AIDS-era releases.</p>
 </div></div></div><div class="module-image-row reveal"><div class="img-block feature-promoted">
 <div class="img-role">An Early Frost, Context Poster</div>
@@ -7828,6 +7940,58 @@ document.addEventListener('DOMContentLoaded',()=>{
     initV25();
   }
   setTimeout(initV25, 180);
+})();
+</script>
+
+
+<script>
+(function(){
+  function flipGlossaryCard(card){
+    const nowFlipped = card.dataset.flipped === '1';
+    card.dataset.flipped = nowFlipped ? '0' : '1';
+    const flip = card.querySelector('.gl-flip');
+    if(flip){
+      flip.style.transform = nowFlipped ? 'rotateY(0deg)' : 'rotateY(180deg)';
+    }
+  }
+
+  function initGlossaryFlipV26(){
+    document.querySelectorAll('#glossary .gl-card').forEach(card=>{
+      card.dataset.flipped = card.dataset.flipped || '0';
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', 'Flip glossary card for ' + (card.dataset.term || 'term'));
+      const flip = card.querySelector('.gl-flip');
+      if(flip){
+        flip.style.transform = card.dataset.flipped === '1' ? 'rotateY(180deg)' : 'rotateY(0deg)';
+      }
+    });
+
+    document.addEventListener('click', function(ev){
+      const card = ev.target.closest('#glossary .gl-card');
+      if(!card) return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      flipGlossaryCard(card);
+    }, true);
+
+    document.addEventListener('keydown', function(ev){
+      const card = ev.target.closest && ev.target.closest('#glossary .gl-card');
+      if(!card) return;
+      if(ev.key === 'Enter' || ev.key === ' '){
+        ev.preventDefault();
+        ev.stopPropagation();
+        flipGlossaryCard(card);
+      }
+    }, true);
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initGlossaryFlipV26);
+  }else{
+    initGlossaryFlipV26();
+  }
+  setTimeout(initGlossaryFlipV26, 120);
 })();
 </script>
 
